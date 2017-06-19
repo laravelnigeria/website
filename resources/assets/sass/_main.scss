@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    @media #{$md-min} {
+        width: $container-desktop;
+    }
+    @media #{$lg-min} {
+        width: $container-large-desktop;
+    }
+}
+
+::selection {
+    background: #00baba;
+    color: #fff;
+}
+::-moz-selection {
+    background: #00baba;
+    color: #fff;
+}
+
+
+// Navigation Bar
+@import "app/navbar";
+
+// Jumbo
+@import "app/jumbo";
+
+// Sections
+@import "app/section";
+
+// Footer
+@import "app/footer";

@@ -1,0 +1,299 @@
+section.section {
+    padding: 50px 0;
+    background: #fff;
+    @media #{$md-min} {
+        padding: 100px 0;
+    }
+    .title-subtitle {
+        width: 80%;
+        margin: 0 auto 68px;
+        text-align: center;
+        @media #{$sm-min} {
+            margin-bottom: 80px;
+        }
+        @media #{$md-min} {
+            margin-bottom: 100px;
+        }
+        h2 {
+            font-size: 25px;
+            font-weight: 600;
+            color: #6C6C6C;
+            margin: 0 0 8px;
+            @media #{$sm-min} {
+                font-size: 33px;
+            }
+            @media #{$md-min} {
+                font-size: 40px;
+            }
+        }
+        h4 {
+            font-size: 16px;
+            font-weight: 300;
+            color: #999;
+            line-height: 1.5;
+            @media #{$sm-min} {
+                font-size: 20px;
+                font-weight: 300;
+            }
+            @media #{$md-min} {
+                font-size: 25px;
+            }
+        }
+    }
+
+    &.speak {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../img/speaker.jpg');
+        background-position: center;
+        position: relative;
+        .container {
+            position: relative;
+        }
+        .green-overlay {
+            background: rgba(#00baba, .7);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+        .title-subtitle {
+            margin-bottom: 20px;
+            width: 100%;
+            margin-bottom: 50px;
+            @media #{$md-min} {
+                width: 65%;
+            }
+            h2 {
+                color: #fff;
+                @media #{$md-min} {
+                    margin-bottom: 20px;
+                }
+            }
+            h4 {
+                color: #fff;
+                margin-bottom: 0;
+                @media #{$md-min} {
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+            }
+        }
+        .btn {
+            position: relative;
+            background: #fff;
+            font-size: 16px;
+            max-width: 120px;
+            margin: 0 auto;
+            @media #{$sm-min} {
+                max-width: 150px;
+                font-size: 19px;
+            }
+        }
+    }
+
+    &.speakers {
+        .btn.old-talks {
+            background: #F0F0F0;
+            border-radius: 10px;
+            height: 41px;
+            max-width: 180px;
+            margin: 0 auto;
+            font-size: 14px;
+            font-weight: 600;
+            color: #898989;
+            transition: all .3s ease;
+            &:hover {
+                background-color: darken(#f0f0f0, 5%);
+            }
+            @media #{$sm-min} {
+                height: 53px;
+                font-size: 19px;
+                line-height: 30px;
+                max-width: 250px;
+            }
+            @media #{$md-min} {
+                margin-top: 100px;
+            }
+        }
+
+        .list {
+            .speaker {
+                margin-bottom: 30px;
+                @media #{$sm-min} {
+                    margin-bottom: 50px;
+                }
+            }
+            .speaker .photo {
+                float: left;
+                @media #{$sm-min} {
+                    float: right;
+                }
+                img {
+                    border-radius: 10px;
+                }
+            }
+            .speaker .profile {
+                float: left;
+                @media #{$sm-min} {
+                    float: right;
+                }
+                ul {
+                    padding-left: 12px;
+                    list-style: none;
+                    @media #{$sm-min} {
+                        padding: 0 10px 0 0;
+                    }
+                    li.name {
+                        font-size: 18px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        line-height: 22px;
+                        @media #{$sm-min} {
+                            text-align: right;
+                        }
+                    }
+                    li.position {
+                        font-size: 13px;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        line-height: 18px;
+                        margin-bottom: 10px;
+                        color: #9f9f9f;
+                        @media #{$sm-min} {
+                            text-align: right;
+                        }
+                    }
+                    li.social {
+                        @media #{$sm-min} {
+                            text-align: right;
+                        }
+                        a {
+                            background: transparent;
+                            text-decoration: none;
+                            margin-right: 3px;
+                            display: inline-block;
+                        }
+                        a .icon {
+                            background: #fff;
+                            width: 22px;
+                            height: 22px;
+                        }
+                    }
+                }
+            }
+            .profile-wrapper {
+                margin-bottom: 10px;
+            }
+            .topic-wrapper {
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #6c6c6c;
+                    margin: 0 0 10px;
+                    @media #{$sm-min} {
+                        font-size: 25px;
+                    }
+                }
+                p {
+                    color: #8c8c8c;
+                    font-size: 15px;
+                    line-height: 24px;
+                    @media #{$sm-min} {
+                        font-size: 16px;
+                    }
+                    @media #{$md-min} {
+                        font-size: 17px;
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.xperience {
+        background: #55ACEE;
+        text-align: center;
+        padding: 60px 0;
+        .photo {
+            margin-bottom: 9px;
+        }
+        .photo img {
+            border: 2px solid #fff;
+            border-radius: 100%;
+            width: 70px;
+            height: 70px;
+        }
+        .handle {
+            display: inline-block;
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 18px;
+            text-decoration: none;
+        }
+        .tweet {
+            margin-bottom: 53px;
+            @media #{$md-min} {
+                width: 60%;
+                margin: 0 auto 70px;
+            }
+        }
+        .tweet span {
+            font-size: 18px;
+            display: block;
+            color: #fff;
+            font-weight: 300;
+            @media #{$sm-min} {
+                font-size: 25px;
+            }
+        }
+        .btn {
+            font-size: 16px;
+            max-width: 250px;
+            margin: 0 auto;
+            background-color: #fff;
+            color: #55acee;
+            @media #{$sm-min} {
+                font-size: 20px;
+                height: 50px;
+                max-width: 280px;
+            }
+            svg {
+                position: relative;
+                top: 3px;
+                margin-right: 10px;
+                width: 20px;
+                height: 17px;
+            }
+        }
+    }
+
+    &.learn {
+        .slicky-learn .track {
+            position: relative;
+            margin-right: 15px;
+            margin-left: 15px;
+            color: inherit;
+            text-decoration: none;
+            outline: 0;
+        }
+        .slicky-learn img {
+            width: 100%;
+        }
+    }
+
+    &.sponsors {
+        background-color: #FCFCFC;
+        img {
+            margin: 0 auto;
+        }
+        .sponsor {
+            outline: none;
+            text-align: center;
+        }
+        .sponsor a {
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+
+// Body
+$body-bg: #ffffff;
+
+$grid-gutter-width: 30px;
+
+// Screen sizes
+$screen-desktop: 1220px;
+$screen-lg: 1440px;
+$screen-sm: 768px;
+
+// Containers
+$container-desktop: (1024px + $grid-gutter-width);
+$container-large-desktop: (1400px + $grid-gutter-width);
+
+// Responsive helpers
+$sm-min: "only screen and (min-width:$screen-sm-min)";
+$md-min: "only screen and (min-width:$screen-md-min)";
+$lg-min: "only screen and (min-width:$screen-lg-min)";
+
+// Borders
+$laravel-border-color: #eeeeee;
+$list-group-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary: #00BABA;
+$brand-info: #8eb4cb;
+$brand-success: #2ab27b;
+$brand-warning: #cbb956;
+$brand-danger: #bf5329;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+$text-color: #636b6f;
+
+// Navbar
+$navbar-default-bg: #fff;
+$navbar-height: 81px;
+$navbar-padding-vertical: 23px;
+$navbar-default-link-color: #6c6c6c;
+$navbar-default-link-hover-color: #00BABA;
+$navbar-default-link-active-color: #00BABA;
+$navbar-default-link-active-bg: transparent;
+$navbar-default-border: $laravel-border-color;
+$navbar-margin-bottom: 0;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #fff;
