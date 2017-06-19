@@ -15,3 +15,13 @@ Requirements goes here
 
 ## Installation
 Installation instruction goes here
+
+<p>&nbsp;</p>
+
+## Configuration
+Configuration instructions goes here
+
+<p>&nbsp;</p>
+
+## Contributing
+Contribution instructions goes here
