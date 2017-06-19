@@ -4,12 +4,12 @@
 <hr style="height:1px;"/>
 <p align="center">Source code for the Laravel Nigeria website. Shout out to <a href="https://creativitykills.co" target="_blank">CreativityKills Co</a> for the design and development.</p>
 
-<p></p>
+<p>&nbsp;</p>
 
 ## Requirements
 Requirements goes here
 
-<p></p>
+<p>&nbsp;</p>
 
 ## Installation
 Installation instruction goes here
