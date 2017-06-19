@@ -9,7 +9,8 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="icon" sizes="192x192" href="{{ asset('img/android-browser-icon.png') }}">
     <meta name="theme-color" content="#00baba">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Lato:300">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
     <meta name="description" content="{{ $seo_description ?? config('app.description') }}">
     {{-- SEO --}}
@@ -27,6 +28,7 @@
         @yield('content')
         @include('partials.footer')
     </div>
+    @include('partials.popups')
     <script src="{{ mix('js/app.js') }}"></script>
     @yield('scripts')
 </body>
