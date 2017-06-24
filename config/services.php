@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'meetup' => [
+        'key' => env('MEETUP_KEY'),
+        'urlName' => env('MEETUP_URL_NAME'),
+    ],
+
 ];
