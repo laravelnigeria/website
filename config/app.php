@@ -230,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'MeetupApi' => App\Facades\MeetupApi::class,
-
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];
