@@ -10,6 +10,7 @@
 
 ## Requirements
 Requirements goes here
+* Twitter application
 
 <p>&nbsp;</p>
 

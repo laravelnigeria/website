@@ -9,7 +9,8 @@
         "barryvdh/laravel-debugbar": "^2.4",
         "guzzlehttp/guzzle": "~6.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "thujohn/twitter": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
