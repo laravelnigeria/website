@@ -18,7 +18,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'job' => $faker->jobTitle.', '.$faker->company,
         'password' => $password ?: $password = bcrypt('secret'),
+        'social_links' => '{"twitter":"#","facebook":"#"}',
+        'avatar' => 'https://randomuser.me/api/portraits/men/'.rand(50,80).'.jpg',
         'remember_token' => str_random(10),
     ];
 });

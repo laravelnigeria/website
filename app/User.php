@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the social links.
+     *
+     * @param  $value
+     * @return mixed|null
+     */
+    public function getSocialLinksAttribute($value)
+    {
+        return $value ? json_decode($value, true) : null;
+    }
 }

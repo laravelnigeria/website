@@ -18,6 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar')->default('https://placehold.it/100x100&text=IMG');
+            $table->string('job')->nullable();
+            $table->json('social_links')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
