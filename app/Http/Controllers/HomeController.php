@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Meetup;
+use App\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Cache\Factory as Cache;
 
@@ -36,6 +37,8 @@ class HomeController extends Controller
         $group = $meetup->groupDetailsWithNextEvent();
 
         $next_event = $group->get('next_event');
+
+        $sponsors = Sponsor::theLot();
 
         return view('index', compact('group', 'next_event', 'sponsors'));
     }
