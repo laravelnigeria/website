@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Speaker extends Model
+class Talk extends Model
 {
     /**
      * {@inheritDoc}
@@ -20,6 +20,11 @@ class Speaker extends Model
     /**
      * {@inheritDoc}
      */
+    protected $with = ['user'];
+
+    /**
+     * {@inheritDoc}
+     */
     protected $casts = ['accepted' => 'bool'];
 
     /**
@@ -29,7 +34,7 @@ class Speaker extends Model
      */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

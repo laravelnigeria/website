@@ -38,7 +38,7 @@ $factory->define(App\Meetup::class, function (Faker\Generator $faker) {
 });
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Speaker::class, function (Faker\Generator $faker) {
+$factory->define(App\Talk::class, function (Faker\Generator $faker) {
     return [
         'user_id' => function () {
             return factory(App\User::class)->create()->id;
