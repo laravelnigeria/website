@@ -41,6 +41,18 @@
             font-size: 14px;
         }
     }
+    .guests-count > .count {
+        display: block;
+    }
+    .guests-count > .remaining {
+        color: #fff;
+        font-weight: 600;
+        background: red;
+        display: inline-block;
+        padding: 0 6px;
+        border-radius: 3px;
+        margin: 15px auto 0;
+    }
     h1 {
         font-size: 26px;
         margin: 0 0 47px;
@@ -63,6 +75,7 @@
         font-size: 18px;
         text-shadow: none;
         border-radius: 10px;
+        text-transform: uppercase;
         @media #{$sm-min} {
             height: 55px;
             width: 300px;

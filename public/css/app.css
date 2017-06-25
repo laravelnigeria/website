@@ -5111,6 +5111,20 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   }
 }
 
+.jumbo .guests-count > .count {
+  display: block;
+}
+
+.jumbo .guests-count > .remaining {
+  color: #fff;
+  font-weight: 600;
+  background: red;
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 3px;
+  margin: 15px auto 0;
+}
+
 .jumbo h1 {
   font-size: 26px;
   margin: 0 0 47px;
@@ -5143,6 +5157,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-size: 18px;
   text-shadow: none;
   border-radius: 10px;
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 768px) {
@@ -5370,6 +5385,8 @@ section.section.speakers .list .speaker .photo {
 
 section.section.speakers .list .speaker .photo img {
   border-radius: 10px;
+  max-height: 80px;
+  max-width: 80px;
 }
 
 section.section.speakers .list .speaker .profile {

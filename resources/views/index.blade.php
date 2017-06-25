@@ -4,16 +4,35 @@
     <div class="jumbotron jumbo">
         <div class="green-overlay">&nbsp;</div>
         <div class="container">
+            @if ($next_event)
             <span class="event">
-                Building world class applications &mdash; <span class="date">July 15, 2017</span>
-                <span class="hidden-xs">@ <span class="location">Lagos, Nigeria</span></span>
+                {{ $next_event['name'] ?? null }} &mdash;
+                <span class="date">{{ $next_event['time_object']->format('F d, Y') }}</span>
+                <span class="hidden-xs">
+                    <span class="separator">@</span>
+                    <span class="location">
+                        {{ array_get($next_event, 'venue.city') }},
+                        {{ array_get($next_event, 'venue.localized_country_name') }}
+                    </span>
+                </span>
             </span>
+            @endif
             <h1>Bringing together the brightest PHP and Laravel developers in Nigeria</h1>
-            <a class="btn btn-lg btn-block cta" href="#" title="Get free tickets">Get your free ticket</a>
-            <span class="guests-count">407 people are attending the event.</span>
+            @if ($next_event)
+            <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="Get free tickets" target="_blank">RSVP for this event</a>
+            <span class="guests-count">
+                <span class="count">{{ $next_event['yes_rsvp_count'] ?? 0 }} people are attending the event.</span>
+                @if (array_get($next_event, 'seats_left') && $next_event['seats_left'] <= 50)
+                    <span class="remaining">
+                        {{ $next_event['seats_left'] <= 0 ? 'Tickets sold out' : 'Hurry, '.$next_event['seats_left'].' spots left' }}
+                    </span>
+                @endif
+            </span>
+            @endif
         </div>
     </div>
 
+    @if ($next_event)
     <section class="section speakers" id="ln-speakers">
         <div class="container">
             <div class="title-subtitle">
@@ -21,64 +40,39 @@
                 <h4 class="subtitle">Awesome people giving talks at the Laravel Nigeria meetup.</h4>
             </div>
             <div class="list">
+                @foreach ($next_event->get('talks') as $talk)
                 <div class="row speaker">
                     <div class="col col-xs-12 col-sm-4 col-md-4 col-lg-4 profile-wrapper">
                         <div class="photo">
-                            <img src="{{ asset('img/photo-placeholder.png') }}" alt="Speaker name" />
+                            <img src="{{ asset(array_get($talk, 'user.avatar')) }}" alt="{{ array_get($talk, 'user.name') }}" />
                         </div>
                         <div class="profile">
                             <ul>
-                                <li class="name">Neo Ighodaro</li>
-                                <li class="position">CTO, Hotels.ng</li>
-                                <li class="social">
-                                    <a href="#" title="Follow on Facebook" target="_blank">
-                                        <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-fb') }}"/></svg>
-                                    </a>
-                                    <a href="#" title="Follow on Twitter" target="_blank">
-                                        <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-tw') }}"/></svg>
-                                    </a>
-                                </li>
+                                <li class="name">{{ array_get($talk, 'user.name') }}</li>
+                                <li class="position">{{ array_get($talk, 'user.job') }}</li>
+                                @if (is_array(array_get($talk, 'user.social_links')))
+                                    <li class="social">
+                                        @foreach(array_get($talk, 'user.social_links') as $network => $link)
+                                            <a href="#" title="I'm on {{ $network }}" target="_blank">
+                                                <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-'.strtolower($network)) }}" /></svg>
+                                            </a>
+                                        @endforeach
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                     <div class="col col-xs-12 col-sm-7 col-md-8 col-lg-6 topic-wrapper">
-                        <h3>Lean controllers with Vue</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                        <h3>{{ $talk['topic'] ?? 'Talk topic is missing' }}</h3>
+                        <p>{{ $talk['overview'] ?? 'Talk overview is missing' }}</p>
                     </div>
                 </div>
-                <div class="row speaker">
-                    <div class="col col-xs-12 col-sm-4 col-md-4 col-lg-4 profile-wrapper">
-                        <div class="photo">
-                            <img src="{{ asset('img/photo-placeholder.png') }}" alt="Chris Nwamba" />
-                        </div>
-                        <div class="profile">
-                            <ul>
-                                <li class="name">Chris Nwamba</li>
-                                <li class="position">Deepstream Hub</li>
-                                <li class="social">
-                                    <a href="#" title="Follow on Facebook" target="_blank">
-                                        <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-fb') }}"/></svg>
-                                    </a>
-                                    <a href="#" title="Follow on Twitter" target="_blank">
-                                        <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-tw') }}"/></svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col col-xs-12 col-sm-7 col-md-8 col-lg-6 topic-wrapper">
-                        <h3>Lean controllers with Vue</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
                 <a class="btn btn-block btn-lg old-talks" href="#" title="See previous Laravel Nigeria talks">Previous Event Talks</a>
             </div>
         </div>
     </section>
+    @endif
 
     <section class="section xperience" id="ln-twitter">
         <div class="container">
@@ -90,7 +84,7 @@
                 <span>Hanging out with the beautiful people at #LaravelNigeria. If you are not here then you are missing the time of your life!</span>
             </div>
             <a class="btn btn-block btn-lg" href="#" target="_blank" title="Launch the Laravel Nigeria Experience app.">
-                <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-tw-nude') }}"/></svg>
+                <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-twitter-nude') }}"/></svg>
                 <span>Tweet your Experience</span>
             </a>
         </div>
@@ -119,18 +113,11 @@
                 <h4 class="subtitle">The companies that help make the meetup a success.</h4>
             </div>
             <div class="row slicky-sponsors">
+                @foreach ($sponsors as $sponsor)
                 <div class="sponsor">
-                    <a href="#" title="Pusher" target="_blank"><img src="{{ asset('img/sponsor-pusher.png') }}"></a>
+                    <a href="{{ $sponsor->link }}" title="{{ $sponsor->name }} &mdash; {{ $sponsor->description }}" target="_blank"><img src="{{ asset($sponsor->logo) }}">&nbsp;</a>
                 </div>
-                <div class="sponsor">
-                    <a href="#" title="CreativityKills" target="_blank"><img src="{{ asset('img/sponsor-ck.png') }}"></a>
-                </div>
-                <div class="sponsor">
-                    <a href="#" title="GigaLayer" target="_blank"><img src="{{ asset('img/sponsor-gigalayer.png') }}"></a>
-                </div>
-                <div class="sponsor">
-                    <a href="#" title="Andela" target="_blank"><img src="{{ asset('img/sponsor-andela.png') }}"></a>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

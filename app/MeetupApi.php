@@ -48,6 +48,12 @@ class MeetupApi {
         $this->client  = new Client(['base_uri' => $this->baseUrl]);
     }
 
+    /**
+     * Get the group details.
+     *
+     * @param  array $options
+     * @return Collection
+     */
     public function getGroupDetails(array $options = []) : Collection
     {
         $params = array_only($options, ['only', 'omit', 'fields']);
