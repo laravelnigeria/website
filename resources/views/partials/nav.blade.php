@@ -11,7 +11,7 @@
                 <li class="active" itemprop="name"><a itemprop="url" href="#" title="Contribute">Contribute</a></li>
                 <li itemprop="name"><a itemprop="url" href="#" title="Community">Community</a></li>
                 <li itemprop="name"><a itemprop="url" href="#" title="Learn">Learn</a></li>
-                <li itemprop="name"><a itemprop="url" href="#" title="Contact">Contact</a></li>
+                <li itemprop="name"><a itemprop="url" href="{{ route('jobs') }}" title="Jobs">Jobs</a></li>
 
                 {{-- @if (Auth::user())
                     <li class="dropdown">
