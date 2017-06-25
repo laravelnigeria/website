@@ -2,54 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Meetup;
-use App\Sponsor;
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Cache\Factory as Cache;
+use App\{Meetup, Sponsor, Talk};
 
-class HomeController extends Controller
-{
-    /**
-     * @var Cache
-     */
-    private $cache;
+class HomeController extends Controller {
 
     /**
      * Create a new controller instance.
-     *
-     * @param Cache $cache
      */
-    public function __construct(Cache $cache)
+    public function __construct()
     {
-        $this->cache = $cache;
-
-        $this->middleware('auth')->except('index');
+        // $this->middleware('auth')->except('index');
     }
 
     /**
      * Show the applications homepage.
      *
      * @param Meetup $meetup
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(Meetup $meetup)
     {
+        $sponsors = Sponsor::theLot();
+
         $group = $meetup->groupDetailsWithNextEvent();
 
         $next_event = $group->get('next_event');
-
-        $sponsors = Sponsor::theLot();
 
         return view('index', compact('group', 'next_event', 'sponsors'));
     }
 
     /**
-     * Show the application dashboard.
+     * Returns a list of talks past and present.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function home()
+    public function talks()
     {
-        return view('home');
+        $talks = Talk::groupedByEvent();
+
+        return view('talks', compact('talks'));
     }
 }

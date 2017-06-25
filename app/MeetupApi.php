@@ -5,6 +5,7 @@ namespace App;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
+use App\Exceptions\ApiCommunicationException;
 
 class MeetupApi {
 
@@ -58,7 +59,7 @@ class MeetupApi {
     {
         $params = array_only($options, ['only', 'omit', 'fields']);
 
-        $response = $this->client->get($this->prepareUrl('/:urlname', $params));
+        $response = $this->get($this->prepareUrl('/:urlname', $params));
 
         return $this->toCollection($response);
     }
@@ -74,7 +75,7 @@ class MeetupApi {
     {
         $params = array_only($options, ['only', 'omit', 'fields']);
 
-        $response = $this->client->get($this->prepareUrl("/:urlname/events/{$id}", $params));
+        $response = $this->get($this->prepareUrl("/:urlname/events/{$id}", $params));
 
         return $this->toCollection($response);
     }
@@ -99,6 +100,29 @@ class MeetupApi {
         return $url.'&'.http_build_query($params);
     }
 
+    /**
+     * Send a get request to the client.
+     *
+     * @param string $url
+     * @param array $params
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws ApiCommunicationException
+     */
+    protected function get(string $url, array $params = [])
+    {
+        try {
+            return $this->client->get($url, $params);
+        } catch (Exception $e) {
+            throw new ApiCommunicationException($e);
+        }
+    }
+
+    /**
+     * Convert the response to a laravel collection.
+     *
+     * @param $response
+     * @return Collection
+     */
     protected function toCollection($response) : Collection
     {
         $data = json_decode($response->getBody(), true);

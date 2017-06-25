@@ -7,7 +7,7 @@ $router = app('router');
 // Authentication Routes...
 // ------------------------------------------------------------
 
-$router->auth();
+//$router->auth();
 
 // ------------------------------------------------------------
 // Jobs Routes...
@@ -22,4 +22,5 @@ $router->group(['prefix' => 'jobs'], function($router) {
 // ------------------------------------------------------------
 
 $router->get('/home', 'HomeController@home')->name('home');
+$router->get('/talks', 'HomeController@talks')->name('talks');
 $router->get('/', 'HomeController@index')->name('index');

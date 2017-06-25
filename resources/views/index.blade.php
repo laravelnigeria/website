@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 @endforeach
-                <a class="btn btn-block btn-lg old-talks" href="#" title="See previous Laravel Nigeria talks">Previous Event Talks</a>
+                <a class="btn btn-block btn-lg old-talks" href="{{ route('talks') }}" title="See previous Laravel Nigeria talks">Previous Event Talks</a>
             </div>
         </div>
     </section>
