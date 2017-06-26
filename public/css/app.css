@@ -5056,12 +5056,11 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .jumbo {
   width: 100%;
   margin-bottom: 0;
-  max-height: 800px;
+  max-height: 900px;
   padding: 100px 0;
   position: relative;
-  background-image: url(../img/jumbo.jpg);
   background-size: cover;
-  background-position: center;
+  background: url(../img/jumbo.jpg) center;
 }
 
 @media only screen and (min-width: 992px) {
@@ -5073,7 +5072,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 @media only screen and (min-width: 1440px) {
   .jumbo {
-    padding: 233px 0;
+    padding: 283px 0;
     overflow: hidden;
   }
 }
@@ -5195,13 +5194,13 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 section.section {
-  padding: 50px 0;
+  padding: 80px 0;
   background: #fff;
 }
 
 @media only screen and (min-width: 992px) {
   section.section {
-    padding: 100px 0;
+    padding: 150px 0;
   }
 }
 
@@ -5330,6 +5329,115 @@ section.section.speak .btn {
     max-width: 150px;
     font-size: 19px;
   }
+}
+
+section.section.slack {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../img/community.jpg");
+  background-position: center;
+  position: relative;
+}
+
+section.section.slack .container {
+  position: relative;
+}
+
+section.section.slack .white-overlay {
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+section.section.slack #CommunityInviter {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+section.section.slack #CommunityInviter > img {
+  border-radius: 100% !important;
+  margin-bottom: 30px !important;
+  max-width: 50px !important;
+}
+
+@media only screen and (min-width: 768px) {
+  section.section.slack #CommunityInviter > img {
+    max-width: 80px !important;
+    margin-bottom: 50px !important;
+  }
+}
+
+section.section.slack #CommunityInviter > div {
+  font-size: 0px !important;
+}
+
+section.section.slack #CommunityInviter > div:after {
+  content: "Join the Laravel Nigeria community on Slack. 🔥";
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #474747;
+}
+
+@media only screen and (min-width: 768px) {
+  section.section.slack #CommunityInviter > div:after {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}
+
+section.section.slack #CommunityInviter input#CommunityInviterEmail {
+  border: 1px solid #fff !important;
+  font-size: 17px;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 300 !important;
+  outline: none;
+  width: 100% !important;
+  transition: all .3s ease;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7) !important;
+  color: #484848;
+}
+
+section.section.slack #CommunityInviter input#CommunityInviterEmail:focus {
+  border: 1px solid rgba(0, 186, 186, 0.5) !important;
+}
+
+@media only screen and (min-width: 768px) {
+  section.section.slack #CommunityInviter input#CommunityInviterEmail {
+    font-size: 20px;
+    height: 70px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+section.section.slack #CommunityInviter button#CommunityInviterSend {
+  height: 40px;
+  border: none !important;
+  border-radius: 5px !important;
+  font-weight: 400 !important;
+  font-size: 17px !important;
+  text-transform: capitalize !important;
+  background: #00BABA !important;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif !important;
+  outline: none !important;
+  transition: all .3s ease;
+  width: 100% !important;
+  margin-top: 5px !important;
+}
+
+@media only screen and (min-width: 768px) {
+  section.section.slack #CommunityInviter button#CommunityInviterSend {
+    height: 55px;
+    font-size: 20px !important;
+  }
+}
+
+section.section.slack #CommunityInviter button#CommunityInviterSend:hover {
+  background-color: #00abab !important;
 }
 
 section.section.speakers .btn.old-talks {
@@ -5580,7 +5688,7 @@ section.section.learn .slicky-learn img {
 }
 
 section.section.sponsors {
-  background-color: #FCFCFC;
+  background-color: #fff;
 }
 
 section.section.sponsors img {
@@ -5594,6 +5702,7 @@ section.section.sponsors .sponsor {
 
 section.section.sponsors .sponsor a {
   display: inline-block;
+  outline: none;
 }
 
 footer.main {

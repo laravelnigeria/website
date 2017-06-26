@@ -106,6 +106,13 @@
         </div>
     </section>
 
+    <section class="section slack" id="slack-invite">
+        <div class="white-overlay">&nbsp;</div>
+        <div class="container">
+            <div id="CommunityInviter"></div>
+        </div>
+    </section>
+
     <section class="section sponsors">
         <div class="container">
             <div class="title-subtitle">
@@ -160,6 +167,20 @@
                 ];
                 $(".slicky-sponsors").slick(opts);
             });
+        }());
+
+        (function () {
+            window.CommunityInviterAsyncInit = function () {
+               CommunityInviter.init({app_url:'join',team_id:'laravelnigeria'})
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//communityinviter.com/js/communityinviter.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'Community_Inviter'));
         }());
     </script>
 @endsection
