@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./smooth-scroll');
 
 // window.Vue = require('vue');
 

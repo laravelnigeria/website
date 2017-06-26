@@ -749,6 +749,7 @@ module.exports = function bind(fn, thisArg) {
  */
 
 __webpack_require__(27);
+__webpack_require__(37);
 
 // window.Vue = require('vue');
 
@@ -29285,6 +29286,29 @@ module.exports = function(module) {
 __webpack_require__(7);
 module.exports = __webpack_require__(8);
 
+
+/***/ }),
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by neo on 26/06/2017.
+ */
+(function () {
+    $('.nav a').on('click', function () {
+        $('.active').removeClass('active');
+        $(this).closest('li').addClass('active');
+        var theClass = $(this).attr("class");
+        $('.' + theClass).parent('li').addClass('active');
+        $('html, body').stop().animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 400);
+        return false;
+    });
+})();
 
 /***/ })
 /******/ ]);

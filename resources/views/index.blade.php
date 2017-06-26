@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <section class="section learn">
+    <section class="section learn" id="learning-track">
         <div class="container">
             <div class="title-subtitle">
                 <h2>Join a learning track</h2>
