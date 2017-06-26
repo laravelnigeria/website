@@ -106,12 +106,25 @@
         </div>
     </section>
 
+    @if (config('services.community_inviter.slack_team'))
     <section class="section slack" id="slack-invite">
         <div class="white-overlay">&nbsp;</div>
         <div class="container">
             <div id="CommunityInviter"></div>
+            <span class="link">
+                <a href="https://{{ config('services.community_inviter.slack_team') }}.slack.com" target="_blank"
+                   title="{{ config('services.community_inviter.slack_team_readable') }} PHP community on Slack">
+                    Jump to Slack Channel
+                </a>
+            </span>
+            <style type="text/css">
+                #CommunityInviter > div:after {
+                    content: "Join the {{ config('services.community_inviter.slack_team_readable') }} community on Slack. 🔥";
+                }
+            </style>
         </div>
     </section>
+    @endif
 
     <section class="section sponsors">
         <div class="container">
@@ -169,9 +182,13 @@
             });
         }());
 
+        @if (config('services.community_inviter.slack_team'))
         (function () {
             window.CommunityInviterAsyncInit = function () {
-               CommunityInviter.init({app_url:'join',team_id:'laravelnigeria'})
+               CommunityInviter.init({
+                   app_url: "{{ config('services.community_inviter.join_url') }}",
+                   team_id: "{{ config('services.community_inviter.slack_team') }}",
+               });
             };
 
             (function(d, s, id){
@@ -182,5 +199,6 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'Community_Inviter'));
         }());
+        @endif
     </script>
 @endsection

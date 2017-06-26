@@ -5351,6 +5351,16 @@ section.section.slack .white-overlay {
   top: 0;
 }
 
+section.section.slack span.link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+section.section.slack span.link a {
+  color: #999;
+}
+
 section.section.slack #CommunityInviter {
   max-width: 500px;
   margin: 0 auto;
@@ -5374,7 +5384,6 @@ section.section.slack #CommunityInviter > div {
 }
 
 section.section.slack #CommunityInviter > div:after {
-  content: "Join the Laravel Nigeria community on Slack. 🔥";
   display: block;
   font-size: 18px;
   margin-bottom: 10px;

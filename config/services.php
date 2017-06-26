@@ -40,4 +40,10 @@ return [
         'urlName' => env('MEETUP_URL_NAME'),
     ],
 
+    'community_inviter' => [
+        'join_url' => env('COMMUNITY_INVITER_JOIN_URL'),
+        'slack_team' => env('COMMUNITY_INVITER_SLACK_TEAM'),
+        'slack_team_readable' => env('COMMUNITY_INVITER_SLACK_TEAM_READABLE'),
+    ],
+
 ];

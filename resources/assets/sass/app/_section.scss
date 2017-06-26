@@ -109,6 +109,14 @@ section.section {
             height: 100%;
             top: 0;
         }
+        span.link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            a {
+                color: #999;
+            }
+        }
         #CommunityInviter {
             max-width: 500px;
             margin: 0 auto;
@@ -124,7 +132,6 @@ section.section {
             > div {
                 font-size: 0px !important;
                 &:after {
-                    content: "Join the Laravel Nigeria community on Slack. 🔥";
                     display: block;
                     font-size: 18px;
                     margin-bottom: 10px;
