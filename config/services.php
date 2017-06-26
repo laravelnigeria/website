@@ -46,4 +46,8 @@ return [
         'slack_team_readable' => env('COMMUNITY_INVITER_SLACK_TEAM_READABLE'),
     ],
 
+    'google_tag_manager' => [
+        'id' => env('GOOGLE_TAG_MANAGER_ID'),
+    ],
+
 ];
