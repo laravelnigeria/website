@@ -24,5 +24,11 @@ Configuration instructions goes here
 
 <p>&nbsp;</p>
 
+## Todos
+- [ ] Create custom error pages
+- [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
+
+<p>&nbsp;</p>
+
 ## Contributing
 Contribution instructions goes here
