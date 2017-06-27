@@ -74,21 +74,32 @@
     </section>
     @endif
 
+    @if ($tweet)
     <section class="section xperience" id="ln-twitter">
         <div class="container">
             <div class="photo">
-                <img src="{{ asset('img/photo-placeholder.png') }}" alt="@codebeast" />
+                <img src="{{ asset(Twitter::profileImage($tweet->user, 'bigger')) }}" alt="{{ config('app.name')." - @{$tweet->user->screen_name}" }}" />
             </div>
-            <a class="handle" href="#" target="_blank" title="Follow @codebeast on Twitter">Chris Nwamba (@codebeast)</a>
-            <div class="tweet">
-                <span>Hanging out with the beautiful people at #LaravelNigeria. If you are not here then you are missing the time of your life!</span>
-            </div>
-            <a class="btn btn-block btn-lg" href="#" target="_blank" title="Launch the Laravel Nigeria Experience app.">
-                <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-twitter-nude') }}"/></svg>
-                <span>Tweet your Experience</span>
+            <a class="handle" href="{{ Twitter::linkUser($tweet->user) }}" target="_blank" title="Follow {{ "@{$tweet->user->screen_name}" }} on Twitter">
+                {{ "{$tweet->user->name} (@{$tweet->user->screen_name})" }}
             </a>
+            <div class="tweet">
+                <span>{!! Twitter::linkify($tweet->text) !!}</span>
+            </div>
+            @if (env('TWITTER_SHARE_TEXT'))
+            <a class="btn btn-block btn-lg"
+               href="https://twitter.com/intent/tweet?url={{ config('app.url') }}&amp;text={{ env('TWITTER_SHARE_TEXT') }}&amp;hashtags={{ env('TWITTER_SHARE_HASHTAGS') }}&amp;related={{ env('TWITTER_HANDLE') }}"
+               target="_blank" title="Tweet about your {{ config('app.name') }} experience.">
+                <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-twitter-nude') }}"/></svg>
+                <span>Share your Experience</span>
+            </a>
+            @endif
+            @if (env('TWITTER_HANDLE'))
+            <a class="twitter-follow-button" data-show-count="false" href="https://twitter.com/{{ env('TWITTER_HANDLE') }}">Follow {{ '@'.env('TWITTER_HANDLE') }}</a>
+            @endif
         </div>
     </section>
+    @endif
 
     <section class="section learn" id="learning-track">
         <div class="container">

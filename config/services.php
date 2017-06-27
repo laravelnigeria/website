@@ -35,6 +35,14 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'twitter' => [
+        'search' => [
+            'q' => env('TWITTER_SEARCH_QUERY'),
+            'count' => env('TWITTER_SEARCH_RESULT_COUNT', 10),
+            'result_type' => 'mixed',
+        ],
+    ],
+
     'meetup' => [
         'key' => env('MEETUP_KEY'),
         'urlName' => env('MEETUP_URL_NAME'),

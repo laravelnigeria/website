@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{Meetup, Sponsor, Talk};
+use App\{Meetup, Sponsor, Talk, Twitter};
 
 class HomeController extends Controller {
 
@@ -24,11 +24,13 @@ class HomeController extends Controller {
     {
         $sponsors = Sponsor::theLot();
 
+        $tweet = Twitter::search()->get('statuses')->random();
+
         $group = $meetup->groupDetailsWithNextEvent();
 
         $next_event = $group->get('next_event');
 
-        return view('index', compact('group', 'next_event', 'sponsors'));
+        return view('index', compact('group', 'next_event', 'sponsors', 'tweet'));
     }
 
     /**

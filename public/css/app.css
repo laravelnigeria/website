@@ -5635,8 +5635,25 @@ section.section.xperience .handle {
   text-decoration: none;
 }
 
+section.section.xperience .twitter-follow-button {
+  color: #fff;
+  text-decoration: none;
+  margin-top: 30px;
+  display: inline-block;
+}
+
 section.section.xperience .tweet {
   margin-bottom: 53px;
+}
+
+section.section.xperience .tweet a {
+  color: #fff;
+  transition: color .3s ease;
+  text-decoration: none;
+}
+
+section.section.xperience .tweet a:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @media only screen and (min-width: 992px) {

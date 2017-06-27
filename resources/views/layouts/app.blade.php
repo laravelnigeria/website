@@ -20,6 +20,7 @@
     <meta property="og:description" content="{{ $seo_description ?? config('app.description') }}">
     <!-- http://searchengineland.com/schema-markup-structured-data-seo-opportunities-site-type-231077 -->
     <!-- https://developers.google.com/search/docs/data-types/events -->
+    @include('partials.early-scripts')
     @yield('styles')
 </head>
 <body>

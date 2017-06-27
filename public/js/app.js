@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -471,7 +471,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
 
 /***/ }),
 /* 2 */
@@ -749,7 +749,8 @@ module.exports = function bind(fn, thisArg) {
  */
 
 __webpack_require__(27);
-__webpack_require__(37);
+__webpack_require__(28);
+// require('./twitter-share');
 
 // window.Vue = require('vue');
 
@@ -1617,7 +1618,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(29);
+window._ = __webpack_require__(30);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1626,7 +1627,7 @@ window._ = __webpack_require__(29);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(28);
+  window.$ = window.jQuery = __webpack_require__(29);
 
   // Individual stuff
   // require('bootstrap-sass/assets/javascripts/bootstrap/transition');
@@ -1684,6 +1685,26 @@ if (token) {
 
 /***/ }),
 /* 28 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by neo on 26/06/2017.
+ */
+(function () {
+    $('.nav a').on('click', function () {
+        $('.active').removeClass('active');
+        $(this).closest('li').addClass('active');
+        var theClass = $(this).attr("class");
+        $('.' + theClass).parent('li').addClass('active');
+        $('html, body').stop().animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 400);
+        return false;
+    });
+})();
+
+/***/ }),
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11943,7 +11964,7 @@ return jQuery;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -29032,10 +29053,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31), __webpack_require__(32)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32), __webpack_require__(33)(module)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -29225,7 +29246,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 var g;
@@ -29252,7 +29273,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -29280,35 +29301,12 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(7);
 module.exports = __webpack_require__(8);
 
-
-/***/ }),
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */
-/***/ (function(module, exports) {
-
-/**
- * Created by neo on 26/06/2017.
- */
-(function () {
-    $('.nav a').on('click', function () {
-        $('.active').removeClass('active');
-        $(this).closest('li').addClass('active');
-        var theClass = $(this).attr("class");
-        $('.' + theClass).parent('li').addClass('active');
-        $('html, body').stop().animate({
-            scrollTop: $($(this).attr('href')).offset().top
-        }, 400);
-        return false;
-    });
-})();
 
 /***/ })
 /******/ ]);
