@@ -17,11 +17,11 @@
                 </span>
             </span>
             @endif
-            <h1>Bringing together the brightest PHP and Laravel developers in Nigeria</h1>
+            <h1>{{ config('app.welcome_message') }}</h1>
             @if ($next_event)
-            <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="Get free tickets" target="_blank">RSVP for this event</a>
+            <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="RSVP to {{ config('app.name') }}" target="_blank">RSVP for this event</a>
             <span class="guests-count">
-                <span class="count">{{ $next_event['yes_rsvp_count'] ?? 0 }} people are attending the event.</span>
+                <span class="count">{{ $next_event['yes_rsvp_count'] ?? 0 }} people are attending the meetup.</span>
                 @if (array_get($next_event, 'seats_left') && $next_event['seats_left'] <= 50)
                     <span class="remaining">
                         {{ $next_event['seats_left'] <= 0 ? 'Tickets sold out' : 'Hurry, '.$next_event['seats_left'].' spots left' }}
@@ -37,7 +37,7 @@
         <div class="container">
             <div class="title-subtitle">
                 <h2>Meet the Speakers</h2>
-                <h4 class="subtitle">Awesome people giving talks at the Laravel Nigeria meetup.</h4>
+                <h4 class="subtitle">Awesome people giving talks at the {{ config('app.name') }} meetup.</h4>
             </div>
             <div class="list">
                 @foreach ($next_event->get('talks') as $talk)
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 @endforeach
-                <a class="btn btn-block btn-lg old-talks" href="{{ route('talks') }}" title="See previous Laravel Nigeria talks">Previous Event Talks</a>
+                <a class="btn btn-block btn-lg old-talks" href="{{ route('talks') }}" title="See previous {{ config('app.name') }} talks">Previous Meetup Talks</a>
             </div>
         </div>
     </section>
@@ -157,10 +157,10 @@
         <div class="green-overlay">&nbsp;</div>
         <div class="container">
             <div class="title-subtitle">
-                <h2>Speaking at Laravel Nigeria</h2>
+                <h2>Speaking at {{ config('app.name') }}</h2>
                 <h4 class="subtitle">We would like to hear from first-time and seasoned speakers alike. Get in touch if you’d like to propose a talk or recommend a speaker.</h4>
             </div>
-            <a class="btn btn-block btn-lg" href="#" title="Speak at the next Laravel Nigeria meetup">Contact Us</a>
+            <a class="btn btn-block btn-lg" href="#" title="Speak at the next {{ config('app.name') }} meetup">Contact Us</a>
         </div>
     </section>
 @endsection

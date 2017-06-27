@@ -13,7 +13,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel Nigeria'),
-    'description' => env('APP_DESCRIPTION', 'Enter description'),
+    'description' => env('APP_DESCRIPTION', 'Set the "APP_DESCRIPTION" value in the .env file'),
+    'welcome_message' => env('APP_WELCOME_MESSAGE', 'Set the "APP_WELCOME_MESSAGE" value in the .env file'),
 
     /*
     |--------------------------------------------------------------------------
