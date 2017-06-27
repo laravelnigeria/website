@@ -25,9 +25,16 @@ Configuration instructions goes here
 <p>&nbsp;</p>
 
 ## Todos
+- [ ] Contact us popup
+- [ ] All talks page
+- [ ] Jobs page
+- [ ] Contribute page
 - [ ] Create custom error pages
+- [ ] Create a new Twitter application for the Laravel Nigeria application
 - [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
-
+- [ ] Use web intents to add retweet, reply and like buttons to the tweet section
+- [ ] Meetup feedback popup with link to leave reviews
+- [ ] Learning track
 <p>&nbsp;</p>
 
 ## Contributing
