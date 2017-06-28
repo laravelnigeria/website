@@ -748,10 +748,28 @@ module.exports = function bind(fn, thisArg) {
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(27);
-__webpack_require__(28);
-__webpack_require__(38);
-__webpack_require__(39);
+try {
+  __webpack_require__(9);
+  __webpack_require__(27);
+  __webpack_require__(28);
+  __webpack_require__(38);
+  __webpack_require__(39);
+} catch (e) {}
+
+/**
+ * Snackbar is the notification function to display quick notifications on the site.
+ *
+ * @param message
+ */
+window.showSnackBar = function (message) {
+  var snackbar = void 0;
+  snackbar = document.getElementById("snackbar");
+  snackbar.className = "show";
+  snackbar.innerHTML = message;
+  setTimeout(function () {
+    snackbar.className = snackbar.className.replace("show", "");
+  }, 3000);
+};
 
 // window.Vue = require('vue');
 
@@ -29676,45 +29694,122 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 39 */
 /***/ (function(module, exports) {
 
-(function () {
-    $('#contact-form').validator({
+(function (http) {
+    var contactFormElem = $("#contact-form");
+    var validContactToken = "YUesU09isIUiUkCX9288==";
+
+    /**
+     * Sets a custom validator that can then be called from the input field if necessary for the field to
+     * be validated.
+     */
+
+    contactFormElem.validator({
         custom: {
             pattern: function pattern($el) {
-                var pattern = $el.data('pattern');
+                var pattern = $el.data("pattern");
                 return !$el.val() || new RegExp(pattern, "g").test($el.val());
             }
         }
     });
-    $('.contact-popup-toggle').click(function (evt) {
+
+    /**
+     * We will attempt to remove the already set value in the __token field and replace it with nothing.
+     * This is basically a poormans alternative to checkmate bots that do not load Javascript and thus
+     * cannot run this command. The server will make sure if this field is not equal to a certain
+     * string then it could be spam.
+     */
+
+    $(".leave > input").attr("value", validContactToken);
+
+    /**
+     * This block is here to basically toggle the popup form to enter the contact details and
+     * message.
+     */
+
+    $(".contact-popup-toggle").click(function (evt) {
         var scrollPosition = void 0,
             elem = void 0,
             html = void 0;
 
         evt.preventDefault();
 
-        html = $('html');
-        elem = $('.full-pop.contact');
+        html = $("html");
+        elem = $(".full-pop.contact");
 
-        if (elem.hasClass('active')) {
-            elem.removeClass('active');
+        if (elem.hasClass("active")) {
+            elem.removeClass("active");
 
             // Unlock scrolling...
-            scrollPosition = html.data('scroll-position');
-            html.css('overflow', html.data('previous-overflow'));
+            scrollPosition = html.data("scroll-position");
+            html.css("overflow", html.data("previous-overflow"));
             window.scrollTo(scrollPosition[0], scrollPosition[1]);
         } else {
-            elem.addClass('active');
+            elem.addClass("active");
 
             scrollPosition = [self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft, self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop];
 
             // Lock scrolling...
-            html.data('scroll-position', scrollPosition);
-            html.data('previous-overflow', html.css('overflow'));
-            html.css('overflow', 'hidden');
+            html.data("scroll-position", scrollPosition);
+            html.data("previous-overflow", html.css("overflow"));
+            html.css("overflow", "hidden");
             window.scrollTo(scrollPosition[0], scrollPosition[1]);
         }
     });
-})();
+
+    /**
+     * Submits the form to the server for processing.
+     */
+
+    contactFormElem.validator().on('submit', function (evt) {
+        if (!evt.isDefaultPrevented()) {
+            var toggleBtnState = function toggleBtnState() {
+                if (!sendBtn.data('active')) {
+                    sendBtn.data('loading', oldText);
+                    sendBtn.text(newText);
+                    sendBtn.data('active', true);
+                    sendBtn.attr('disabled', true);
+                } else {
+                    sendBtn.data('loading', newText);
+                    sendBtn.text(oldText);
+                    sendBtn.data('active', false);
+                    sendBtn.attr('disabled', false);
+                }
+            };
+
+            evt.preventDefault();
+
+            var sendBtn = contactFormElem.find('.send-btn');
+            var oldText = sendBtn.text();
+            var newText = sendBtn.data('loading');
+
+            toggleBtnState();
+
+            http.post('/contact', {
+                message: contactFormElem.find('textarea').val(),
+                name: contactFormElem.find('input[name=name]').val(),
+                email: contactFormElem.find('input[name=email]').val(),
+                __token: contactFormElem.find('input[name=__token]').val()
+            }).then(function (response) {
+                if (response.data.status === 'ok') {
+                    showSnackBar("Your message has been sent successfully!");
+                    contactFormElem.trigger('reset');
+                    $(".close.contact-popup-toggle").trigger('click');
+                } else {
+                    showSnackBar("Oops! Something went wrong, weird.");
+                    console.error(response);
+                }
+
+                toggleBtnState();
+            }).catch(function (error) {
+                showSnackBar("Oops! Something broke. Please try again.");
+                console.error(error);
+                toggleBtnState();
+            });
+
+            return false;
+        }
+    });
+})(window.axios);
 
 /***/ })
 /******/ ]);

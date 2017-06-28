@@ -11,7 +11,8 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <form class="form" id="contact-form" role="form" data-toggle="validator">
+                <form class="form" id="contact-form" role="form" data-toggle="validator" method="post">
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
@@ -35,13 +36,14 @@
                             <div class="form-group">
                                 <label class="sr-only" for="input-message">Message</label>
                                 <textarea name="message" class="form-control" id="input-message" placeholder="Enter your message"
-                                    data-error="Your message must be detailed. Between 100 and 5000 characters" required data-minlength="100"></textarea>
+                                    data-error="Your message must be detailed. Between 100 and 5000 characters" required
+                                    data-minlength="100" maxlength="5000" data-maxlength="5000"></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="leave"><input type="text" name="phone" /></div>
-                    <button class="btn btn-lg btn-primary">Send Message</button>
+                    <div class="leave"><input type="text" name="__token" value="{{ str_random() }}" /></div>
+                    <button class="btn btn-lg btn-primary send-btn" data-loading="Sending...">Send Message</button>
                 </form>
             </div>
         </div>

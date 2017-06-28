@@ -37,6 +37,8 @@
         @include('partials.footer')
     </div>
 
+    <div id="snackbar">This is the default message.</div>
+
     @include('partials.popups')
     <script src="{{ mix('js/app.js') }}"></script>
     @yield('scripts')

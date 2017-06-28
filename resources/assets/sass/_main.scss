@@ -17,8 +17,14 @@
     color: #fff;
 }
 
+// Animations
+@import "app/animations";
+
 // Full popup
 @import "app/popup-full";
+
+// Snackbar
+@import "app/snackbar";
 
 // Navigation Bar
 @import "app/navbar";

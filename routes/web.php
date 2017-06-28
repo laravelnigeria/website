@@ -23,4 +23,5 @@ $router->group(['prefix' => 'jobs'], function($router) {
 
 $router->get('/home', 'HomeController@home')->name('home');
 $router->get('/talks', 'HomeController@talks')->name('talks');
+$router->post('/contact', 'ContactController')->name('contact');
 $router->get('/', 'HomeController@index')->name('index');
