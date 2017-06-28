@@ -10,7 +10,9 @@
 
 ## Requirements
 Requirements goes here
-* Twitter application
+* Twitter application and credentials, also set the env variables
+* Mailgun or any other mail driver
+* Set up the required ENV variables (list them)
 
 <p>&nbsp;</p>
 
@@ -25,7 +27,7 @@ Configuration instructions goes here
 <p>&nbsp;</p>
 
 ## Todos
-- [ ] Contact us popup
+- [x] Contact us popup
 - [ ] All talks page
 - [ ] Jobs page
 - [ ] Contribute page
