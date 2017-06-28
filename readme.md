@@ -34,7 +34,9 @@ Configuration instructions goes here
 - [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
 - [ ] Use web intents to add retweet, reply and like buttons to the tweet section
 - [ ] Meetup feedback popup with link to leave reviews
+- [ ] Learning track availability alert form
 - [ ] Learning track
+
 <p>&nbsp;</p>
 
 ## Contributing
