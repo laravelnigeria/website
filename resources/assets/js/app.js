@@ -7,7 +7,6 @@
 
 require('./bootstrap');
 require('./smooth-scroll');
-// require('./twitter-share');
 
 // window.Vue = require('vue');
 
