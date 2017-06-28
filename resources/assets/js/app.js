@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 require('./smooth-scroll');
+require('./validator');
 
 // window.Vue = require('vue');
 
