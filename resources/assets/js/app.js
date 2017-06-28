@@ -8,6 +8,7 @@
 require('./bootstrap');
 require('./smooth-scroll');
 require('./validator');
+require('./modules/contact');
 
 // window.Vue = require('vue');
 

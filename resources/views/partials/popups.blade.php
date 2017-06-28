@@ -1,6 +1,6 @@
 <div class="full-pop contact">
     <div class="close">
-        <a href="#" class="close" title="Close window"><i class="fa fa-times" style="pointer-events:none;"></i></a>
+        <a href="#" class="close contact-popup-toggle" title="Close window"><i class="fa fa-times" style="pointer-events:none;"></i></a>
     </div>
     <div class="container">
         <div class="row">
@@ -11,27 +11,37 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <form class="form">
+                <form class="form" id="contact-form" role="form" data-toggle="validator">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label class="sr-only" for="input-name">Full Name</label>
-                                <input type="text" name="name" class="form-control" id="input-name" placeholder="Full Name">
+                                <input type="text" name="name" class="form-control" id="input-name" placeholder="Full Name" data-minlength="5" maxlength="80"
+                                    data-error="Name must be between 5 and 80 characters long" required>
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label class="sr-only" for="input-email">Email Address</label>
-                                <input type="email" name="email" class="form-control" id="input-email" placeholder="Email Address">
+                                <input type="email" name="email" class="form-control" id="input-email" placeholder="Email Address"
+                                    data-error="Bruh, that email address is invalid" required>
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row textarea">
                         <div class="col-xs-12">
-                            <label class="sr-only" for="input-message">Message</label>
-                            <textarea name="message" class="form-control" id="input-message" placeholder="Enter your message"></textarea>
+                            <div class="form-group">
+                                <label class="sr-only" for="input-message">Message</label>
+                                <textarea name="message" class="form-control" id="input-message" placeholder="Enter your message"
+                                    data-error="Your message must be detailed. Between 100 and 5000 characters" required data-minlength="100"></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="leave"><input type="text" name="phone" /></div>
+                    <button class="btn btn-lg btn-primary">Send Message</button>
                 </form>
             </div>
         </div>

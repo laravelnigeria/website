@@ -4809,22 +4809,29 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 1;
-  transition: opacity .3s ease;
+  opacity: 0;
   background: #fff;
   z-index: 9999;
   padding: 50px 15px;
-  display: none;
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  transition: all .1s ease-in-out;
 }
 
 @media only screen and (min-width: 992px) {
   .full-pop {
-    padding: 200px 0 0;
+    padding: 150px 0 0;
   }
 }
 
 .full-pop.active {
   opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .full-pop .close a {
@@ -4901,6 +4908,11 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   }
 }
 
+.full-pop .form .has-error.has-danger input[type=email], .full-pop .form .has-error.has-danger input[type=text], .full-pop .form .has-error.has-danger textarea {
+  border-bottom: 1px solid palevioletred;
+  box-shadow: none;
+}
+
 .full-pop .form input, .full-pop .form textarea {
   outline: none;
   border: none;
@@ -4915,6 +4927,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding-right: 0;
   border-radius: 0;
   transition: border-color .3s ease-in-out;
+  box-shadow: none;
 }
 
 .full-pop .form input[type=email]:focus, .full-pop .form input[type=text]:focus, .full-pop .form textarea:focus {
@@ -4932,11 +4945,31 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   resize: none;
   height: 100px;
   width: 100% !important;
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) {
   .full-pop .form textarea {
     height: 150px;
+  }
+}
+
+.full-pop .form .leave {
+  display: none;
+}
+
+.full-pop .form button.btn {
+  width: 100%;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .full-pop .form button.btn {
+    width: 250px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
