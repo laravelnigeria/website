@@ -14,7 +14,7 @@ $router = app('router');
 // ------------------------------------------------------------
 
 $router->group(['prefix' => 'jobs'], function($router) {
-    $router->get('/', 'JobsController@index')->name('jobs');
+    $router->get('/', 'JobsController@index')->name('jobs.index');
 });
 
 // ------------------------------------------------------------
