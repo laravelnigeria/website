@@ -38,6 +38,7 @@ Configuration instructions goes here
 - [ ] Meetup feedback popup with link to leave reviews
 - [ ] Learning track availability alert form
 - [ ] Learning track
+- [ ] Bug in the slider getting big momentarily
 
 <p>&nbsp;</p>
 
