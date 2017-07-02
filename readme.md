@@ -17,13 +17,53 @@ Requirements goes here
 <p>&nbsp;</p>
 
 ## Installation
-Installation instruction goes here
+- fork & clone
+
+        git clone git@github.com:laravelnigeria/website.git my-directory
+ 
+- cd to your new directory and install dependencies
+
+        cd my-directory
+        composer install
 
 <p>&nbsp;</p>
 
 ## Configuration
-Configuration instructions goes here
+- make a copy of the .env.example file or just rename it to .env
+- generate a new key
 
+        php artisan key:generate
+        
+- set up your database
+        
+        DB_CONNECTION=
+        DB_HOST=
+        DB_PORT=
+        DB_DATABASE=
+        DB_USERNAME=
+        DB_PASSWORD=
+        
+- set the following vars https://secure.meetup.com/meetup_api/key/
+
+        MEETUP_URL_NAME=laravel-nigeria
+        MEETUP_KEY=
+
+- create a twitter app and set the following vars https://apps.twitter.com/
+    
+        TWITTER_CONSUMER_KEY=
+        TWITTER_CONSUMER_SECRET=
+        TWITTER_ACCESS_TOKEN=
+        TWITTER_ACCESS_TOKEN_SECRET=
+        TWITTER_SEARCH_QUERY="#laravel -filter:retweets -filter:replies"
+
+- run the migrations
+
+        php artisan migrate
+
+- seed the database
+
+        php artisan db:seed
+        
 <p>&nbsp;</p>
 
 ## Todos
