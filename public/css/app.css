@@ -5863,6 +5863,8 @@ section.section.xperience .btn {
   margin: 0 auto;
   background-color: #fff;
   color: #55acee;
+  display: block;
+  z-index: 99999;
 }
 
 @media only screen and (min-width: 768px) {

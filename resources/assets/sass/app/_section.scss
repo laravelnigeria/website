@@ -409,6 +409,8 @@ section.section {
             margin: 0 auto;
             background-color: #fff;
             color: #55acee;
+            display: block;
+            z-index: 99999;
             @media #{$sm-min} {
                 font-size: 20px;
                 height: 50px;
