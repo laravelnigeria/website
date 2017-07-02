@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="jumbotron jumbo">
+    <div class="jumbotron jumbo home parallaxbg" style="background: url({{ asset('img/jumbo.jpg') }})">
         <div class="green-overlay">&nbsp;</div>
         <div class="container">
             @if ($next_event)
@@ -41,32 +41,7 @@
             </div>
             <div class="list">
                 @foreach ($next_event->get('talks') as $talk)
-                <div class="row speaker">
-                    <div class="col col-xs-12 col-sm-4 col-md-4 col-lg-4 profile-wrapper">
-                        <div class="photo">
-                            <img src="{{ asset(array_get($talk, 'user.avatar')) }}" alt="{{ array_get($talk, 'user.name') }}" />
-                        </div>
-                        <div class="profile">
-                            <ul>
-                                <li class="name">{{ array_get($talk, 'user.name') }}</li>
-                                <li class="position">{{ array_get($talk, 'user.job') }}</li>
-                                @if (is_array(array_get($talk, 'user.social_links')))
-                                    <li class="social">
-                                        @foreach(array_get($talk, 'user.social_links') as $network => $link)
-                                            <a href="#" title="I'm on {{ $network }}" target="_blank">
-                                                <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-'.strtolower($network)) }}" /></svg>
-                                            </a>
-                                        @endforeach
-                                    </li>
-                                @endif
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col col-xs-12 col-sm-7 col-md-8 col-lg-6 topic-wrapper">
-                        <h3>{{ $talk['topic'] ?? 'Talk topic is missing' }}</h3>
-                        <p>{{ $talk['overview'] ?? 'Talk overview is missing' }}</p>
-                    </div>
-                </div>
+                @include('partials.speaker')
                 @endforeach
                 <a class="btn btn-block btn-lg old-talks" href="{{ route('talks') }}" title="See previous {{ config('app.name') }} talks">Previous Meetup Talks</a>
             </div>
@@ -108,11 +83,11 @@
                 <h4 class="subtitle">Enjoy plenty educational resources to start off with Laravel and PHP.</h4>
             </div>
             <div class="row slicky-learn">
-                <div class="track"><img src="{{ asset('img/track-placeholder.png') }}"></div>
-                <div class="track"><img src="{{ asset('img/track-placeholder.png') }}"></div>
-                <div class="track"><img src="{{ asset('img/track-placeholder.png') }}"></div>
-                <div class="track"><img src="{{ asset('img/track-placeholder.png') }}"></div>
-                <div class="track"><img src="{{ asset('img/track-placeholder.png') }}"></div>
+                <div class="track"><img data-lazy="{{ asset('img/track-placeholder.png') }}"></div>
+                <div class="track"><img data-lazy="{{ asset('img/track-placeholder.png') }}"></div>
+                <div class="track"><img data-lazy="{{ asset('img/track-placeholder.png') }}"></div>
+                <div class="track"><img data-lazy="{{ asset('img/track-placeholder.png') }}"></div>
+                <div class="track"><img data-lazy="{{ asset('img/track-placeholder.png') }}"></div>
             </div>
         </div>
     </section>
@@ -129,14 +104,13 @@
                 </a>
             </span>
             <style type="text/css">
-                #CommunityInviter > div:after {
-                    content: "Join the {{ config('services.community_inviter.slack_team_readable') }} community on Slack. 🔥";
-                }
+                #CommunityInviter > div:after {  content: "Join the {{ config('services.community_inviter.slack_team_readable') }} community on Slack. 🔥";  }
             </style>
         </div>
     </section>
     @endif
 
+    @if ($sponsors->count() > 0)
     <section class="section sponsors">
         <div class="container">
             <div class="title-subtitle">
@@ -146,23 +120,17 @@
             <div class="row slicky-sponsors">
                 @foreach ($sponsors as $sponsor)
                 <div class="sponsor">
-                    <a href="{{ $sponsor->link }}" title="{{ $sponsor->name }} &mdash; {{ $sponsor->description }}" target="_blank"><img src="{{ asset($sponsor->logo) }}">&nbsp;</a>
+                    <a href="{{ $sponsor->link }}" title="{{ $sponsor->name }} &mdash; {{ $sponsor->description }}" target="_blank">
+                        <img data-lazy="{{ asset($sponsor->logo) }}">&nbsp;
+                    </a>
                 </div>
                 @endforeach
             </div>
         </div>
     </section>
+    @endif
 
-    <section class="section speak">
-        <div class="green-overlay">&nbsp;</div>
-        <div class="container">
-            <div class="title-subtitle">
-                <h2>Speaking at {{ config('app.name') }}</h2>
-                <h4 class="subtitle">We would like to hear from first-time and seasoned speakers alike. Get in touch if you'd like to propose a talk or recommend a speaker.</h4>
-            </div>
-            <a class="btn btn-block btn-lg contact-popup-toggle" href="#" title="Speak at the next {{ config('app.name') }} meetup">Contact Us</a>
-        </div>
-    </section>
+    @include('partials.speak')
 @endsection
 
 {{-- Custom Styles --}}

@@ -2,17 +2,31 @@
     width: 100%;
     margin-bottom: 0;
     max-height: 900px;
-    padding: 100px 0;
     position: relative;
     background-size: cover;
-    background: url(../img/jumbo.jpg) center;
-    @media #{$md-min} {
-        padding: 200px 0;
-        overflow: hidden;
+    //transition: all .2s ease;
+    &.home {
+        padding: 100px 0;
+        @media #{$md-min} {
+            padding: 200px 0;
+            overflow: hidden;
+        }
+        @media #{$lg-min} {
+            padding: 283px 0;
+            overflow: hidden;
+        }
     }
-    @media #{$lg-min} {
-        padding: 283px 0;
-        overflow: hidden;
+    &.pages {
+        padding: 100px 0;
+        h1 {
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 16px;
+            @media #{$sm-min} {
+                font-size: 20px;
+            }
+        }
     }
     .container {
         position: relative;
@@ -24,7 +38,7 @@
         height: 100%;
         top: 0;
     }
-    span.event, h1, .guests-count {
+    span.event, h1, .guests-count, h2 {
         color: #fff;
         font-weight: 600;
         text-shadow: 0 1px 3px rgba(#000, .3);

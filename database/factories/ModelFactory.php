@@ -31,7 +31,9 @@ $factory->define(App\Meetup::class, function (Faker\Generator $faker) {
     static $event_id;
 
     if ($event_id) {
-        $event_id = rand(100000000, 999999999);
+        $event_id = $event_id === 240522436
+            ? 238642730
+            : rand(100000000, 999999999);
     }
 
     return [

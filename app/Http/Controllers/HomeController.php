@@ -32,16 +32,4 @@ class HomeController extends Controller {
 
         return view('index', compact('group', 'next_event', 'sponsors', 'tweet'));
     }
-
-    /**
-     * Returns a list of talks past and present.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function talks()
-    {
-        $talks = Talk::groupedByEvent();
-
-        return view('talks', compact('talks'));
-    }
 }

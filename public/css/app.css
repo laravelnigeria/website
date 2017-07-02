@@ -5157,23 +5157,43 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   width: 100%;
   margin-bottom: 0;
   max-height: 900px;
-  padding: 100px 0;
   position: relative;
   background-size: cover;
-  background: url(../img/jumbo.jpg) center;
+}
+
+.jumbo.home {
+  padding: 100px 0;
 }
 
 @media only screen and (min-width: 992px) {
-  .jumbo {
+  .jumbo.home {
     padding: 200px 0;
     overflow: hidden;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .jumbo {
+  .jumbo.home {
     padding: 283px 0;
     overflow: hidden;
+  }
+}
+
+.jumbo.pages {
+  padding: 100px 0;
+}
+
+.jumbo.pages h1 {
+  margin-bottom: 10px;
+}
+
+.jumbo.pages h2 {
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .jumbo.pages h2 {
+    font-size: 20px;
   }
 }
 
@@ -5189,7 +5209,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   top: 0;
 }
 
-.jumbo span.event, .jumbo h1, .jumbo .guests-count {
+.jumbo span.event, .jumbo h1, .jumbo .guests-count, .jumbo h2 {
   color: #fff;
   font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -5362,10 +5382,8 @@ section.section .title-subtitle h4 {
 }
 
 section.section.speak {
+  background: url("../img/speaker.jpg") no-repeat center;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url("../img/speaker.jpg");
-  background-position: center;
   position: relative;
 }
 
@@ -5549,6 +5567,66 @@ section.section.slack #CommunityInviter button#CommunityInviterSend:hover {
   background-color: #00abab !important;
 }
 
+section.section.speakers.single {
+  padding-top: 0;
+}
+
+section.section.speakers.single .meetup-title {
+  text-align: center;
+  padding: 50px 0 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  section.section.speakers.single .meetup-title {
+    padding: 120px 0 70px;
+  }
+}
+
+section.section.speakers.single .meetup-title h3 {
+  font-weight: 600;
+  color: rgba(0, 186, 186, 0.9);
+}
+
+@media only screen and (min-width: 768px) {
+  section.section.speakers.single .meetup-title h3 {
+    font-size: 30px;
+  }
+}
+
+section.section.speakers.single .meetup-title span.event-date {
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #999;
+}
+
+section.section.speakers .links ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+section.section.speakers .links ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+section.section.speakers .links ul li:last-child {
+  margin-right: 0;
+}
+
+section.section.speakers .links ul li a {
+  color: #b9b9b9;
+  transition: color .3s ease;
+}
+
+section.section.speakers .links ul li a:hover {
+  color: #00BABA;
+}
+
+section.section.speakers .links ul li i.fa {
+  font-size: 20px;
+}
+
 section.section.speakers .btn.old-talks {
   background: #F0F0F0;
   border-radius: 10px;
@@ -5559,6 +5637,9 @@ section.section.speakers .btn.old-talks {
   font-weight: 600;
   color: #898989;
   transition: all .3s ease;
+  display: block;
+  z-index: 9999;
+  position: relative;
 }
 
 section.section.speakers .btn.old-talks:hover {
@@ -5829,6 +5910,7 @@ section.section.sponsors .sponsor {
 section.section.sponsors .sponsor a {
   display: inline-block;
   outline: none;
+  text-decoration: none;
 }
 
 footer.main {

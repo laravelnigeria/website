@@ -28,17 +28,17 @@ Configuration instructions goes here
 
 ## Todos
 - [x] Contact us popup
-- [ ] All talks page
-- [ ] Jobs page
+- [x] All talks page
+- [x] Bug in the slider getting big momentarily
 - [ ] Contribute page
-- [ ] Create custom error pages
-- [ ] Create a new Twitter application for the Laravel Nigeria application
-- [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
+- [ ] Jobs page
 - [ ] Use web intents to add retweet, reply and like buttons to the tweet section
+- [ ] Create custom error pages
+- [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
+- [ ] Create a new Twitter application for the Laravel Nigeria application
 - [ ] Meetup feedback popup with link to leave reviews
 - [ ] Learning track availability alert form
 - [ ] Learning track
-- [ ] Bug in the slider getting big momentarily
 
 <p>&nbsp;</p>
 

@@ -19,6 +19,8 @@ class CreateTalksTable extends Migration
             $table->string('topic');
             $table->text('overview');
             $table->unsignedInteger('meetup_id');
+            $table->string('link_video')->nullable();
+            $table->string('link_slides')->nullable();
             $table->boolean('accepted')->default(false);
             $table->timestamps();
 

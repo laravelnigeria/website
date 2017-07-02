@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 
 /*global toString:true*/
 
@@ -397,10 +397,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   }
   return adapter;
 }
@@ -471,10 +471,16 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(10);
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -485,7 +491,7 @@ var settle = __webpack_require__(16);
 var buildURL = __webpack_require__(19);
 var parseHeaders = __webpack_require__(25);
 var isURLSameOrigin = __webpack_require__(23);
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(18);
 
 module.exports = function xhrAdapter(config) {
@@ -658,7 +664,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -684,7 +690,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -696,7 +702,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -720,7 +726,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -738,7 +744,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -749,27 +755,14 @@ module.exports = function bind(fn, thisArg) {
  */
 
 try {
-  __webpack_require__(9);
+  __webpack_require__(2);
   __webpack_require__(27);
+  __webpack_require__(31);
+  __webpack_require__(32);
   __webpack_require__(28);
-  __webpack_require__(38);
-  __webpack_require__(39);
+  __webpack_require__(30);
+  __webpack_require__(29);
 } catch (e) {}
-
-/**
- * Snackbar is the notification function to display quick notifications on the site.
- *
- * @param message
- */
-window.showSnackBar = function (message) {
-  var snackbar = void 0;
-  snackbar = document.getElementById("snackbar");
-  snackbar.className = "show";
-  snackbar.innerHTML = message;
-  setTimeout(function () {
-    snackbar.className = snackbar.className.replace("show", "");
-  }, 3000);
-};
 
 // window.Vue = require('vue');
 
@@ -786,16 +779,10 @@ window.showSnackBar = function (message) {
 // });
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(10);
 
 /***/ }),
 /* 10 */
@@ -805,7 +792,7 @@ module.exports = __webpack_require__(10);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(12);
 var defaults = __webpack_require__(1);
 
@@ -840,9 +827,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(3);
+axios.Cancel = __webpack_require__(4);
 axios.CancelToken = __webpack_require__(11);
-axios.isCancel = __webpack_require__(4);
+axios.isCancel = __webpack_require__(5);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -863,7 +850,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(3);
+var Cancel = __webpack_require__(4);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1080,7 +1067,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(17);
-var isCancel = __webpack_require__(4);
+var isCancel = __webpack_require__(5);
 var defaults = __webpack_require__(1);
 
 /**
@@ -1190,7 +1177,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1637,7 +1624,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(30);
+window._ = __webpack_require__(34);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1646,7 +1633,7 @@ window._ = __webpack_require__(30);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(29);
+  window.$ = window.jQuery = __webpack_require__(33);
 
   // Individual stuff
   // require('bootstrap-sass/assets/javascripts/bootstrap/transition');
@@ -1669,7 +1656,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(9);
+window.axios = __webpack_require__(2);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -1706,6 +1693,178 @@ if (token) {
 /* 28 */
 /***/ (function(module, exports) {
 
+(function (http) {
+    var contactFormElem = $("#contact-form");
+    var validContactToken = "YUesU09isIUiUkCX9288==";
+
+    /**
+     * Sets a custom validator that can then be called from the input field if necessary for the field to
+     * be validated.
+     */
+
+    contactFormElem.validator({
+        custom: {
+            pattern: function pattern($el) {
+                var pattern = $el.data("pattern");
+                return !$el.val() || new RegExp(pattern, "g").test($el.val());
+            }
+        }
+    });
+
+    /**
+     * We will attempt to remove the already set value in the __token field and replace it with nothing.
+     * This is basically a poormans alternative to checkmate bots that do not load Javascript and thus
+     * cannot run this command. The server will make sure if this field is not equal to a certain
+     * string then it could be spam.
+     */
+
+    $(".leave > input").attr("value", validContactToken);
+
+    /**
+     * This block is here to basically toggle the popup form to enter the contact details and
+     * message.
+     */
+
+    $(".contact-popup-toggle").click(function (evt) {
+        var scrollPosition = void 0,
+            elem = void 0,
+            html = void 0;
+
+        evt.preventDefault();
+
+        html = $("html");
+        elem = $(".full-pop.contact");
+
+        if (elem.hasClass("active")) {
+            elem.removeClass("active");
+
+            // Unlock scrolling...
+            scrollPosition = html.data("scroll-position");
+            html.css("overflow", html.data("previous-overflow"));
+            window.scrollTo(scrollPosition[0], scrollPosition[1]);
+        } else {
+            elem.addClass("active");
+
+            scrollPosition = [self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft, self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop];
+
+            // Lock scrolling...
+            html.data("scroll-position", scrollPosition);
+            html.data("previous-overflow", html.css("overflow"));
+            html.css("overflow", "hidden");
+            window.scrollTo(scrollPosition[0], scrollPosition[1]);
+        }
+    });
+
+    /**
+     * Submits the form to the server for processing.
+     */
+
+    contactFormElem.validator().on('submit', function (evt) {
+        if (!evt.isDefaultPrevented()) {
+            var toggleBtnState = function toggleBtnState() {
+                if (!sendBtn.data('active')) {
+                    sendBtn.data('loading', oldText);
+                    sendBtn.text(newText);
+                    sendBtn.data('active', true);
+                    sendBtn.attr('disabled', true);
+                } else {
+                    sendBtn.data('loading', newText);
+                    sendBtn.text(oldText);
+                    sendBtn.data('active', false);
+                    sendBtn.attr('disabled', false);
+                }
+            };
+
+            evt.preventDefault();
+
+            var sendBtn = contactFormElem.find('.send-btn');
+            var oldText = sendBtn.text();
+            var newText = sendBtn.data('loading');
+
+            toggleBtnState();
+
+            http.post('/contact', {
+                message: contactFormElem.find('textarea').val(),
+                name: contactFormElem.find('input[name=name]').val(),
+                email: contactFormElem.find('input[name=email]').val(),
+                __token: contactFormElem.find('input[name=__token]').val()
+            }).then(function (response) {
+                if (response.data.status === 'ok') {
+                    showSnackBar("Your message has been sent successfully!");
+                    contactFormElem.trigger('reset');
+                    $(".close.contact-popup-toggle").trigger('click');
+                } else {
+                    showSnackBar("Oops! Something went wrong, weird.");
+                    console.error(response);
+                }
+
+                toggleBtnState();
+            }).catch(function (error) {
+                showSnackBar("Oops! Something broke. Please try again.");
+                console.error(error);
+                toggleBtnState();
+            });
+
+            return false;
+        }
+    });
+})(window.axios);
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+/**
+ * This will add a little parallax to the background image on the mouse movement.
+ */
+$(document).ready(function () {
+    var div = $(".parallaxbg");
+
+    var movementStrength = 25;
+    var height = movementStrength / $(window).height();
+    var width = movementStrength / $(window).width();
+
+    $(window).resize(function () {
+        div.css("background-position", "center top");
+    });
+
+    div.mousemove(function (e) {
+        var pageWidth = $(window).width();
+        var pageHeight = $(window).width();
+
+        if (pageWidth >= 991) {
+            var pageX = e.pageX - pageWidth / 2;
+            var pageY = e.pageY - pageHeight / 2;
+            var newvalueX = width * pageX * -1 - 25;
+            var newvalueY = height * pageY * -1 - 50;
+            div.css("background-position", newvalueX + "px     " + newvalueY + "px");
+        }
+    });
+});
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+/**
+ * Snackbar is the notification function to display quick notifications on the site.
+ *
+ * @param message
+ */
+window.showSnackBar = function (message) {
+    var snackbar = void 0;
+    snackbar = document.getElementById("snackbar");
+    snackbar.className = "show";
+    snackbar.innerHTML = message;
+    setTimeout(function () {
+        snackbar.className = snackbar.className.replace("show", "");
+    }, 3000);
+};
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
 /**
  * Created by neo on 26/06/2017.
  */
@@ -1723,7 +1882,367 @@ if (token) {
 })();
 
 /***/ }),
-/* 29 */
+/* 32 */
+/***/ (function(module, exports) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * Validator v0.11.9 for Bootstrap 3, by @1000hz
+ * Copyright 2017 Cina Saffary
+ * Licensed under http://opensource.org/licenses/MIT
+ *
+ * https://github.com/1000hz/bootstrap-validator
+ */
+
++function ($) {
+    'use strict';
+
+    // VALIDATOR CLASS DEFINITION
+    // ==========================
+
+    function getValue($el) {
+        return $el.is('[type="checkbox"]') ? $el.prop('checked') : $el.is('[type="radio"]') ? !!$('[name="' + $el.attr('name') + '"]:checked').length : $el.is('select[multiple]') ? ($el.val() || []).length : $el.val();
+    }
+
+    var Validator = function Validator(element, options) {
+        this.options = options;
+        this.validators = $.extend({}, Validator.VALIDATORS, options.custom);
+        this.$element = $(element);
+        this.$btn = $('button[type="submit"], input[type="submit"]').filter('[form="' + this.$element.attr('id') + '"]').add(this.$element.find('input[type="submit"], button[type="submit"]'));
+
+        this.update();
+
+        this.$element.on('input.bs.validator change.bs.validator focusout.bs.validator', $.proxy(this.onInput, this));
+        this.$element.on('submit.bs.validator', $.proxy(this.onSubmit, this));
+        this.$element.on('reset.bs.validator', $.proxy(this.reset, this));
+
+        this.$element.find('[data-match]').each(function () {
+            var $this = $(this);
+            var target = $this.attr('data-match');
+
+            $(target).on('input.bs.validator', function (e) {
+                getValue($this) && $this.trigger('input.bs.validator');
+            });
+        }
+
+        // run validators for fields with values, but don't clobber server-side errors
+        );this.$inputs.filter(function () {
+            return getValue($(this)) && !$(this).closest('.has-error').length;
+        }).trigger('focusout');
+
+        this.$element.attr('novalidate', true // disable automatic native validation
+        );
+    };
+
+    Validator.VERSION = '0.11.9';
+
+    Validator.INPUT_SELECTOR = ':input:not([type="hidden"], [type="submit"], [type="reset"], button)';
+
+    Validator.FOCUS_OFFSET = 20;
+
+    Validator.DEFAULTS = {
+        delay: 500,
+        html: false,
+        disable: true,
+        focus: true,
+        custom: {},
+        errors: {
+            match: 'Does not match',
+            minlength: 'Not long enough'
+        },
+        feedback: {
+            success: 'glyphicon-ok',
+            error: 'glyphicon-remove'
+        }
+    };
+
+    Validator.VALIDATORS = {
+        'native': function native($el) {
+            var el = $el[0];
+            if (el.checkValidity) {
+                return !el.checkValidity() && !el.validity.valid && (el.validationMessage || "error!");
+            }
+        },
+        'match': function match($el) {
+            var target = $el.attr('data-match');
+            return $el.val() !== $(target).val() && Validator.DEFAULTS.errors.match;
+        },
+        'minlength': function minlength($el) {
+            var minlength = $el.attr('data-minlength');
+            return $el.val().length < minlength && Validator.DEFAULTS.errors.minlength;
+        }
+    };
+
+    Validator.prototype.update = function () {
+        var self = this;
+
+        this.$inputs = this.$element.find(Validator.INPUT_SELECTOR).add(this.$element.find('[data-validate="true"]')).not(this.$element.find('[data-validate="false"]').each(function () {
+            self.clearErrors($(this));
+        }));
+
+        this.toggleSubmit();
+
+        return this;
+    };
+
+    Validator.prototype.onInput = function (e) {
+        var self = this;
+        var $el = $(e.target);
+        var deferErrors = e.type !== 'focusout';
+
+        if (!this.$inputs.is($el)) return;
+
+        this.validateInput($el, deferErrors).done(function () {
+            self.toggleSubmit();
+        });
+    };
+
+    Validator.prototype.validateInput = function ($el, deferErrors) {
+        var value = getValue($el);
+        var prevErrors = $el.data('bs.validator.errors');
+
+        if ($el.is('[type="radio"]')) $el = this.$element.find('input[name="' + $el.attr('name') + '"]');
+
+        var e = $.Event('validate.bs.validator', { relatedTarget: $el[0] });
+        this.$element.trigger(e);
+        if (e.isDefaultPrevented()) return;
+
+        var self = this;
+
+        return this.runValidators($el).done(function (errors) {
+            $el.data('bs.validator.errors', errors);
+
+            errors.length ? deferErrors ? self.defer($el, self.showErrors) : self.showErrors($el) : self.clearErrors($el);
+
+            if (!prevErrors || errors.toString() !== prevErrors.toString()) {
+                e = errors.length ? $.Event('invalid.bs.validator', { relatedTarget: $el[0], detail: errors }) : $.Event('valid.bs.validator', { relatedTarget: $el[0], detail: prevErrors });
+
+                self.$element.trigger(e);
+            }
+
+            self.toggleSubmit();
+
+            self.$element.trigger($.Event('validated.bs.validator', { relatedTarget: $el[0] }));
+        });
+    };
+
+    Validator.prototype.runValidators = function ($el) {
+        var errors = [];
+        var deferred = $.Deferred();
+
+        $el.data('bs.validator.deferred') && $el.data('bs.validator.deferred').reject();
+        $el.data('bs.validator.deferred', deferred);
+
+        function getValidatorSpecificError(key) {
+            return $el.attr('data-' + key + '-error');
+        }
+
+        function getValidityStateError() {
+            var validity = $el[0].validity;
+            return validity.typeMismatch ? $el.attr('data-type-error') : validity.patternMismatch ? $el.attr('data-pattern-error') : validity.stepMismatch ? $el.attr('data-step-error') : validity.rangeOverflow ? $el.attr('data-max-error') : validity.rangeUnderflow ? $el.attr('data-min-error') : validity.valueMissing ? $el.attr('data-required-error') : null;
+        }
+
+        function getGenericError() {
+            return $el.attr('data-error');
+        }
+
+        function getErrorMessage(key) {
+            return getValidatorSpecificError(key) || getValidityStateError() || getGenericError();
+        }
+
+        $.each(this.validators, $.proxy(function (key, validator) {
+            var error = null;
+            if ((getValue($el) || $el.attr('required')) && ($el.attr('data-' + key) !== undefined || key == 'native') && (error = validator.call(this, $el))) {
+                error = getErrorMessage(key) || error;
+                !~errors.indexOf(error) && errors.push(error);
+            }
+        }, this));
+
+        if (!errors.length && getValue($el) && $el.attr('data-remote')) {
+            this.defer($el, function () {
+                var data = {};
+                data[$el.attr('name')] = getValue($el);
+                $.get($el.attr('data-remote'), data).fail(function (jqXHR, textStatus, error) {
+                    errors.push(getErrorMessage('remote') || error);
+                }).always(function () {
+                    deferred.resolve(errors);
+                });
+            });
+        } else deferred.resolve(errors);
+
+        return deferred.promise();
+    };
+
+    Validator.prototype.validate = function () {
+        var self = this;
+
+        $.when(this.$inputs.map(function (el) {
+            return self.validateInput($(this), false);
+        })).then(function () {
+            self.toggleSubmit();
+            self.focusError();
+        });
+
+        return this;
+    };
+
+    Validator.prototype.focusError = function () {
+        if (!this.options.focus) return;
+
+        var $input = this.$element.find(".has-error :input:first");
+        if ($input.length === 0) return;
+
+        $('html, body').animate({ scrollTop: $input.offset().top - Validator.FOCUS_OFFSET }, 250);
+        $input.focus();
+    };
+
+    Validator.prototype.showErrors = function ($el) {
+        var method = this.options.html ? 'html' : 'text';
+        var errors = $el.data('bs.validator.errors');
+        var $group = $el.closest('.form-group');
+        var $block = $group.find('.help-block.with-errors');
+        var $feedback = $group.find('.form-control-feedback');
+
+        if (!errors.length) return;
+
+        errors = $('<ul/>').addClass('list-unstyled').append($.map(errors, function (error) {
+            return $('<li/>')[method](error);
+        }));
+
+        $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html());
+        $block.empty().append(errors);
+        $group.addClass('has-error has-danger');
+
+        $group.hasClass('has-feedback') && $feedback.removeClass(this.options.feedback.success) && $feedback.addClass(this.options.feedback.error) && $group.removeClass('has-success');
+    };
+
+    Validator.prototype.clearErrors = function ($el) {
+        var $group = $el.closest('.form-group');
+        var $block = $group.find('.help-block.with-errors');
+        var $feedback = $group.find('.form-control-feedback');
+
+        $block.html($block.data('bs.validator.originalContent'));
+        $group.removeClass('has-error has-danger has-success');
+
+        $group.hasClass('has-feedback') && $feedback.removeClass(this.options.feedback.error) && $feedback.removeClass(this.options.feedback.success) && getValue($el) && $feedback.addClass(this.options.feedback.success) && $group.addClass('has-success');
+    };
+
+    Validator.prototype.hasErrors = function () {
+        function fieldErrors() {
+            return !!($(this).data('bs.validator.errors') || []).length;
+        }
+
+        return !!this.$inputs.filter(fieldErrors).length;
+    };
+
+    Validator.prototype.isIncomplete = function () {
+        function fieldIncomplete() {
+            var value = getValue($(this));
+            return !(typeof value == "string" ? $.trim(value) : value);
+        }
+
+        return !!this.$inputs.filter('[required]').filter(fieldIncomplete).length;
+    };
+
+    Validator.prototype.onSubmit = function (e) {
+        this.validate();
+        if (this.isIncomplete() || this.hasErrors()) e.preventDefault();
+    };
+
+    Validator.prototype.toggleSubmit = function () {
+        if (!this.options.disable) return;
+        this.$btn.toggleClass('disabled', this.isIncomplete() || this.hasErrors());
+    };
+
+    Validator.prototype.defer = function ($el, callback) {
+        callback = $.proxy(callback, this, $el);
+        if (!this.options.delay) return callback();
+        window.clearTimeout($el.data('bs.validator.timeout'));
+        $el.data('bs.validator.timeout', window.setTimeout(callback, this.options.delay));
+    };
+
+    Validator.prototype.reset = function () {
+        this.$element.find('.form-control-feedback').removeClass(this.options.feedback.error).removeClass(this.options.feedback.success);
+
+        this.$inputs.removeData(['bs.validator.errors', 'bs.validator.deferred']).each(function () {
+            var $this = $(this);
+            var timeout = $this.data('bs.validator.timeout');
+            window.clearTimeout(timeout) && $this.removeData('bs.validator.timeout');
+        });
+
+        this.$element.find('.help-block.with-errors').each(function () {
+            var $this = $(this);
+            var originalContent = $this.data('bs.validator.originalContent');
+
+            $this.removeData('bs.validator.originalContent').html(originalContent);
+        });
+
+        this.$btn.removeClass('disabled');
+
+        this.$element.find('.has-error, .has-danger, .has-success').removeClass('has-error has-danger has-success');
+
+        return this;
+    };
+
+    Validator.prototype.destroy = function () {
+        this.reset();
+
+        this.$element.removeAttr('novalidate').removeData('bs.validator').off('.bs.validator');
+
+        this.$inputs.off('.bs.validator');
+
+        this.options = null;
+        this.validators = null;
+        this.$element = null;
+        this.$btn = null;
+        this.$inputs = null;
+
+        return this;
+    };
+
+    // VALIDATOR PLUGIN DEFINITION
+    // ===========================
+
+
+    function Plugin(option) {
+        return this.each(function () {
+            var $this = $(this);
+            var options = $.extend({}, Validator.DEFAULTS, $this.data(), (typeof option === 'undefined' ? 'undefined' : _typeof(option)) == 'object' && option);
+            var data = $this.data('bs.validator');
+
+            if (!data && option == 'destroy') return;
+            if (!data) $this.data('bs.validator', data = new Validator(this, options));
+            if (typeof option == 'string') data[option]();
+        });
+    }
+
+    var old = $.fn.validator;
+
+    $.fn.validator = Plugin;
+    $.fn.validator.Constructor = Validator;
+
+    // VALIDATOR NO CONFLICT
+    // =====================
+
+    $.fn.validator.noConflict = function () {
+        $.fn.validator = old;
+        return this;
+    };
+
+    // VALIDATOR DATA-API
+    // ==================
+
+    $(window).on('load', function () {
+        $('form[data-toggle="validator"]').each(function () {
+            var $form = $(this);
+            Plugin.call($form, $form.data());
+        });
+    });
+}(jQuery);
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11983,7 +12502,7 @@ return jQuery;
 
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -29072,10 +29591,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32), __webpack_require__(33)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36), __webpack_require__(37)(module)))
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -29265,7 +29784,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports) {
 
 var g;
@@ -29292,7 +29811,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -29320,496 +29839,12 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(7);
-module.exports = __webpack_require__(8);
+__webpack_require__(8);
+module.exports = __webpack_require__(9);
 
-
-/***/ }),
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */
-/***/ (function(module, exports) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/*!
- * Validator v0.11.9 for Bootstrap 3, by @1000hz
- * Copyright 2017 Cina Saffary
- * Licensed under http://opensource.org/licenses/MIT
- *
- * https://github.com/1000hz/bootstrap-validator
- */
-
-+function ($) {
-    'use strict';
-
-    // VALIDATOR CLASS DEFINITION
-    // ==========================
-
-    function getValue($el) {
-        return $el.is('[type="checkbox"]') ? $el.prop('checked') : $el.is('[type="radio"]') ? !!$('[name="' + $el.attr('name') + '"]:checked').length : $el.is('select[multiple]') ? ($el.val() || []).length : $el.val();
-    }
-
-    var Validator = function Validator(element, options) {
-        this.options = options;
-        this.validators = $.extend({}, Validator.VALIDATORS, options.custom);
-        this.$element = $(element);
-        this.$btn = $('button[type="submit"], input[type="submit"]').filter('[form="' + this.$element.attr('id') + '"]').add(this.$element.find('input[type="submit"], button[type="submit"]'));
-
-        this.update();
-
-        this.$element.on('input.bs.validator change.bs.validator focusout.bs.validator', $.proxy(this.onInput, this));
-        this.$element.on('submit.bs.validator', $.proxy(this.onSubmit, this));
-        this.$element.on('reset.bs.validator', $.proxy(this.reset, this));
-
-        this.$element.find('[data-match]').each(function () {
-            var $this = $(this);
-            var target = $this.attr('data-match');
-
-            $(target).on('input.bs.validator', function (e) {
-                getValue($this) && $this.trigger('input.bs.validator');
-            });
-        }
-
-        // run validators for fields with values, but don't clobber server-side errors
-        );this.$inputs.filter(function () {
-            return getValue($(this)) && !$(this).closest('.has-error').length;
-        }).trigger('focusout');
-
-        this.$element.attr('novalidate', true // disable automatic native validation
-        );
-    };
-
-    Validator.VERSION = '0.11.9';
-
-    Validator.INPUT_SELECTOR = ':input:not([type="hidden"], [type="submit"], [type="reset"], button)';
-
-    Validator.FOCUS_OFFSET = 20;
-
-    Validator.DEFAULTS = {
-        delay: 500,
-        html: false,
-        disable: true,
-        focus: true,
-        custom: {},
-        errors: {
-            match: 'Does not match',
-            minlength: 'Not long enough'
-        },
-        feedback: {
-            success: 'glyphicon-ok',
-            error: 'glyphicon-remove'
-        }
-    };
-
-    Validator.VALIDATORS = {
-        'native': function native($el) {
-            var el = $el[0];
-            if (el.checkValidity) {
-                return !el.checkValidity() && !el.validity.valid && (el.validationMessage || "error!");
-            }
-        },
-        'match': function match($el) {
-            var target = $el.attr('data-match');
-            return $el.val() !== $(target).val() && Validator.DEFAULTS.errors.match;
-        },
-        'minlength': function minlength($el) {
-            var minlength = $el.attr('data-minlength');
-            return $el.val().length < minlength && Validator.DEFAULTS.errors.minlength;
-        }
-    };
-
-    Validator.prototype.update = function () {
-        var self = this;
-
-        this.$inputs = this.$element.find(Validator.INPUT_SELECTOR).add(this.$element.find('[data-validate="true"]')).not(this.$element.find('[data-validate="false"]').each(function () {
-            self.clearErrors($(this));
-        }));
-
-        this.toggleSubmit();
-
-        return this;
-    };
-
-    Validator.prototype.onInput = function (e) {
-        var self = this;
-        var $el = $(e.target);
-        var deferErrors = e.type !== 'focusout';
-
-        if (!this.$inputs.is($el)) return;
-
-        this.validateInput($el, deferErrors).done(function () {
-            self.toggleSubmit();
-        });
-    };
-
-    Validator.prototype.validateInput = function ($el, deferErrors) {
-        var value = getValue($el);
-        var prevErrors = $el.data('bs.validator.errors');
-
-        if ($el.is('[type="radio"]')) $el = this.$element.find('input[name="' + $el.attr('name') + '"]');
-
-        var e = $.Event('validate.bs.validator', { relatedTarget: $el[0] });
-        this.$element.trigger(e);
-        if (e.isDefaultPrevented()) return;
-
-        var self = this;
-
-        return this.runValidators($el).done(function (errors) {
-            $el.data('bs.validator.errors', errors);
-
-            errors.length ? deferErrors ? self.defer($el, self.showErrors) : self.showErrors($el) : self.clearErrors($el);
-
-            if (!prevErrors || errors.toString() !== prevErrors.toString()) {
-                e = errors.length ? $.Event('invalid.bs.validator', { relatedTarget: $el[0], detail: errors }) : $.Event('valid.bs.validator', { relatedTarget: $el[0], detail: prevErrors });
-
-                self.$element.trigger(e);
-            }
-
-            self.toggleSubmit();
-
-            self.$element.trigger($.Event('validated.bs.validator', { relatedTarget: $el[0] }));
-        });
-    };
-
-    Validator.prototype.runValidators = function ($el) {
-        var errors = [];
-        var deferred = $.Deferred();
-
-        $el.data('bs.validator.deferred') && $el.data('bs.validator.deferred').reject();
-        $el.data('bs.validator.deferred', deferred);
-
-        function getValidatorSpecificError(key) {
-            return $el.attr('data-' + key + '-error');
-        }
-
-        function getValidityStateError() {
-            var validity = $el[0].validity;
-            return validity.typeMismatch ? $el.attr('data-type-error') : validity.patternMismatch ? $el.attr('data-pattern-error') : validity.stepMismatch ? $el.attr('data-step-error') : validity.rangeOverflow ? $el.attr('data-max-error') : validity.rangeUnderflow ? $el.attr('data-min-error') : validity.valueMissing ? $el.attr('data-required-error') : null;
-        }
-
-        function getGenericError() {
-            return $el.attr('data-error');
-        }
-
-        function getErrorMessage(key) {
-            return getValidatorSpecificError(key) || getValidityStateError() || getGenericError();
-        }
-
-        $.each(this.validators, $.proxy(function (key, validator) {
-            var error = null;
-            if ((getValue($el) || $el.attr('required')) && ($el.attr('data-' + key) !== undefined || key == 'native') && (error = validator.call(this, $el))) {
-                error = getErrorMessage(key) || error;
-                !~errors.indexOf(error) && errors.push(error);
-            }
-        }, this));
-
-        if (!errors.length && getValue($el) && $el.attr('data-remote')) {
-            this.defer($el, function () {
-                var data = {};
-                data[$el.attr('name')] = getValue($el);
-                $.get($el.attr('data-remote'), data).fail(function (jqXHR, textStatus, error) {
-                    errors.push(getErrorMessage('remote') || error);
-                }).always(function () {
-                    deferred.resolve(errors);
-                });
-            });
-        } else deferred.resolve(errors);
-
-        return deferred.promise();
-    };
-
-    Validator.prototype.validate = function () {
-        var self = this;
-
-        $.when(this.$inputs.map(function (el) {
-            return self.validateInput($(this), false);
-        })).then(function () {
-            self.toggleSubmit();
-            self.focusError();
-        });
-
-        return this;
-    };
-
-    Validator.prototype.focusError = function () {
-        if (!this.options.focus) return;
-
-        var $input = this.$element.find(".has-error :input:first");
-        if ($input.length === 0) return;
-
-        $('html, body').animate({ scrollTop: $input.offset().top - Validator.FOCUS_OFFSET }, 250);
-        $input.focus();
-    };
-
-    Validator.prototype.showErrors = function ($el) {
-        var method = this.options.html ? 'html' : 'text';
-        var errors = $el.data('bs.validator.errors');
-        var $group = $el.closest('.form-group');
-        var $block = $group.find('.help-block.with-errors');
-        var $feedback = $group.find('.form-control-feedback');
-
-        if (!errors.length) return;
-
-        errors = $('<ul/>').addClass('list-unstyled').append($.map(errors, function (error) {
-            return $('<li/>')[method](error);
-        }));
-
-        $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html());
-        $block.empty().append(errors);
-        $group.addClass('has-error has-danger');
-
-        $group.hasClass('has-feedback') && $feedback.removeClass(this.options.feedback.success) && $feedback.addClass(this.options.feedback.error) && $group.removeClass('has-success');
-    };
-
-    Validator.prototype.clearErrors = function ($el) {
-        var $group = $el.closest('.form-group');
-        var $block = $group.find('.help-block.with-errors');
-        var $feedback = $group.find('.form-control-feedback');
-
-        $block.html($block.data('bs.validator.originalContent'));
-        $group.removeClass('has-error has-danger has-success');
-
-        $group.hasClass('has-feedback') && $feedback.removeClass(this.options.feedback.error) && $feedback.removeClass(this.options.feedback.success) && getValue($el) && $feedback.addClass(this.options.feedback.success) && $group.addClass('has-success');
-    };
-
-    Validator.prototype.hasErrors = function () {
-        function fieldErrors() {
-            return !!($(this).data('bs.validator.errors') || []).length;
-        }
-
-        return !!this.$inputs.filter(fieldErrors).length;
-    };
-
-    Validator.prototype.isIncomplete = function () {
-        function fieldIncomplete() {
-            var value = getValue($(this));
-            return !(typeof value == "string" ? $.trim(value) : value);
-        }
-
-        return !!this.$inputs.filter('[required]').filter(fieldIncomplete).length;
-    };
-
-    Validator.prototype.onSubmit = function (e) {
-        this.validate();
-        if (this.isIncomplete() || this.hasErrors()) e.preventDefault();
-    };
-
-    Validator.prototype.toggleSubmit = function () {
-        if (!this.options.disable) return;
-        this.$btn.toggleClass('disabled', this.isIncomplete() || this.hasErrors());
-    };
-
-    Validator.prototype.defer = function ($el, callback) {
-        callback = $.proxy(callback, this, $el);
-        if (!this.options.delay) return callback();
-        window.clearTimeout($el.data('bs.validator.timeout'));
-        $el.data('bs.validator.timeout', window.setTimeout(callback, this.options.delay));
-    };
-
-    Validator.prototype.reset = function () {
-        this.$element.find('.form-control-feedback').removeClass(this.options.feedback.error).removeClass(this.options.feedback.success);
-
-        this.$inputs.removeData(['bs.validator.errors', 'bs.validator.deferred']).each(function () {
-            var $this = $(this);
-            var timeout = $this.data('bs.validator.timeout');
-            window.clearTimeout(timeout) && $this.removeData('bs.validator.timeout');
-        });
-
-        this.$element.find('.help-block.with-errors').each(function () {
-            var $this = $(this);
-            var originalContent = $this.data('bs.validator.originalContent');
-
-            $this.removeData('bs.validator.originalContent').html(originalContent);
-        });
-
-        this.$btn.removeClass('disabled');
-
-        this.$element.find('.has-error, .has-danger, .has-success').removeClass('has-error has-danger has-success');
-
-        return this;
-    };
-
-    Validator.prototype.destroy = function () {
-        this.reset();
-
-        this.$element.removeAttr('novalidate').removeData('bs.validator').off('.bs.validator');
-
-        this.$inputs.off('.bs.validator');
-
-        this.options = null;
-        this.validators = null;
-        this.$element = null;
-        this.$btn = null;
-        this.$inputs = null;
-
-        return this;
-    };
-
-    // VALIDATOR PLUGIN DEFINITION
-    // ===========================
-
-
-    function Plugin(option) {
-        return this.each(function () {
-            var $this = $(this);
-            var options = $.extend({}, Validator.DEFAULTS, $this.data(), (typeof option === 'undefined' ? 'undefined' : _typeof(option)) == 'object' && option);
-            var data = $this.data('bs.validator');
-
-            if (!data && option == 'destroy') return;
-            if (!data) $this.data('bs.validator', data = new Validator(this, options));
-            if (typeof option == 'string') data[option]();
-        });
-    }
-
-    var old = $.fn.validator;
-
-    $.fn.validator = Plugin;
-    $.fn.validator.Constructor = Validator;
-
-    // VALIDATOR NO CONFLICT
-    // =====================
-
-    $.fn.validator.noConflict = function () {
-        $.fn.validator = old;
-        return this;
-    };
-
-    // VALIDATOR DATA-API
-    // ==================
-
-    $(window).on('load', function () {
-        $('form[data-toggle="validator"]').each(function () {
-            var $form = $(this);
-            Plugin.call($form, $form.data());
-        });
-    });
-}(jQuery);
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-(function (http) {
-    var contactFormElem = $("#contact-form");
-    var validContactToken = "YUesU09isIUiUkCX9288==";
-
-    /**
-     * Sets a custom validator that can then be called from the input field if necessary for the field to
-     * be validated.
-     */
-
-    contactFormElem.validator({
-        custom: {
-            pattern: function pattern($el) {
-                var pattern = $el.data("pattern");
-                return !$el.val() || new RegExp(pattern, "g").test($el.val());
-            }
-        }
-    });
-
-    /**
-     * We will attempt to remove the already set value in the __token field and replace it with nothing.
-     * This is basically a poormans alternative to checkmate bots that do not load Javascript and thus
-     * cannot run this command. The server will make sure if this field is not equal to a certain
-     * string then it could be spam.
-     */
-
-    $(".leave > input").attr("value", validContactToken);
-
-    /**
-     * This block is here to basically toggle the popup form to enter the contact details and
-     * message.
-     */
-
-    $(".contact-popup-toggle").click(function (evt) {
-        var scrollPosition = void 0,
-            elem = void 0,
-            html = void 0;
-
-        evt.preventDefault();
-
-        html = $("html");
-        elem = $(".full-pop.contact");
-
-        if (elem.hasClass("active")) {
-            elem.removeClass("active");
-
-            // Unlock scrolling...
-            scrollPosition = html.data("scroll-position");
-            html.css("overflow", html.data("previous-overflow"));
-            window.scrollTo(scrollPosition[0], scrollPosition[1]);
-        } else {
-            elem.addClass("active");
-
-            scrollPosition = [self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft, self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop];
-
-            // Lock scrolling...
-            html.data("scroll-position", scrollPosition);
-            html.data("previous-overflow", html.css("overflow"));
-            html.css("overflow", "hidden");
-            window.scrollTo(scrollPosition[0], scrollPosition[1]);
-        }
-    });
-
-    /**
-     * Submits the form to the server for processing.
-     */
-
-    contactFormElem.validator().on('submit', function (evt) {
-        if (!evt.isDefaultPrevented()) {
-            var toggleBtnState = function toggleBtnState() {
-                if (!sendBtn.data('active')) {
-                    sendBtn.data('loading', oldText);
-                    sendBtn.text(newText);
-                    sendBtn.data('active', true);
-                    sendBtn.attr('disabled', true);
-                } else {
-                    sendBtn.data('loading', newText);
-                    sendBtn.text(oldText);
-                    sendBtn.data('active', false);
-                    sendBtn.attr('disabled', false);
-                }
-            };
-
-            evt.preventDefault();
-
-            var sendBtn = contactFormElem.find('.send-btn');
-            var oldText = sendBtn.text();
-            var newText = sendBtn.data('loading');
-
-            toggleBtnState();
-
-            http.post('/contact', {
-                message: contactFormElem.find('textarea').val(),
-                name: contactFormElem.find('input[name=name]').val(),
-                email: contactFormElem.find('input[name=email]').val(),
-                __token: contactFormElem.find('input[name=__token]').val()
-            }).then(function (response) {
-                if (response.data.status === 'ok') {
-                    showSnackBar("Your message has been sent successfully!");
-                    contactFormElem.trigger('reset');
-                    $(".close.contact-popup-toggle").trigger('click');
-                } else {
-                    showSnackBar("Oops! Something went wrong, weird.");
-                    console.error(response);
-                }
-
-                toggleBtnState();
-            }).catch(function (error) {
-                showSnackBar("Oops! Something broke. Please try again.");
-                console.error(error);
-                toggleBtnState();
-            });
-
-            return false;
-        }
-    });
-})(window.axios);
 
 /***/ })
 /******/ ]);

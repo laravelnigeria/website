@@ -42,10 +42,8 @@ section.section {
     }
 
     &.speak {
+        background: url('../img/speaker.jpg') no-repeat center;
         background-size: cover;
-        background-repeat: no-repeat;
-        background-image: url('../img/speaker.jpg');
-        background-position: center;
         position: relative;
         .container {
             position: relative;
@@ -188,6 +186,50 @@ section.section {
     }
 
     &.speakers {
+        &.single {
+            padding-top: 0;
+            .meetup-title {
+                text-align: center;
+                padding: 50px 0 40px;
+                @media #{$sm-min} {
+                    padding: 120px 0 70px;
+                }
+                h3 {
+                    font-weight:600;
+                    color: rgba(#00BABA, .9);
+                    @media #{$sm-min} {
+                        font-size: 30px;
+                    }
+                }
+                span.event-date {
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    color: #999;
+                }
+            }
+        }
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            li {
+                display: inline-block;
+                margin-right: 15px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    color: #b9b9b9;
+                    transition: color .3s ease;
+                    &:hover {
+                        color: $brand-primary;
+                    }
+                }
+                i.fa {
+                    font-size: 20px;
+                }
+            }
+        }
         .btn.old-talks {
             background: #F0F0F0;
             border-radius: 10px;
@@ -198,6 +240,9 @@ section.section {
             font-weight: 600;
             color: #898989;
             transition: all .3s ease;
+            display: block;
+            z-index: 9999;
+            position: relative;
             &:hover {
                 background-color: darken(#f0f0f0, 5%);
             }
@@ -405,6 +450,7 @@ section.section {
         .sponsor a {
             display: inline-block;
             outline:none;
+            text-decoration: none;
         }
     }
 }

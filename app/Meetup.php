@@ -12,7 +12,7 @@ class Meetup extends Eloquent\Model
     /**
      * @var integer
      */
-    const CACHE_MINUTES = 5;
+    const CACHE_MINUTES = 15;
 
     /**
      * {@inheritDoc}
@@ -58,24 +58,9 @@ class Meetup extends Eloquent\Model
 
         return Cache::remember('meetup.group_with_next_event', static::CACHE_MINUTES, function () use ($group) {
             if ($group->get('next_event')) {
-                $event_id = (int) $group->get('next_event')['id'];
+                $id = (int) $group->get('next_event')['id'];
 
-                $event = $this->getEventDetails($event_id, ['omit' => 'group']);
-
-                $timezone = $group->get('timezone');
-
-                $created_timestamp = $event->get('created') / 1000;
-                $event_timestamp   = $event->get('time') / 1000;
-
-                $event->put('talks', $this->first()->talks->toArray());
-                $event->put('time_object', Carbon::createFromTimestamp($event_timestamp)->timezone($timezone));
-                $event->put('created_object', Carbon::createFromTimestamp($created_timestamp)->timezone($timezone));
-
-                if ($event->get('rsvp_limit')) {
-                    $event->put('seats_left', $event->get('rsvp_limit') - $event->get('yes_rsvp_count'));
-                }
-
-                $group->put('next_event', $event);
+                $group->put('next_event', $this->getEventDetails($id, ['omit' => 'group']));
             }
 
             return $group;
@@ -94,7 +79,23 @@ class Meetup extends Eloquent\Model
         $event_id = $event_id ?? $this->event_id;
 
         return Cache::remember("meetup.event.{$event_id}", static::CACHE_MINUTES, function () use ($event_id, $options) {
-            return Api::getEvent($event_id, $options);
+            $event = Api::getEvent($event_id, $options);
+
+            $created_timestamp = $event->get('created') / 1000;
+            $event_timestamp   = $event->get('time') / 1000;
+
+            $event->put('talks', $this->with(['talks' => function ($talks) {
+                $talks->accepted();
+            }])->first()->talks->toArray());
+
+            $event->put('time_object', Carbon::createFromTimestamp($event_timestamp));
+            $event->put('created_object', Carbon::createFromTimestamp($created_timestamp));
+
+            if ($event->get('rsvp_limit')) {
+                $event->put('seats_left', $event->get('rsvp_limit') - $event->get('yes_rsvp_count'));
+            }
+
+            return $event;
         });
     }
 

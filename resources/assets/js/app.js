@@ -11,20 +11,9 @@ try {
     require('./smooth-scroll');
     require('./validator');
     require('./modules/contact');
+    require('./modules/snackbar');
+    require('./modules/parallaxbg');
 } catch (e) {}
-
-/**
- * Snackbar is the notification function to display quick notifications on the site.
- *
- * @param message
- */
-window.showSnackBar = (message) => {
-    let snackbar;
-    snackbar = document.getElementById("snackbar");
-    snackbar.className = "show";
-    snackbar.innerHTML = message;
-    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
-};
 
 // window.Vue = require('vue');
 

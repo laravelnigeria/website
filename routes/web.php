@@ -30,6 +30,6 @@ $router->group(['prefix' => 'blog'], function($router) {
 // ------------------------------------------------------------
 
 $router->get('/home', 'HomeController@home')->name('home');
-$router->get('/talks', 'HomeController@talks')->name('talks');
+$router->get('/talks', 'TalksController@index')->name('talks');
 $router->post('/contact', 'ContactController')->name('contact');
 $router->get('/', 'HomeController@index')->name('index');
