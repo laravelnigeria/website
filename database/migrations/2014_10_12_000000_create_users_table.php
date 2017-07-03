@@ -20,7 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->default('https://placehold.it/100x100&text=IMG');
             $table->string('job')->nullable();
-            $table->json('social_links')->nullable();
+            if (\DB::connection()->getPdo()->getAttribute(\PDO::ATTR_DRIVER_NAME) == 'mysql') {
+                $table->text('social_links')->nullable();
+            } else {
+                $table->json('social_links')->nullable();
+            }
             $table->rememberToken();
             $table->timestamps();
         });
