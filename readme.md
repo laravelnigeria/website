@@ -10,6 +10,7 @@
 
 ## Requirements
 * Composer installed on the your machine
+* NPM if you are modifying SCSS, JS or Images
 * Twitter application and credentials, also set the env variables
 * Mailgun or any other mail driver (if you want to test the Contact form use Mailtrap.io)
 * Set up the required ENV variables, the more you set up the better though
@@ -28,7 +29,7 @@
 
 <p>&nbsp;</p>
 
-## Installation
+## Installation and Configuration
 * Fork the repository & clone it to your host machine
     
     ```shell
@@ -42,10 +43,12 @@
     $ composer install
     ```
 
-<p>&nbsp;</p>
-
-## Configuration
 * Make a copy of the `.env.example` file  and name it `.env`
+    
+    ```shell
+    $ cp .env.example .env
+    ```
+
 * Generate a new application key using `artisan`
 
     ```shell
@@ -86,7 +89,7 @@
     TWITTER_SEARCH_QUERY="#LaravelNigeria OR @laravelnigeria -filter:retweets -filter:replies"
     ```
 
-* If you want to modify the template and css you will need `npm` installed on your machine. Verify that you have the correct setting in your `webpack.config.js` file, especially the BrowserSync section.
+* If you want to modify the template and css you will need `npm` installed on your machine. Verify that you have the correct setting in your `webpack.mix.js` file, especially the BrowserSync section.
 
     ```javascript
     mix.js('resources/assets/js/app.js', 'public/js')
@@ -95,7 +98,8 @@
           processCssUrls: false
        })
        .browserSync({
-          proxy: 'laravelnigeria.dev' // Use Laravel Valet to make sure this matches or use whatever you have the hostname set as.
+           // Use Laravel Valet to make sure this matches. From the root of your app, run: $ valet link laravelnigeria
+          proxy: 'laravelnigeria.dev'
        });
     ```
     
