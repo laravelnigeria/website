@@ -32,4 +32,5 @@ $router->group(['prefix' => 'blog'], function($router) {
 $router->get('/home', 'HomeController@home')->name('home');
 $router->get('/talks', 'TalksController@index')->name('talks');
 $router->post('/contact', 'ContactController')->name('contact');
+$router->get('/contribute', 'ContributeController')->name('contribute');
 $router->get('/', 'HomeController@index')->name('index');
