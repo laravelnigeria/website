@@ -8,11 +8,12 @@
 
         <div class="le-navigation">
             <ul class="nav navbar-nav" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-                <li itemprop="name"><a itemprop="url" href="#slack-invite" title="Community">Community</a></li>
-                <li itemprop="name"><a itemprop="url" href="#learning-track" title="Learn">Learn</a></li>
-                <li itemprop="name"><a itemprop="url" href="{{ route('jobs.index') }}" title="Jobs">Jobs</a></li>
-                <li itemprop="name"><a itemprop="url" href="{{ url('/blog') }}" title="Blog">Blog</a></li>
 {{--                <li itemprop="name"><a itemprop="url" href="{{ route('contribute') }}" title="Contribute to {{ config('app.name') }}">Contribute</a></li>--}}
+                <li itemprop="name"><a itemprop="url" href="{{ route('talks') }}" title="Talks given at {{ config('app.name') }}">Talks</a></li>
+                <li itemprop="name"><a itemprop="url" href="/#slack-invite" title="{{ config('app.name') }} Community">Community</a></li>
+                <li itemprop="name"><a itemprop="url" href="/#learning-track" title="Learn">Learn</a></li>
+                {{--<li itemprop="name"><a itemprop="url" href="{{ route('jobs.index') }}" title="{{ config('app.name') }} Jobs">Jobs</a></li>--}}
+                <li itemprop="name"><a itemprop="url" href="{{ url('/blog') }}" title="{{ config('app.name') }} Blog">Blog</a></li>
 
                 {{-- @if (Auth::user())
                     <li class="dropdown">
