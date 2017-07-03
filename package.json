@@ -13,7 +13,6 @@
     "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.18.12",
-    "browser-sync-webpack-plugin": "^1.1.4",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.2.3",
     "imagemin-mozjpeg": "^6.0.0",

@@ -2,7 +2,6 @@ let mix = require('laravel-mix');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
-// const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 mix.webpackConfig({
     plugins: [
@@ -11,10 +10,6 @@ mix.webpackConfig({
             test: /\.(jpe?g|png|gif)$/i,
             plugins: [ imageminMozjpeg({ quality: 70 }) ]
         })
-        // ,
-        // new BrowserSyncPlugin({
-        //     files: [ 'app/**/*', 'public/**/*', 'resources/views/**/*', 'routes/**/*' ]
-        // })
     ]
 });
 
