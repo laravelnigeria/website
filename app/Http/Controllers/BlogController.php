@@ -35,52 +35,60 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Article $article)
-    {
-        return $article; // @TODO: create and load view
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function store(Request $request)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+	
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param Article $article
+	 *
+	 * @return \Illuminate\Http\Response
+	 * @internal param int $id
+	 */
+    public function show(Article $article)
+    {
+	    return $article; // @TODO: create and load view
+    }
+	
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param Article $article
+	 *
+	 * @return \Illuminate\Http\Response
+	 * @internal param int $id
+	 */
+    public function edit(Article $article)
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+	
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request $request
+	 * @param Article $article
+	 *
+	 * @return \Illuminate\Http\Response
+	 * @internal param int $id
+	 */
+    public function update(Request $request, Article $article)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+	
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param Article $article
+	 *
+	 * @return \Illuminate\Http\Response
+	 * @internal param int $id
+	 */
+    public function destroy(Article $article)
     {
         //
     }

@@ -26,7 +26,7 @@ class Article extends Model
 	    });
     }
     
-    private function createUniqueSlug( $suffix="" )
+    private function createUniqueSlug( $suffix = "" )
     {
     	$slug = str_limit(str_slug($this->title), 30, "") . $suffix;
     	
