@@ -53,3 +53,14 @@ $factory->define(App\Talk::class, function (Faker\Generator $faker) {
         'accepted' => (bool) rand(0, 1),
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+	return [
+		'user_id' => function() {
+			return factory(App\User::class)->create()->id;
+		},
+		'title' => $faker->sentence,
+		'body' => $faker->paragraph
+	];
+});

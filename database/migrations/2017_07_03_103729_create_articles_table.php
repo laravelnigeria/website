@@ -15,9 +15,9 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable(); // let's leave admin posts as null on user_id
             $table->string('title');
-            $table->string('slug', 30)->unique();
+            $table->string('slug', 50)->unique();
             $table->text('body');
             $table->softDeletes();
             $table->timestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,7 +14,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::latest()->with('author')->get();
+        
+        return $articles; // @TODO: create and load view
     }
 
     /**
@@ -32,9 +35,9 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Article $article)
     {
-        //
+        return $article; // @TODO: create and load view
     }
 
     /**
