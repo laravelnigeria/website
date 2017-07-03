@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SpeakersTableSeeder extends Seeder
+class ArticlesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class SpeakersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\Article::class, 3)->create();
     }
 }

@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $value ? json_decode($value, true) : null;
     }
+	
+	public function articles ()
+	{
+		return $this->hasMany(Article::class);
+    }
 }

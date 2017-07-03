@@ -23,6 +23,7 @@ $router->group(['prefix' => 'jobs'], function($router) {
 
 $router->group(['prefix' => 'blog'], function($router) {
     $router->get('/', 'BlogController@index')->name('blog.index');
+    $router->get('/{article}', 'BlogController@show')->name('blog.show');
 });
 
 // ------------------------------------------------------------

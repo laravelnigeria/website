@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Speakers;
+use App\Article;
 use Illuminate\Http\Request;
 
-class SpeakersController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class SpeakersController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::latest()->with('author')->get();
+        
+        return $articles; // @TODO: create and load view
     }
 
     /**
@@ -33,18 +35,18 @@ class SpeakersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Article $article)
     {
-        //
+        return $article; // @TODO: create and load view
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Speakers  $speakers
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Speakers $speakers)
+    public function show($id)
     {
         //
     }
@@ -52,10 +54,10 @@ class SpeakersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Speakers  $speakers
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Speakers $speakers)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +66,10 @@ class SpeakersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Speakers  $speakers
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Speakers $speakers)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +77,10 @@ class SpeakersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Speakers  $speakers
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Speakers $speakers)
+    public function destroy($id)
     {
         //
     }
