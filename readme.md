@@ -9,32 +9,50 @@
 <p>&nbsp;</p>
 
 ## Requirements
-Requirements goes here
+* Composer installed on the your machine
 * Twitter application and credentials, also set the env variables
-* Mailgun or any other mail driver
-* Set up the required ENV variables (list them)
+* Mailgun or any other mail driver (if you want to test the Contact form use Mailtrap.io)
+* Set up the required ENV variables, the more you set up the better though
+  - DB_CONNECTION
+  - DB_HOST
+  - DB_PORT
+  - DB_USERNAME
+  - DB_PASSWORD
+  - MEETUP_URL_NAME
+  - MEETUP_KEY
+  - TWITTER_CONSUMER_KEY
+  - TWITTER_CONSUMER_SECRET
+  - TWITTER_ACCESS_TOKEN
+  - TWITTER_ACCESS_TOKEN_SECRET
+  - TWITTER_SEARCH_QUERY
 
 <p>&nbsp;</p>
 
 ## Installation
-- fork & clone
+* Fork the repository & clone it to your host machine
+    
+    ```shell
+    $ git clone git@github.com:laravelnigeria/website.git my-directory
+    ```
 
-        git clone git@github.com:laravelnigeria/website.git my-directory
- 
-- cd to your new directory and install dependencies
-
-        cd my-directory
-        composer install
+* Change to the root of your application's directory and install dependencies
+    
+    ```shell
+    $ cd my-directory
+    $ composer install
+    ```
 
 <p>&nbsp;</p>
 
 ## Configuration
-- make a copy of the .env.example file or just rename it to .env
-- generate a new key
+- Make a copy of the `.env.example` file  and name it `.env`
+- Generate a new application key using `artisan`
 
-        php artisan key:generate
+```shell
+$ php artisan key:generate
+```
         
-- set up your database
+- Set up your database
         
         DB_CONNECTION=
         DB_HOST=
