@@ -13,18 +13,18 @@
 * Twitter application and credentials, also set the env variables
 * Mailgun or any other mail driver (if you want to test the Contact form use Mailtrap.io)
 * Set up the required ENV variables, the more you set up the better though
-  - DB_CONNECTION
-  - DB_HOST
-  - DB_PORT
-  - DB_USERNAME
-  - DB_PASSWORD
-  - MEETUP_URL_NAME
-  - MEETUP_KEY
-  - TWITTER_CONSUMER_KEY
-  - TWITTER_CONSUMER_SECRET
-  - TWITTER_ACCESS_TOKEN
-  - TWITTER_ACCESS_TOKEN_SECRET
-  - TWITTER_SEARCH_QUERY
+  - `DB_CONNECTION`
+  - `DB_HOST`
+  - `DB_PORT`
+  - `DB_USERNAME`
+  - `DB_PASSWORD`
+  - `MEETUP_URL_NAME`
+  - `MEETUP_KEY`
+  - `TWITTER_CONSUMER_KEY`
+  - `TWITTER_CONSUMER_SECRET`
+  - `TWITTER_ACCESS_TOKEN`
+  - `TWITTER_ACCESS_TOKEN_SECRET`
+  - `TWITTER_SEARCH_QUERY`
 
 <p>&nbsp;</p>
 
@@ -45,43 +45,69 @@
 <p>&nbsp;</p>
 
 ## Configuration
-- Make a copy of the `.env.example` file  and name it `.env`
-- Generate a new application key using `artisan`
+* Make a copy of the `.env.example` file  and name it `.env`
+* Generate a new application key using `artisan`
 
-```shell
-$ php artisan key:generate
-```
+    ```shell
+    $ php artisan key:generate
+    ```
         
-- Set up your database
-        
-        DB_CONNECTION=
-        DB_HOST=
-        DB_PORT=
-        DB_DATABASE=
-        DB_USERNAME=
-        DB_PASSWORD=
-        
-- set the following vars https://secure.meetup.com/meetup_api/key/
+* Set up your database and enter the credentials in the `.env` file
 
-        MEETUP_URL_NAME=laravel-nigeria
-        MEETUP_KEY=
+    ```
+    DB_CONNECTION=
+    DB_HOST=
+    DB_PORT=
+    DB_DATABASE=
+    DB_USERNAME=
+    DB_PASSWORD=
+    ```
 
-- create a twitter app and set the following vars https://apps.twitter.com/
+* Run the database migrations and seed the database
+
+    ```shell
+    $ php artisan migrate --seed
+    ````
+        
+* [Get a Meetup API key](https://secure.meetup.com/meetup_api/key/) and set the following environment following environment variables
+
+    ```
+    MEETUP_URL_NAME="Laravel-Nigeria"    # Or whatever your Meetup URL name is...
+    MEETUP_KEY=
+    ```
+
+* [Create a Twitter application](https://apps.twitter.com/) and set the following environment variables:
+
+    ```
+    TWITTER_CONSUMER_KEY=
+    TWITTER_CONSUMER_SECRET=
+    TWITTER_ACCESS_TOKEN=
+    TWITTER_ACCESS_TOKEN_SECRET=
+    TWITTER_SEARCH_QUERY="#LaravelNigeria OR @laravelnigeria -filter:retweets -filter:replies"
+    ```
+
+* If you want to modify the template and css you will need `npm` installed on your machine. Verify that you have the correct setting in your `webpack.config.js` file, especially the BrowserSync section.
+
+    ```javascript
+    mix.js('resources/assets/js/app.js', 'public/js')
+       .sass('resources/assets/sass/app.scss', 'public/css')
+       .options({
+          processCssUrls: false
+       })
+       .browserSync({
+          proxy: 'laravelnigeria.dev' // Use Laravel Valet to make sure this matches or use whatever you have the hostname set as.
+       });
+    ```
     
-        TWITTER_CONSUMER_KEY=
-        TWITTER_CONSUMER_SECRET=
-        TWITTER_ACCESS_TOKEN=
-        TWITTER_ACCESS_TOKEN_SECRET=
-        TWITTER_SEARCH_QUERY="#laravel -filter:retweets -filter:replies"
-
-- run the migrations
-
-        php artisan migrate
-
-- seed the database
-
-        php artisan db:seed
+    Now you can run the `npm` commands to make your changes:
+    
+    ```shell
+    $ npm install
+    $ npm run watch
+    ```
         
+* You're done!
+            
 <p>&nbsp;</p>
 
 ## Todos
@@ -89,14 +115,15 @@ $ php artisan key:generate
 - [x] All talks page
 - [x] Bug in the slider getting big momentarily
 - [ ] Contribute page
-- [ ] Jobs page
 - [ ] Use web intents to add retweet, reply and like buttons to the tweet section
 - [ ] Create custom error pages
 - [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
 - [ ] Create a new Twitter application for the Laravel Nigeria application
 - [ ] Meetup feedback popup with link to leave reviews
-- [ ] Learning track availability alert form
 - [ ] Learning track
+- [ ] Learning track availability alert form
+- [ ] Installation check Middleware
+- [ ] ~~Jobs page~~
 
 <p>&nbsp;</p>
 
