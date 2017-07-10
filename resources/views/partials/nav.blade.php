@@ -12,7 +12,7 @@
                 <li itemprop="name"><a itemprop="url" href="{{ route('talks') }}" title="Talks given at {{ config('app.name') }}">Talks</a></li>
                 <li itemprop="name"><a itemprop="url" href="/#slack-invite" title="{{ config('app.name') }} Community">Community</a></li>
                 <li itemprop="name"><a itemprop="url" href="/#learning-track" title="Learn">Learn</a></li>
-                {{--<li itemprop="name"><a itemprop="url" href="{{ route('jobs.index') }}" title="{{ config('app.name') }} Jobs">Jobs</a></li>--}}
+                <li itemprop="name"><a itemprop="url" href="https://larajobs.com?partner=1844" title="{{ config('app.name') }} Jobs" target="_blank">Jobs</a></li>
                 <li itemprop="name"><a itemprop="url" href="{{ route('posts.index') }}" title="{{ config('app.name') }} Blog">Blog</a></li>
 
                 {{-- @if (Auth::user())
