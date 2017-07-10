@@ -180,6 +180,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MeetupApiServiceProvider::class,
         Thujohn\Twitter\TwitterServiceProvider::class,
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
 
     ],
 

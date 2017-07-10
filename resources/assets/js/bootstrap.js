@@ -8,7 +8,7 @@ window._ = require('lodash');
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
+    // window.$ = window.jQuery = require('jquery');
 
     // Individual stuff
     // require('bootstrap-sass/assets/javascripts/bootstrap/transition');

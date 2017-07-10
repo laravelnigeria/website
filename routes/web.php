@@ -21,9 +21,8 @@ $router->group(['prefix' => 'jobs'], function($router) {
 // Blog Routes...
 // ------------------------------------------------------------
 
-$router->group(['prefix' => 'blog'], function($router) {
-    $router->get('/', 'BlogController@index')->name('blog.index');
-});
+$router->get('posts/category/{slug}', 'PostsController@category')->name('posts.category');
+$router->resource('posts', 'PostsController');
 
 // ------------------------------------------------------------
 // Main Routes...
