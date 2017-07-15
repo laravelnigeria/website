@@ -32,7 +32,7 @@
     @endif
 
     {{-- @TODO: Make this optional --}}
-    <script src="//load.sumome.com/" data-sumo-site-id="755c93d9c7c81e64a8390a6b157487081e20e828b7a704939c0b13414140783e" async="async"></script>
+    {{-- <script src="//load.sumome.com/" data-sumo-site-id="755c93d9c7c81e64a8390a6b157487081e20e828b7a704939c0b13414140783e" async="async"></script> --}}
 
     <div id="app">
         @include($navigation ?? 'partials.nav')
