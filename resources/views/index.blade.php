@@ -22,9 +22,9 @@
             <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="RSVP to {{ config('app.name') }}" target="_blank">RSVP for this event</a>
             <span class="guests-count">
                 <span class="count">{{ $next_event['yes_rsvp_count'] ?? 0 }} people are attending the meetup.</span>
-                @if (array_get($next_event, 'seats_left') && $next_event['seats_left'] <= 50)
+                @if (isset($next_event['seats_left']) && $next_event['seats_left'] <= 50)
                     <span class="remaining">
-                        {{ $next_event['seats_left'] <= 0 ? 'Tickets sold out' : 'Hurry, '.$next_event['seats_left'].' spots left' }}
+                        {{ $next_event['seats_left'] <= 0 ? 'Tickets sold out, Join the waitlist' : 'Hurry, '.$next_event['seats_left'].' spots left' }}
                     </span>
                 @endif
             </span>
