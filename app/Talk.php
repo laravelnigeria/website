@@ -42,9 +42,7 @@ class Talk extends Model
     public function scopeOrganisedByMeetup($query) : Collection
     {
         return Cache::remember('all_talks.organised', static::CACHE_MINUTES, function () use ($query) {
-            $talks = $query->accepted()->with('meetup')
-                ->orderBy('meetup_id', 'desc')
-                ->orderBy('created_at', 'desc')->get();
+            $talks = $query->accepted()->with('meetup')->orderBy('created_at', 'desc')->get();
 
             $meetups = [];
 
