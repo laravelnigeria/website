@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -6,14 +5,10 @@
  */
 
 try {
-    require('axios');
     require('./bootstrap');
-    require('./smooth-scroll');
-    require('./validator');
-    require('./modules/contact');
-    require('./modules/snackbar');
-    require('./modules/parallaxbg');
-} catch (e) {}
+} catch (e) {
+    // Blah!
+}
 
 // window.Vue = require('vue');
 
