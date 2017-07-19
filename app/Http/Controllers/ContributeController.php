@@ -20,7 +20,7 @@ class ContributeController extends Controller
          */
         try {
             $client = new Client();
-            $response = $client->request('GET', 'https://api.github.com/repos/laravelnigeria/website/contributors');
+            $response = $client->request('GET', env('GITHUB_CONTRIBUTORS_URL'));
             $responseData = json_decode($response->getBody());
             $result = array_slice($responseData, 0, 9);
         } catch (ClientException $exception) {
