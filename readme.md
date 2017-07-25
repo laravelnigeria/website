@@ -31,20 +31,20 @@
 
 ## Installation and Configuration
 * Fork the repository & clone it to your host machine
-    
+
     ```shell
     $ git clone git@github.com:laravelnigeria/website.git my-directory
     ```
 
 * Change to the root of your application's directory and install dependencies
-    
+
     ```shell
     $ cd my-directory
     $ composer install
     ```
 
 * Make a copy of the `.env.example` file  and name it `.env`
-    
+
     ```shell
     $ cp .env.example .env
     ```
@@ -54,7 +54,7 @@
     ```shell
     $ php artisan key:generate
     ```
-        
+
 * Set up your database and enter the credentials in the `.env` file
 
     ```
@@ -71,7 +71,7 @@
     ```shell
     $ php artisan migrate --seed
     ````
-        
+
 * [Get a Meetup API key](https://secure.meetup.com/meetup_api/key/) and set the following environment following environment variables
 
     ```
@@ -102,27 +102,27 @@
           proxy: 'laravelnigeria.dev'
        });
     ```
-    
+
     Now you can run the `npm` commands to make your changes:
-    
+
     ```shell
     $ npm install
     $ npm run watch
     ```
-        
+
 * You're done!
-            
+
 <p>&nbsp;</p>
 
 ## Todos
 - [x] Contact us popup
 - [x] All talks page
 - [x] Bug in the slider getting big momentarily
+- [x] Create custom error pages
+- [x] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
 - [ ] Contribute page
 - [ ] Administrative panel
 - [ ] Use web intents to add retweet, reply and like buttons to the tweet section
-- [ ] Create custom error pages
-- [ ] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
 - [ ] Create a new Twitter application for the Laravel Nigeria application
 - [ ] Meetup feedback popup with link to leave reviews
 - [ ] Learning track

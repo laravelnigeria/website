@@ -44,7 +44,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof TwitterApiCommunicationException) {
+        if ($exception instanceof ApiCommunicationException) {
             return response()->view('errors.500', [], 500);
         }
 
