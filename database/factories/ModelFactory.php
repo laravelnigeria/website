@@ -31,13 +31,13 @@ $factory->define(App\Meetup::class, function (Faker\Generator $faker) {
     static $event_id;
 
     if ($event_id) {
-        $event_id = $event_id === 240522436
-            ? 238642730
+        $event_id = $event_id === 238642730
+            ? 240522436
             : rand(100000000, 999999999);
     }
 
     return [
-        'event_id' => $event_id ?: $event_id = 240522436,
+        'event_id' => $event_id ?: $event_id = 238642730,
         'link' => "https://www.meetup.com/Laravel-Nigeria/events/{$event_id}/",
     ];
 });

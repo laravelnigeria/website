@@ -32,4 +32,12 @@ class HomeController extends Controller {
 
         return view('index', compact('group', 'next_event', 'sponsors', 'tweet'));
     }
+
+    /**
+     * Display the home page.
+     */
+    public function home()
+    {
+        return redirect()->route('index');
+    }
 }

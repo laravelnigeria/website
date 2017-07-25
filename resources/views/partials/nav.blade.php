@@ -16,8 +16,8 @@
                 <li itemprop="name"><a itemprop="url" href="https://larajobs.com?partner=1844" title="{{ config('app.name') }} Jobs" target="_blank">Jobs</a></li>
                 <li itemprop="name"><a itemprop="url" href="https://medium.com/laravelnigeria" title="{{ config('app.name') }} Blog">Blog</a></li>
 
-                {{-- @if (Auth::user())
-                    <li class="dropdown">
+                @if (Auth::user())
+                    <li class="dropdown hidden-xs hidden-sm">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -36,7 +36,7 @@
                             </li>
                         </ul>
                     </li>
-                @endif --}}
+                @endif
             </ul>
         </div>
     </div>

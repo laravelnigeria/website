@@ -7,7 +7,9 @@ $router = app('router');
 // Authentication Routes...
 // ------------------------------------------------------------
 
-$router->auth();
+if (app()->environment() == 'local') {
+    $router->auth();
+}
 
 // ------------------------------------------------------------
 // Jobs Routes...
