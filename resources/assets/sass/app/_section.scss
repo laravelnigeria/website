@@ -243,6 +243,7 @@ section.section {
             display: block;
             z-index: 9999;
             position: relative;
+            z-index: 1;
             &:hover {
                 background-color: darken(#f0f0f0, 5%);
             }

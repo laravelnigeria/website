@@ -4805,13 +4805,12 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .full-pop {
   position: fixed;
-  top: 0;
+  top: -1000;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
   background: #fff;
-  z-index: 9999;
   padding: 50px 15px;
   -webkit-perspective: 1000;
           perspective: 1000;
@@ -4819,7 +4818,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
           transform-style: preserve-3d;
   -webkit-transform: scale(0.1);
           transform: scale(0.1);
-  transition: all .1s ease-in-out;
+  transition: all .3s ease-out;
 }
 
 @media only screen and (min-width: 992px) {
@@ -4829,6 +4828,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .full-pop.active {
+  top: 0;
+  z-index: 9999;
   opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -5180,6 +5181,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .jumbo.pages {
+  margin-top: 80px;
   padding: 100px 0;
 }
 
@@ -5640,6 +5642,7 @@ section.section.speakers .btn.old-talks {
   display: block;
   z-index: 9999;
   position: relative;
+  z-index: 1;
 }
 
 section.section.speakers .btn.old-talks:hover {

@@ -1,24 +1,25 @@
 .full-pop {
     position: fixed;
-    top: 0;
+    top: -1000;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0; // change this
     background: #fff;
-    z-index: 9999;
     padding: 50px 15px;
     //display: none;
 
     perspective: 1000;
     transform-style: preserve-3d;
     transform: scale(0.1);
-    transition: all .1s ease-in-out;
+    transition: all .3s ease-out;
 
     @media #{$md-min} {
         padding: 150px 0 0;
     }
     &.active {
+        top: 0;
+        z-index: 9999;
         opacity: 1;
         transform: scale(1);
     }
