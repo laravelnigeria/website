@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ url('/') }}" title="{{ config('app.name') }}">
@@ -13,7 +13,7 @@
                 <li itemprop="name"><a itemprop="url" href="/#slack-invite" title="{{ config('app.name') }} Community">Community</a></li>
                 <li itemprop="name"><a itemprop="url" href="/#learning-track" title="Learn">Learn</a></li>
                 <li itemprop="name"><a itemprop="url" href="https://larajobs.com?partner=1844" title="{{ config('app.name') }} Jobs" target="_blank">Jobs</a></li>
-                <li itemprop="name"><a itemprop="url" href="{{ route('posts.index') }}" title="{{ config('app.name') }} Blog">Blog</a></li>
+                <li itemprop="name"><a itemprop="url" href="https://medium.com/laravelnigeria" title="{{ config('app.name') }} Blog">Blog</a></li>
 
                 {{-- @if (Auth::user())
                     <li class="dropdown">
