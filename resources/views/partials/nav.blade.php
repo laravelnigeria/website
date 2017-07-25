@@ -9,6 +9,7 @@
         <div class="le-navigation">
             <ul class="nav navbar-nav" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
                 {{--<li itemprop="name"><a itemprop="url" href="{{ route('contribute') }}" title="Contribute to {{ config('app.name') }}">Contribute</a></li>--}}
+                <li itemprop="name"><a itemprop="url" href="{{ route('index') }}" title="Home">Home</a></li>
                 <li itemprop="name"><a itemprop="url" href="{{ route('talks') }}" title="Talks given at {{ config('app.name') }}">Talks</a></li>
                 <li itemprop="name"><a itemprop="url" href="/#slack-invite" title="{{ config('app.name') }} Community">Community</a></li>
                 <li itemprop="name"><a itemprop="url" href="/#learning-track" title="Learn">Learn</a></li>
