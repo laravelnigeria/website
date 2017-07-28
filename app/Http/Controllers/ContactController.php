@@ -32,7 +32,7 @@ class ContactController extends Controller {
             // Queue the email to be sent by a job or whatever later sha...
             $details = collect($request->only(['name', 'email', 'message']));
 
-            Mail::to(env('APP_CONTACT_EMAIL'), config('app.name'))->send(new ContactMessage($details));
+            Mail::to(env('APP_CONTACT_EMAIL'))->send(new ContactMessage($details));
         }
 
         return ['message' => 'Email sent successfully!', 'status' => 'ok'];
