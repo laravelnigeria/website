@@ -120,6 +120,7 @@
 - [x] Bug in the slider getting big momentarily
 - [x] Create custom error pages
 - [x] Create error pages for the custom exceptions e.g `ApiCommunicationException`.
+- [ ] Weird "APP_CONTACT_MAIL" bug
 - [ ] Contribute page
 - [ ] Administrative panel
 - [ ] Use web intents to add retweet, reply and like buttons to the tweet section

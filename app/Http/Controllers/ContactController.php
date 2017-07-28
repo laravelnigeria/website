@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ContactRequest as Request;
 use App\Mail\ContactMessage;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ContactRequest as Request;
 
 class ContactController extends Controller {
 
@@ -32,7 +32,7 @@ class ContactController extends Controller {
             // Queue the email to be sent by a job or whatever later sha...
             $details = collect($request->only(['name', 'email', 'message']));
 
-            Mail::to(env('APP_CONTACT_EMAIL'), config('app.name'))->send(new ContactMessage($details));
+            Mail::to("neo@creativitykills.co", config('app.name'))->send(new ContactMessage($details));
         }
 
         return ['message' => 'Email sent successfully!', 'status' => 'ok'];
