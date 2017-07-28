@@ -10,7 +10,7 @@ class Talk extends Model
     /**
      * @var integer
      */
-    const CACHE_MINUTES = 5;
+    const CACHE_MINUTES = 15;
 
     /**
      * {@inheritDoc}
@@ -42,7 +42,7 @@ class Talk extends Model
     public function scopeOrganisedByMeetup($query) : Collection
     {
         return Cache::remember('all_talks.organised', static::CACHE_MINUTES, function () use ($query) {
-            $talks = $query->accepted()->with('meetup')->orderBy('created_at', 'desc')->get();
+            $talks = $query->accepted()->ordered()->with('meetup')->get();
 
             $meetups = [];
 
@@ -67,6 +67,17 @@ class Talk extends Model
     public function scopeAccepted($query)
     {
         return $query->whereAccepted(true);
+    }
+
+    /**
+     * Return ordered query.
+     *
+     * @param $query
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('id', 'desc');
     }
 
     /**
