@@ -32,7 +32,7 @@
 
                 @if ( ! empty($talk['link_slides']))
                     <li class="slides icon">
-                        <a href="{{ $talk['link_video'] }}" target="_blank" title="Slides of &#8220;{{ $talk['topic'] }}&#8221;"><i class="fa fa-picture-o"></i></a>
+                        <a href="{{ $talk['link_slides'] }}" target="_blank" title="Slides of &#8220;{{ $talk['topic'] }}&#8221;"><i class="fa fa-picture-o"></i></a>
                     </li>
                 @endif
             </ul>
