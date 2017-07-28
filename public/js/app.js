@@ -185,7 +185,7 @@ try {
 /* 3 */
 /***/ (function(module, exports) {
 
-(function (http) {
+(function () {
     var contactFormElem = $("#contact-form");
     var validContactToken = "YUesU09isIUiUkCX9288==";
 
@@ -275,7 +275,7 @@ try {
 
             toggleBtnState();
 
-            http.post('/contact', {
+            axios.post('/contact', {
                 message: contactFormElem.find('textarea').val(),
                 name: contactFormElem.find('input[name=name]').val(),
                 email: contactFormElem.find('input[name=email]').val(),
@@ -300,7 +300,7 @@ try {
             return false;
         }
     });
-})(window.axios);
+})();
 
 /***/ }),
 /* 4 */
