@@ -17,7 +17,7 @@ class ContactController extends Controller {
      */
     public function __invoke(Request $request)
     {
-        // $fakeToken = $request->get('__token');
+        $fakeToken = $request->get('__token');
 
         /**
          * If, and only if, the fake token matches the token set by JavaScript should the email be actually sent.
@@ -28,12 +28,12 @@ class ContactController extends Controller {
          * Well on your own oo, on your own o, on your own o...
          */
 
-        // if ($fakeToken AND $fakeToken === "YUesU09isIUiUkCX9288==") {
+        if ($fakeToken AND $fakeToken === "YUesU09isIUiUkCX9288==") {
             // Queue the email to be sent by a job or whatever later sha...
             $details = collect($request->only(['name', 'email', 'message']));
 
-            Mail::to("neo@hng.tech", config('app.name'))->send(new ContactMessage($details));
-        // }
+            Mail::to("neo@creativitykills.co", config('app.name'))->send(new ContactMessage($details));
+        }
 
         return ['message' => 'Email sent successfully!', 'status' => 'ok'];
     }
