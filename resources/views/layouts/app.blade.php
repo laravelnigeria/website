@@ -24,7 +24,7 @@
     <meta name="twitter:creator" content="@neoighodaro">
     <meta name="twitter:title" content="{{ $seo_title ?? config('app.name') }}">
     <meta name="twitter:description" content="{{ $seo_description ?? config('app.description') }}">
-    <meta name="twitter:image" content="{{ $seo_image ?? asset('img/logo-icon.png') }}">
+    <meta name="twitter:image" content="{{ $seo_image ?? asset('img/android-browser-icon.png') }}">
 
     {{-- http://searchengineland.com/schema-markup-structured-data-seo-opportunities-site-type-231077 --}}
     {{-- https://developers.google.com/search/docs/data-types/events --}}
