@@ -4968,6 +4968,25 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #fff;
 }
 
+.video {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .video {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
 .full-pop {
   position: fixed;
   top: -1000;

@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="jumbotron jumbo home parallaxbg" style="background: url({{ asset('img/jumbo.jpg') }})">
+        <video preload="metadata" id="bgvid" class="video" autoplay="autoplay" loop="loop" muted=""></video>
         <div class="green-overlay">&nbsp;</div>
         <div class="container">
             @if ($next_event)

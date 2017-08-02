@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -471,7 +471,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)))
 
 /***/ }),
 /* 2 */
@@ -1619,7 +1619,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(35);
+window._ = __webpack_require__(36);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1628,7 +1628,7 @@ window._ = __webpack_require__(35);
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__(34);
+    window.$ = window.jQuery = __webpack_require__(35);
 
     // Individual stuff
     // require('bootstrap-sass/assets/javascripts/bootstrap/transition');
@@ -1636,7 +1636,7 @@ try {
     // require('bootstrap-sass/assets/javascripts/bootstrap/button');
     // require('bootstrap-sass/assets/javascripts/bootstrap/carousel');
     // require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
-    __webpack_require__(33);
+    __webpack_require__(34);
     // require('bootstrap-sass/assets/javascripts/bootstrap/modal');
     // require('bootstrap-sass/assets/javascripts/bootstrap/tab');
     // require('bootstrap-sass/assets/javascripts/bootstrap/affix');
@@ -1645,10 +1645,11 @@ try {
     // require('bootstrap-sass/assets/javascripts/bootstrap/popover');
 
     // Application modules
-    __webpack_require__(30);
-    __webpack_require__(32);
-    __webpack_require__(28);
     __webpack_require__(31);
+    __webpack_require__(33);
+    __webpack_require__(28);
+    __webpack_require__(32);
+    __webpack_require__(30);
     __webpack_require__(29);
 } catch (e) {}
 // Blah
@@ -1818,6 +1819,18 @@ if (token) {
 /* 29 */
 /***/ (function(module, exports) {
 
+(function () {
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+        // If mobile, then we do all this
+    } else {
+        document.getElementById("bgvid").innerHTML = '' + '<source src="/videos/bg.mp4" type="video/mp4">' + '<source src="/videos/bg.ogv" type="video/ogg">' + '<source src="/videos/bg.webm" type="video/webm">';
+    }
+})();
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
 /**
  * This will add a little parallax to the background image on the mouse movement.
  */
@@ -1847,7 +1860,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 /**
@@ -1869,7 +1882,7 @@ $(document).ready(function () {
 })();
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 /**
@@ -1888,7 +1901,7 @@ window.showSnackBar = function (message) {
 };
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -2248,7 +2261,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(jQuery);
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 /* ========================================================================
@@ -2419,7 +2432,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -12679,7 +12692,7 @@ return jQuery;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -29768,10 +29781,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37), __webpack_require__(38)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38), __webpack_require__(39)(module)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -29961,7 +29974,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 var g;
@@ -29988,7 +30001,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -30016,7 +30029,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(7);

@@ -30,6 +30,7 @@ try {
     require('./modules/contact');
     require('./modules/snackbar');
     require('./modules/parallaxbg');
+    require('./modules/loadvideo');
 } catch (e) {
     // Blah
 }
