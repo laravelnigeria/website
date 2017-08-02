@@ -15,8 +15,10 @@ class TalksController extends Controller {
      */
     public function index(Meetup $meetup)
     {
+        $seo_title = "All talks given at the meetup";
+
         $meetups = Talk::organisedByMeetup();
 
-        return view('talks', compact('meetups'));
+        return view('talks', compact('meetups', 'seo_title'));
     }
 }

@@ -22,6 +22,8 @@ class HomeController extends Controller {
      */
     public function index(Meetup $meetup)
     {
+        $seo_title = 'The best Laravel PHP developers in Nigeria';
+
         $sponsors = Sponsor::theLot();
 
         $tweet = Twitter::search()->get('statuses')->random();
@@ -30,7 +32,7 @@ class HomeController extends Controller {
 
         $next_event = $group->get('next_event');
 
-        return view('index', compact('group', 'next_event', 'sponsors', 'tweet'));
+        return view('index', compact('group', 'next_event', 'sponsors', 'tweet', 'seo_title'));
     }
 
     /**
