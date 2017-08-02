@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+git pull origin master
+
 composer install --no-interaction --no-dev
 
 php artisan optimize
