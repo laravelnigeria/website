@@ -25,7 +25,7 @@
         <div class="links">
             <ul>
                 @if ( ! empty($talk['link_video']))
-                    <li class="video icon">
+                    <li class="video-icon icon">
                         <a href="{{ $talk['link_video'] }}" target="_blank" title="Video of &#8220;{{ $talk['topic'] }}&#8221;">
                             <i class="fa fa-video-camera"></i>
                             <span>Video</span>
