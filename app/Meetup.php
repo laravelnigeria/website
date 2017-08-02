@@ -84,9 +84,13 @@ class Meetup extends Eloquent\Model
             $created_timestamp = $event->get('created') / 1000;
             $event_timestamp   = $event->get('time') / 1000;
 
-            $event->put('talks', $this->whereEventId($event_id)->with(['talks' => function ($talks) {
-                $talks->accepted()->ordered();
-            }])->first()->talks->toArray());
+            $events = $this->whereEventId($event_id)->with(['talks' => function ($talks) {
+                            $talks->accepted()->ordered();
+                        }])->first();
+
+            $talks = $events ? $talks->talks->toArray() : [];
+
+            $event->put('talks', $talks);
 
             $event->put('time_object', Carbon::createFromTimestamp($event_timestamp));
             $event->put('created_object', Carbon::createFromTimestamp($created_timestamp));
