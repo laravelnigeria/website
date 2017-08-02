@@ -38,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
 
         $next_event = $group->get('next_event');
 
-        view()->share(compact('meetup__group', 'meetup__next_event'));
+        view()->share('meetup__group', $group);
+        view()->share('meetup__next_event', $next_event);
     }
 }
