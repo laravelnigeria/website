@@ -13,13 +13,21 @@
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
     <meta name="description" content="{{ $seo_description ?? config('app.description') }}">
+
     {{-- SEO --}}
     <meta property="og:site_name" content="{{ config('app.name') }}">
     <meta property="og:title" content="{{ $seo_title ?? config('app.name') }}">
     <meta property="og:image" content="{{ $seo_image ?? asset('img/logo-icon.png') }}">
     <meta property="og:description" content="{{ $seo_description ?? config('app.description') }}">
-    <!-- http://searchengineland.com/schema-markup-structured-data-seo-opportunities-site-type-231077 -->
-    <!-- https://developers.google.com/search/docs/data-types/events -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@laravelnigeria">
+    <meta name="twitter:creator" content="@neoighodaro">
+    <meta name="twitter:title" content="{{ $seo_title ?? config('app.name') }}">
+    <meta name="twitter:description" content="{{ $seo_description ?? config('app.description') }}">
+    <meta name="twitter:image" content="{{ $seo_image ?? asset('img/logo-icon.png') }}">
+
+    {{-- http://searchengineland.com/schema-markup-structured-data-seo-opportunities-site-type-231077 --}}
+    {{-- https://developers.google.com/search/docs/data-types/events --}}
     @include('partials.early-scripts')
     @yield('styles')
 </head>

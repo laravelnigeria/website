@@ -70,16 +70,17 @@
             <div class="tweet">
                 <span>{!! Twitter::linkify($tweet->text) !!}</span>
             </div>
-            @if (env('TWITTER_SHARE_TEXT'))
+
+            @if (config('app.twitter.share_text'))
             <a class="btn btn-block btn-lg"
-               href="https://twitter.com/intent/tweet?url={{ config('app.url') }}&amp;text={{ env('TWITTER_SHARE_TEXT') }}&amp;hashtags={{ env('TWITTER_SHARE_HASHTAGS') }}&amp;related={{ env('TWITTER_HANDLE') }}"
+               href="https://twitter.com/intent/tweet?url={{ config('app.url') }}&amp;text={{ config('app.twitter.share_text') }}&amp;hashtags={{ config('app.twitter.share_hashtags') }}&amp;related={{ config('app.twitter.handle') }}"
                target="_blank" title="Tweet about your {{ config('app.name') }} experience.">
                 <svg class="icon"><use xlink:href="{{ asset('/img/sprite.svg#icon-twitter-nude') }}"/></svg>
                 <span>Share your Experience</span>
             </a>
             @endif
-            @if (env('TWITTER_HANDLE'))
-            <a class="twitter-follow-button" data-show-count="false" href="https://twitter.com/{{ env('TWITTER_HANDLE') }}">Follow {{ '@'.env('TWITTER_HANDLE') }}</a>
+            @if (config('app.twitter.handle'))
+            <a class="twitter-follow-button" data-show-count="false" href="https://twitter.com/{{ config('app.twitter.handle') }}">Follow {{ '@'.config('app.twitter.handle') }}</a>
             @endif
         </div>
     </section>

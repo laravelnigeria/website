@@ -13,8 +13,34 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel Nigeria'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Description
+    |--------------------------------------------------------------------------
+    */
+
     'description' => env('APP_DESCRIPTION', 'Set the "APP_DESCRIPTION" value in the .env file'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Welcome Message
+    |--------------------------------------------------------------------------
+    */
+
     'welcome_message' => env('APP_WELCOME_MESSAGE', 'Set the "APP_WELCOME_MESSAGE" value in the .env file'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Twitter Settings
+    |--------------------------------------------------------------------------
+    */
+
+    'twitter' => [
+        'handle' => env('TWITTER_HANDLE'),
+        'share_text' => env('TWITTER_SHARE_TEXT'),
+        'share_hashtags' => env('TWITTER_SHARE_HASHTAGS'),
+    ],
 
     /*
     |--------------------------------------------------------------------------
