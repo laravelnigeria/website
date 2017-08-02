@@ -5783,7 +5783,7 @@ section.section.speakers .links ul li:last-child {
 }
 
 section.section.speakers .links ul li a {
-  color: #b9b9b9;
+  color: #a0a0a0;
   transition: color .3s ease;
 }
 
@@ -5793,6 +5793,16 @@ section.section.speakers .links ul li a:hover {
 
 section.section.speakers .links ul li i.fa {
   font-size: 20px;
+}
+
+section.section.speakers .links ul li span {
+  top: -2px;
+  position: relative;
+  margin-left: 3px;
+  text-transform: uppercase;
+  color: #a0a0a0;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 section.section.speakers .btn.old-talks {

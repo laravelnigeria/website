@@ -219,7 +219,7 @@ section.section {
                     margin-right: 0;
                 }
                 a {
-                    color: #b9b9b9;
+                    color: #a0a0a0;
                     transition: color .3s ease;
                     &:hover {
                         color: $brand-primary;
@@ -227,6 +227,15 @@ section.section {
                 }
                 i.fa {
                     font-size: 20px;
+                }
+                span {
+                    top: -2px;
+                    position: relative;
+                    margin-left: 3px;
+                    text-transform: uppercase;
+                    color: #a0a0a0;
+                    font-size: 13px;
+                    font-weight: 600;
                 }
             }
         }

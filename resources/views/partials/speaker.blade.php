@@ -26,13 +26,19 @@
             <ul>
                 @if ( ! empty($talk['link_video']))
                     <li class="video icon">
-                        <a href="{{ $talk['link_video'] }}" target="_blank" title="Video of &#8220;{{ $talk['topic'] }}&#8221;"><i class="fa fa-video-camera"></i></a>
+                        <a href="{{ $talk['link_video'] }}" target="_blank" title="Video of &#8220;{{ $talk['topic'] }}&#8221;">
+                            <i class="fa fa-video-camera"></i>
+                            <span>Video</span>
+                        </a>
                     </li>
                 @endif
 
                 @if ( ! empty($talk['link_slides']))
                     <li class="slides icon">
-                        <a href="{{ $talk['link_slides'] }}" target="_blank" title="Slides of &#8220;{{ $talk['topic'] }}&#8221;"><i class="fa fa-picture-o"></i></a>
+                        <a href="{{ $talk['link_slides'] }}" target="_blank" title="Slides of &#8220;{{ $talk['topic'] }}&#8221;">
+                            <i class="fa fa-picture-o"></i>
+                            <span>Slides</span>
+                        </a>
                     </li>
                 @endif
             </ul>
