@@ -7,6 +7,14 @@
         width: $container-large-desktop;
     }
 }
+.no-dice {
+    text-align: center;
+    font-size: 25px;
+    color: #a9a9a9;
+    font-weight: 300;
+    margin: -50px auto 0;
+    max-width: 900px;
+}
 
 ::selection {
     background: #00baba;

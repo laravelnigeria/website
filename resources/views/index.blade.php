@@ -19,7 +19,9 @@
             @endif
             <h1>{{ config('app.welcome_message') }}</h1>
             @if ($next_event)
-            <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="RSVP to {{ config('app.name') }}" target="_blank">RSVP for this event</a>
+            <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="RSVP to {{ config('app.name') }}" {{ $next_event->get('rsvp_open_offset') ? 'disabled' : '' }} target="_blank">
+                {{ $next_event->get('rsvp_open_offset') ? 'RSVP not yet opened' : 'RSVP for this event' }}
+            </a>
             <span class="guests-count">
                 <span class="count">{{ $next_event['yes_rsvp_count'] ?? 0 }} people are attending the meetup.</span>
                 @if (isset($next_event['seats_left']) && $next_event['seats_left'] <= 50)
@@ -32,7 +34,6 @@
         </div>
     </div>
 
-    @if ($next_event)
     <section class="section speakers" id="ln-speakers">
         <div class="container">
             <div class="title-subtitle">
@@ -40,14 +41,22 @@
                 <h4 class="subtitle">Awesome people giving talks at the {{ config('app.name') }} meetup.</h4>
             </div>
             <div class="list">
-                @foreach ($next_event->get('talks') as $talk)
-                @include('partials.speaker')
-                @endforeach
+                @if ($next_event)
+                    @forelse ($next_event->get('talks') as $talk)
+                    @include('partials.speaker')
+                    @empty
+                    <p class="no-dice">
+                        No speakers yet! If you want to speak at the next meetup? You should leave us a message using the contact link below.
+                    </p>
+                    @endforelse
+                </div>
+                @else
+                    <p class="no-dice">The next meetup has not been scheduled yet, you can see previous talks by clicking the link below</p>
+                @endif
                 <a class="btn btn-block btn-lg old-talks" href="{{ route('talks') }}" title="See previous {{ config('app.name') }} talks">Previous Meetup Talks</a>
             </div>
         </div>
     </section>
-    @endif
 
     @if ($tweet)
     <section class="section xperience" id="ln-twitter">

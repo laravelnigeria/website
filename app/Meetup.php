@@ -88,7 +88,7 @@ class Meetup extends Eloquent\Model
                             $talks->accepted()->ordered();
                         }])->first();
 
-            $talks = $events ? $talks->talks->toArray() : [];
+            $talks = $events ? $events->talks->toArray() : [];
 
             $event->put('talks', $talks);
 
