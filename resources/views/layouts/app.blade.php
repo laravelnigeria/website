@@ -26,6 +26,13 @@
     <meta name="twitter:description" content="{{ $seo_description ?? config('app.description') }}">
     <meta name="twitter:image" content="{{ $seo_image ?? asset('img/android-browser-icon.png') }}">
 
+    @if ($meetup__next_event)
+    <meta name="twitter:label1" value="Next Meetup" />
+    <meta name="twitter:data1" value="📝 {{ $meetup__next_event['name'] }}" />
+    <meta name="twitter:label2" value="Date" />
+    <meta name="twitter:data2" value="🕐 {{ $meetup__next_event['time_object']->format('F d, Y') }}" />
+    @endif
+
     {{-- http://searchengineland.com/schema-markup-structured-data-seo-opportunities-site-type-231077 --}}
     {{-- https://developers.google.com/search/docs/data-types/events --}}
     @include('partials.early-scripts')

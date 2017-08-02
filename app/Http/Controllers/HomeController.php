@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{Meetup, Sponsor, Talk, Twitter};
+use App\{Sponsor, Twitter};
 
 class HomeController extends Controller {
 
@@ -17,10 +17,9 @@ class HomeController extends Controller {
     /**
      * Show the applications homepage.
      *
-     * @param Meetup $meetup
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Meetup $meetup)
+    public function index()
     {
         $seo_title = 'The best Laravel PHP developers in Nigeria';
 
@@ -28,11 +27,7 @@ class HomeController extends Controller {
 
         $tweet = Twitter::search()->get('statuses')->random();
 
-        $group = $meetup->groupDetailsWithNextEvent();
-
-        $next_event = $group->get('next_event');
-
-        return view('index', compact('group', 'next_event', 'sponsors', 'tweet', 'seo_title'));
+        return view('index', compact('sponsors', 'tweet', 'seo_title'));
     }
 
     /**

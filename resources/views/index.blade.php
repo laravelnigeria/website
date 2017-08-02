@@ -5,29 +5,29 @@
         <video preload="metadata" id="bgvid" class="video" autoplay="autoplay" loop="loop" muted=""></video>
         <div class="green-overlay">&nbsp;</div>
         <div class="container">
-            @if ($next_event)
+            @if ($meetup__next_event)
             <span class="event">
-                {{ $next_event['name'] ?? null }} &mdash;
-                <span class="date">{{ $next_event['time_object']->format('F d, Y') }}</span>
+                {{ $meetup__next_event['name'] ?? null }} &mdash;
+                <span class="date">{{ $meetup__next_event['time_object']->format('F d, Y') }}</span>
                 <span class="hidden-xs">
                     <span class="separator">@</span>
                     <span class="location">
-                        {{ array_get($next_event, 'venue.city') }},
-                        {{ array_get($next_event, 'venue.localized_country_name') }}
+                        {{ array_get($meetup__next_event, 'venue.city') }},
+                        {{ array_get($meetup__next_event, 'venue.localized_country_name') }}
                     </span>
                 </span>
             </span>
             @endif
             <h1>{{ config('app.welcome_message') }}</h1>
-            @if ($next_event)
-            <a class="btn btn-lg btn-block cta" href="{{ $next_event->get('link') }}" title="RSVP to {{ config('app.name') }}" {{ $next_event->get('rsvp_open_offset') ? 'disabled' : '' }} target="_blank">
-                {{ $next_event->get('rsvp_open_offset') ? 'RSVP not yet opened' : 'RSVP for this event' }}
+            @if ($meetup__next_event)
+            <a class="btn btn-lg btn-block cta" href="{{ $meetup__next_event->get('link') }}" title="RSVP to {{ config('app.name') }}" {{ $meetup__next_event->get('rsvp_open_offset') ? 'disabled' : '' }} target="_blank">
+                {{ $meetup__next_event->get('rsvp_open_offset') ? 'RSVP not yet opened' : 'RSVP for this event' }}
             </a>
             <span class="guests-count">
-                <span class="count">{{ $next_event['yes_rsvp_count'] ?? 0 }} people are attending the meetup.</span>
-                @if (isset($next_event['seats_left']) && $next_event['seats_left'] <= 50)
+                <span class="count">{{ $meetup__next_event['yes_rsvp_count'] ?? 0 }} people are attending the meetup.</span>
+                @if (isset($meetup__next_event['seats_left']) && $meetup__next_event['seats_left'] <= 50)
                     <span class="remaining">
-                        {{ $next_event['seats_left'] <= 0 ? 'Tickets sold out, Join the waitlist' : 'Hurry, '.$next_event['seats_left'].' spots left' }}
+                        {{ $meetup__next_event['seats_left'] <= 0 ? 'Tickets sold out, Join the waitlist' : 'Hurry, '.$meetup__next_event['seats_left'].' spots left' }}
                     </span>
                 @endif
             </span>
@@ -42,8 +42,8 @@
                 <h4 class="subtitle">Awesome people giving talks at the {{ config('app.name') }} meetup.</h4>
             </div>
             <div class="list">
-                @if ($next_event)
-                    @forelse ($next_event->get('talks') as $talk)
+                @if ($meetup__next_event)
+                    @forelse ($meetup__next_event->get('talks') as $talk)
                     @include('partials.speaker')
                     @empty
                     <p class="no-dice">
