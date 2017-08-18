@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(DebugbarServiceProvider::class);
         }
 
+        if (config('app.force_https')) {
+            $url->forceSchema('https');
+        }
+
         $this->registerGlobalViewVariables();
     }
 
