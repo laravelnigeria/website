@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 
 ## Requirements
-* Composer installed on the your machine
+* Composer installed on your machine
 * NPM if you are modifying SCSS, JS or Images
 * Twitter application and credentials, also set the env variables
 * Mailgun or any other mail driver (if you want to test the Contact form use Mailtrap.io)
