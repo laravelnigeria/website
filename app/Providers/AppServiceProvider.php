@@ -15,12 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (app()->environment() == 'local') {
+        if ($this->app->environment() == 'local') {
             $this->app->register(DebugbarServiceProvider::class);
         }
 
         if (config('app.force_https')) {
-            $url->forceSchema('https');
+            $this->app['url']->forceScheme('https');
         }
 
         $this->registerGlobalViewVariables();
