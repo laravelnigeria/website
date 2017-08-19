@@ -191,4 +191,5 @@
         }());
         @endif
     </script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us6.list-manage.com","uuid":"4f6b7319c4a77da68d245f52e","lid":"82d8b6f48d"}) })</script>
 @endsection
