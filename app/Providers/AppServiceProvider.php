@@ -38,11 +38,15 @@ class AppServiceProvider extends ServiceProvider
 
     protected function registerGlobalViewVariables()
     {
-        $group = (new Meetup)->groupDetailsWithNextEvent();
+        try {
+            $group = (new Meetup)->groupDetailsWithNextEvent();
 
-        $next_event = $group->get('next_event');
+            $next_event = $group->get('next_event');
 
-        view()->share('meetup__group', $group);
-        view()->share('meetup__next_event', $next_event);
+            view()->share('meetup__group', $group);
+            view()->share('meetup__next_event', $next_event);
+        } catch (\Exception $e) {
+            // Fails likely because database connection!
+        }
     }
 }
