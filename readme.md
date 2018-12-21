@@ -4,16 +4,16 @@
 <p align="center">Source code of the Laravel Nigeria meetup website. Developed &amp; Designed by <a href="https://creativitykills.co" target="_blank">CreativityKills Co.</a></p>
 <p align="center"><a href="LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/laravelnigeria/website.svg"></a> <a href="https://www.codementor.io/neoighodaro?utm_source=github&utm_medium=button&utm_term=neoighodaro&utm_campaign=github"><img src="https://cdn.codementor.io/badges/get_help_github.svg"></a></p>
 
-
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
 ## Requirements
-* Composer installed on your machine
-* NPM if you are modifying SCSS, JS or Images
-* Twitter application and credentials, also set the env variables
-* Mailgun or any other mail driver (if you want to test the Contact form use Mailtrap.io)
-* Set up the required ENV variables, the more you set up the better though
+
+- Composer installed on your machine
+- NPM if you are modifying SCSS, JS or Images
+- Twitter application and credentials, also set the env variables
+- Mailgun or any other mail driver (if you want to test the Contact form use Mailtrap.io)
+- Set up the required ENV variables, the more you set up the better though
   - `DB_CONNECTION`
   - `DB_HOST`
   - `DB_PORT`
@@ -30,91 +30,94 @@
 <p>&nbsp;</p>
 
 ## Installation and Configuration
-* Fork the repository & clone it to your host machine
 
-    ```shell
-    $ git clone git@github.com:laravelnigeria/website.git my-directory
-    ```
+- Fork the repository & clone it to your host machine
 
-* Change to the root of your application's directory and install dependencies
+  ```shell
+  $ git clone git@github.com:laravelnigeria/website.git my-directory
+  ```
 
-    ```shell
-    $ cd my-directory
-    $ composer install
-    ```
+- Change to the root of your application's directory and install dependencies
 
-* Make a copy of the `.env.example` file  and name it `.env`
+  ```shell
+  $ cd my-directory
+  $ composer install
+  ```
 
-    ```shell
-    $ cp .env.example .env
-    ```
+- Make a copy of the `.env.example` file and name it `.env`
 
-* Generate a new application key using `artisan`
+  ```shell
+  $ cp .env.example .env
+  ```
 
-    ```shell
-    $ php artisan key:generate
-    ```
+- Generate a new application key using `artisan`
 
-* Set up your database and enter the credentials in the `.env` file
+  ```shell
+  $ php artisan key:generate
+  ```
 
-    ```
-    DB_CONNECTION=
-    DB_HOST=
-    DB_PORT=
-    DB_DATABASE=
-    DB_USERNAME=
-    DB_PASSWORD=
-    ```
+- Set up your database and enter the credentials in the `.env` file
 
-* Run the database migrations and seed the database
+  ```
+  DB_CONNECTION=
+  DB_HOST=
+  DB_PORT=
+  DB_DATABASE=
+  DB_USERNAME=
+  DB_PASSWORD=
+  ```
 
-    ```shell
-    $ php artisan migrate --seed
-    ````
+- Run the database migrations and seed the database
 
-* [Get a Meetup API key](https://secure.meetup.com/meetup_api/key/) and set the following environment following environment variables
+  ```shell
+  $ php artisan migrate --seed
+  ```
 
-    ```
-    MEETUP_URL_NAME="Laravel-Nigeria"    # Or whatever your Meetup URL name is...
-    MEETUP_KEY=
-    ```
+- [Get a Meetup API key](https://secure.meetup.com/meetup_api/key/) and set the following environment following environment variables
 
-* [Create a Twitter application](https://apps.twitter.com/) and set the following environment variables:
+  ```
+  MEETUP_URL_NAME="Laravel-Nigeria"
+  MEETUP_KEY=
+  ```
 
-    ```
-    TWITTER_CONSUMER_KEY=
-    TWITTER_CONSUMER_SECRET=
-    TWITTER_ACCESS_TOKEN=
-    TWITTER_ACCESS_TOKEN_SECRET=
-    TWITTER_SEARCH_QUERY="#LaravelNigeria OR @laravelnigeria -filter:retweets -filter:replies"
-    ```
+- [Create a Twitter application](https://apps.twitter.com/) and set the following environment variables:
 
-* If you want to modify the template and css you will need `npm` installed on your machine. Verify that you have the correct setting in your `webpack.mix.js` file, especially the BrowserSync section.
+  ```
+  TWITTER_CONSUMER_KEY=
+  TWITTER_CONSUMER_SECRET=
+  TWITTER_ACCESS_TOKEN=
+  TWITTER_ACCESS_TOKEN_SECRET=
+  TWITTER_SEARCH_QUERY="#LaravelNigeria OR @laravelnigeria -filter:retweets -filter:replies"
+  ```
 
-    ```javascript
-    mix.js('resources/assets/js/app.js', 'public/js')
-       .sass('resources/assets/sass/app.scss', 'public/css')
-       .options({
-          processCssUrls: false
-       })
-       .browserSync({
-           // Use Laravel Valet to make sure this matches. From the root of your app, run: $ valet link laravelnigeria
-          proxy: 'laravelnigeria.dev'
-       });
-    ```
+- If you want to modify the template and css you will need `npm` installed on your machine. Verify that you have the correct setting in your `webpack.mix.js` file, especially the BrowserSync section.
 
-    Now you can run the `npm` commands to make your changes:
+  ```javascript
+  mix
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .options({
+      processCssUrls: false
+    })
+    .browserSync({
+      // Use Laravel Valet to make sure this matches. From the root of your app, run: $ valet link laravelnigeria
+      proxy: 'laravelnigeria.dev'
+    });
+  ```
 
-    ```shell
-    $ npm install
-    $ npm run watch
-    ```
+  Now you can run the `npm` commands to make your changes:
 
-* You're done!
+  ```shell
+  $ npm install
+  $ npm run watch
+  ```
+
+- You're done!
 
 <p>&nbsp;</p>
 
 ## Todos
+
 - [x] Contact us popup
 - [x] All talks page
 - [x] Bug in the slider getting big momentarily
@@ -134,4 +137,5 @@
 <p>&nbsp;</p>
 
 ## Contributing
+
 Contribution instructions goes here
