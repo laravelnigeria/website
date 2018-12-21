@@ -30,7 +30,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
       processCssUrls: false
    })
    .browserSync({
-      proxy: 'laravelnigeria.dev'
+      proxy: 'laravelnigeria.test'
    });
 
 if (mix.config.inProduction) {
