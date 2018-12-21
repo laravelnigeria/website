@@ -90,6 +90,14 @@
   TWITTER_SEARCH_QUERY="#LaravelNigeria OR @laravelnigeria -filter:retweets -filter:replies"
   ```
 
+  - Use the [community inviter](https://communityinviter.com) app to get the details for your Slack community if you have one for example:
+
+  ```
+  COMMUNITY_INVITER_SLACK_TEAM_READABLE="Laravel Nigeria"
+  COMMUNITY_INVITER_SLACK_TEAM="laravelnigeria"
+  COMMUNITY_INVITER_JOIN_URL="https://communityinviter.com/apps/laravelnigeria/join"
+  ```
+
 - If you want to modify the template and css you will need `npm` installed on your machine. Verify that you have the correct setting in your `webpack.mix.js` file, especially the BrowserSync section.
 
   ```javascript
