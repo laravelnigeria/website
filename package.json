@@ -22,7 +22,7 @@
     "laravel-mix": "^4.0.7",
     "lodash": "^4.17.5",
     "sass": "^1.15.2",
-    "sass-loader": "7.*",
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-template-compiler": "^2.5.21"
   }
