@@ -109,7 +109,7 @@
     })
     .browserSync({
       // Use Laravel Valet to make sure this matches. From the root of your app, run: $ valet link laravelnigeria
-      proxy: 'laravelnigeria.dev'
+      proxy: 'laravelnigeria.test'
     });
   ```
 
