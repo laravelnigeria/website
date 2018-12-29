@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Barryvdh\Debugbar\ServiceProvider as DebugbarServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
     protected function loadDevelopmentServiceProviders()
     {
         if (app()->environment('local')) {
-            app()->register(DebugbarServiceProvider::class);
+            app()->register(\Barryvdh\Debugbar\ServiceProvider::class);
         }
     }
 
