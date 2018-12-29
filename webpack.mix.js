@@ -34,10 +34,8 @@ mix.webpackConfig({
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css')
     .tailwind()
-    .options({
-        processCssUrls: false
-    })
-    .purgeCss();
+    .options({ processCssUrls: false })
+    .purgeCss({ whitelistPatternsChildren: [/CommunityInviter$/] });
 
 if (mix.inProduction()) {
     mix.version();
