@@ -2,7 +2,7 @@
     <img src="https://user-images.githubusercontent.com/807318/27274054-b06652c6-54c9-11e7-83ab-f4a3fa6109b7.jpeg" alt="Laravel Nigeria meetup">
 </p>
 <p align="center">Source code of the Laravel Nigeria meetup website. Developed &amp; Designed at <a href="https://creativitykills.co/?utm=github-laravel-nigeria" target="_blank">CreativityKills</a></p>
-<p align="center"><a href="LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/laravelnigeria/website.svg"></a> <a href="https://www.codementor.io/neoighodaro?utm_source=github&utm_medium=button&utm_term=neoighodaro&utm_campaign=github"><img src="https://cdn.codementor.io/badges/get_help_github.svg"></a> <a href="http://semver.org/spec/v2.0.0.html"><img src="http://img.shields.io/SemVer/2.0.0.png"></a> <a href="https://codeclimate.com/github/laravelnigeria/website"><img src="https://codeclimate.com/github/laravelnigeria/website.svg"></a></p>
+<p align="center"><a href="LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/laravelnigeria/website.svg"></a> <a href="https://www.codementor.io/neoighodaro?utm_source=github&utm_medium=button&utm_term=neoighodaro&utm_campaign=github"><img src="https://cdn.codementor.io/badges/get_help_github.svg"></a> <a href="http://semver.org/spec/v2.0.1.html"><img src="http://img.shields.io/SemVer/2.0.1.png"></a> <a href="https://codeclimate.com/github/laravelnigeria/website"><img src="https://codeclimate.com/github/laravelnigeria/website.svg"></a></p>
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
