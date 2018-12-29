@@ -1,0 +1,621 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ */
+@tailwind preflight;
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
+
+::selection {
+    @apply text-white bg-primary;
+}
+
+*[disabled] {
+    @apply cursor-not-allowed;
+}
+
+body {
+    @apply font-sans;
+}
+
+.text-shadow {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+.standard-button {
+    @apply transition text-center px-3 py-4 rounded-full bg-grey-light text-grey-darkest no-underline;
+}
+
+.standard-button:hover {
+    @apply bg-primary text-white;
+}
+
+.standard-button[disabled]:hover {
+    @apply bg-grey-light;
+}
+
+.standard-button.white {
+    @apply bg-white text-grey-darkest;
+}
+
+.standard-button.white:hover {
+    @apply bg-grey-light;
+}
+
+.standard-button.white[disabled] {
+    @apply bg-white text-grey;
+}
+
+.standard-button.white[disabled]:hover {
+    @apply bg-white;
+}
+
+@responsive {
+    .uncontainer {
+        padding: 0;
+        /* max-width: 100%; */
+    }
+}
+
+nav.main ul {
+    @apply list-reset text-center overflow-x-auto whitespace-no-wrap;
+}
+
+@screen lg {
+    nav.main ul {
+        @apply float-right;
+    }
+}
+
+nav.main ul::-webkit-scrollbar {
+    display: none;
+}
+
+nav.main ul li {
+    @apply inline-block;
+}
+
+@screen lg {
+    nav.main ul li {
+        @apply float-left block;
+    }
+}
+
+nav.main ul li a {
+    transition: color 0.3s ease;
+    @apply bg-transparent text-secondary inline-block p-3 font-semibold uppercase no-underline text-sm;
+}
+
+@screen lg {
+    nav.main ul li a {
+        line-height: 35px;
+        padding: 25px 23px;
+    }
+}
+
+nav.main ul li a:hover {
+    @apply text-primary bg-transparent;
+}
+
+/* =======================================================================================
+ Jumbo
+======================================================================================= */
+
+.jumbotron {
+    @apply bg-grey-lighter py-10 mb-10 text-white;
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+    @apply text-white;
+}
+
+.jumbotron p {
+    font-size: 21px;
+    @apply mb-3 font-thin;
+}
+
+.container .jumbotron,
+.container-fluid .jumbotron {
+    border-radius: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@screen md {
+    .jumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    .container .jumbotron,
+    .container-fluid .jumbotron {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .jumbotron h1,
+    .jumbotron .h1 {
+        font-size: 63px;
+    }
+}
+
+.jumbo {
+    margin-top: 100px;
+    max-height: 900px;
+    @apply overflow-hidden relative bg-cover w-full mb-0;
+}
+
+.jumbo.home {
+    padding: 100px 0;
+    @apply overflow-hidden;
+}
+
+@screen md {
+    .jumbo {
+        margin-top: 80px;
+    }
+    .jumbo.home {
+        padding: 200px 0;
+    }
+    .jumbo.lean {
+        padding: 140px 0;
+    }
+}
+
+.jumbo.pages {
+    margin-top: 80px;
+    padding: 100px 0;
+}
+
+.jumbo.pages h1 {
+    margin-bottom: 10px;
+}
+
+.jumbo.pages h2 {
+    @apply text-base;
+}
+
+@screen md {
+    .jumbo.pages h2 {
+        @apply text-xl;
+    }
+}
+
+.jumbo .container {
+    @apply relative px-4;
+}
+
+.jumbo span.label {
+    @apply text-white font-semibold inline-block px-3 py-1 mx-auto mt-3 rounded-sm;
+}
+
+.jumbo h1,
+.jumbo h2,
+.jumbo span.event,
+.jumbo .guests-count {
+    @apply block text-white font-semibold text-center text-shadow;
+}
+
+.jumbo span.event {
+    @apply uppercase block text-xs mb-3;
+}
+
+@screen lg {
+    .jumbo span.event {
+        @apply text-xs;
+    }
+}
+
+.jumbo h1 {
+    @apply m-0 text-2xl;
+}
+
+@screen md {
+    .jumbo h1 {
+        font-size: 35px;
+    }
+}
+
+@screen lg {
+    .jumbo h1 {
+        font-size: 55px;
+    }
+}
+
+@screen xl {
+    .jumbo h1 {
+        font-size: 70px;
+    }
+}
+
+.jumbo .btn.cta {
+    font-size: 18px;
+    text-shadow: none;
+    line-height: 45px;
+    @apply w-4/5 bg-white px-4 font-semibold text-center uppercase rounded-full mx-auto mt-5 mb-4 text-primary;
+}
+
+@screen md {
+    .jumbo .btn.cta {
+        width: 400px;
+        font-size: 20px;
+        line-height: 55px;
+        @apply mt-10;
+    }
+}
+
+@screen lg {
+    .jumbo .btn.cta {
+        font-size: 23px;
+        line-height: 65px;
+    }
+}
+
+/* =======================================================================================
+ Video
+======================================================================================= */
+
+.video {
+    @apply hidden;
+}
+
+@media only screen and (min-width: 768px) {
+    .video {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @apply block absolute min-w-full min-h-full w-auto h-auto;
+    }
+}
+
+/* =======================================================================================
+ Section
+======================================================================================= */
+
+section.section {
+    @apply py-10;
+}
+
+@screen md {
+    section.section {
+        @apply py-32;
+    }
+}
+
+section.section .title-subtitle {
+    @apply text-center mx-auto mb-10 w-4/5;
+}
+
+@screen md {
+    section.section .title-subtitle {
+        @apply mb-16;
+    }
+}
+
+@screen lg {
+    section.section .title-subtitle {
+        @apply mb-20;
+    }
+}
+
+section.section .title-subtitle h2 {
+    @apply font-semibold m-0 mb-2 text-grey-darker text-2xl;
+}
+
+@screen md {
+    section.section .title-subtitle h2 {
+        @apply text-3xl;
+    }
+}
+
+@screen lg {
+    section.section .title-subtitle h2 {
+        @apply text-5xl;
+    }
+}
+
+section.section .title-subtitle h4 {
+    @apply font-light text-grey-dark leading-normal text-base;
+}
+
+@screen md {
+    section.section .title-subtitle h4 {
+        @apply text-2xl;
+    }
+}
+
+section .container {
+    @apply relative;
+}
+
+section .green-overlay {
+    background-color: rgba(0, 186, 186, 0.7);
+    @apply absolute pin-t w-full h-full;
+}
+
+section.with-bg-img {
+    transition: background-position 0.1s ease;
+    @apply relative bg-center bg-cover bg-no-repeat;
+}
+
+/* =======================================================================================
+ Section: Slack
+======================================================================================= */
+
+section.slack .white-overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+    @apply w-full h-full absolute pin-t;
+}
+
+section.slack #CommunityInviter {
+    max-width: 500px;
+    @apply mx-auto font-sans;
+}
+
+section.slack #CommunityInviter > div {
+    font-size: 0px !important;
+}
+
+section.slack #CommunityInviter > div:after {
+    @apply block text-xl mb-1 text-grey-darkest font-light font-sans;
+    content: 'Join our Slack community 🔥';
+}
+
+@screen md {
+    section.slack #CommunityInviter > div:after {
+        @apply text-3xl mb-2;
+    }
+}
+
+section.slack #CommunityInviter > img {
+    max-width: 50px !important;
+    margin-bottom: 30px !important;
+    @apply rounded-full !important;
+}
+
+@screen md {
+    section.slack #CommunityInviter > img {
+        max-width: 80px !important;
+        margin-bottom: 50px !important;
+    }
+}
+
+section.slack #CommunityInviter input#CommunityInviterEmail {
+    background: rgba(255, 255, 255, 0.85) !important;
+    @apply border-white border w-full font-sans !important;
+    @apply text-grey-darker font-light rounded-lg transition outline-none text-base;
+}
+
+section.slack #CommunityInviter input#CommunityInviterEmail:focus {
+    @apply border-primary !important;
+}
+
+@screen md {
+    section.slack #CommunityInviter input#CommunityInviterEmail {
+        height: 70px;
+        @apply mt-5 text-xl px-4 !important;
+    }
+}
+
+section.slack #CommunityInviter button#CommunityInviterSend {
+    height: 40px;
+    @apply mt-1 w-full transition font-sans tracking-wide bg-primary capitalize text-base font-normal rounded-lg border-0 outline-none !important;
+}
+
+section.slack #CommunityInviter button#CommunityInviterSend:hover {
+    @apply bg-primary-darker !important;
+}
+
+@screen md {
+    section.slack #CommunityInviter button#CommunityInviterSend {
+        height: 65px;
+        @apply mt-2 text-xl !important;
+    }
+}
+
+/* =======================================================================================
+ Section: Tweets
+======================================================================================= */
+
+section.tweets .tweet a {
+    @apply text-white transition;
+}
+
+section.tweets .btn svg {
+    top: 3px;
+    width: 20px;
+    height: 17px;
+    margin-right: 10px;
+    @apply relative;
+}
+
+section.tweets .btn {
+    max-width: 250px;
+    touch-action: manipulation;
+    border: 1px solid transparent;
+    @apply no-underline rounded-lg text-center align-middle cursor-pointer bg-white mx-auto text-base;
+    @apply text-blue-twitter block z-50 w-full py-3 px-5 select-none whitespace-no-wrap;
+}
+
+section.tweets .twitter-follow-button {
+    margin-top: 30px;
+    @apply inline-block no-underline text-white;
+}
+
+/* =======================================================================================
+ Section: Footer
+======================================================================================= */
+
+.footer .heart-pulse {
+    top: 2px;
+    animation: heart-pulse 1s infinite;
+}
+
+@keyframes heart-pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/* =======================================================================================
+ Snackbar
+======================================================================================= */
+
+#snackbar {
+    left: 50%;
+    top: 0;
+    z-index: 9999;
+    margin-top: 85vh;
+    max-width: 80%;
+    margin-left: calc(-80% / 2);
+    background-color: #333;
+    @apply w-full invisible bg-grey-darkest text-white text-center rounded-sm p-3 fixed;
+}
+
+@screen md {
+    #snackbar {
+        margin-top: 2%;
+        max-width: 350px;
+        margin-left: calc(-350px / 2);
+    }
+}
+
+#snackbar.show {
+    animation: snackfadein 0.5s, snackfadeout 0.5s 2.5s;
+    @apply visible;
+}
+
+#snackbar.show.error {
+    @apply bg-red-light;
+}
+
+#snackbar.show.warn {
+    @apply bg-orange-light;
+}
+
+#snackbar.show.success {
+    @apply bg-primary;
+}
+
+@keyframes snackfadein {
+    from {
+        margin-top: 100vh;
+        opacity: 0;
+    }
+    to {
+        margin-top: 85vh;
+        opacity: 1;
+    }
+}
+
+@keyframes snackfadeout {
+    from {
+        margin-top: 85vh;
+        opacity: 1;
+    }
+    to {
+        margin-top: 100vh;
+        opacity: 0;
+    }
+}
+
+@screen md {
+    @keyframes snackfadein {
+        from {
+            margin-top: 0%;
+            opacity: 0;
+        }
+        to {
+            margin-top: 2%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes snackfadeout {
+        from {
+            margin-top: 2%;
+            opacity: 1;
+        }
+        to {
+            margin-top: 0%;
+            opacity: 0;
+        }
+    }
+}
+
+#contact-modal {
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: scale(0);
+    margin-top: calc(-100vh / 2);
+    margin-left: calc(-100vw / 2);
+    transition: transform 0.1s ease;
+}
+
+#contact-modal.show {
+    transform: scale(1);
+}

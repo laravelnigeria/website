@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Meetup;
-use App\Talk;
+use Facades\App\Talk;
 
-class TalksController extends Controller {
-
-    /**
-     * Returns a list of talks past and present.
-     *
-     * @param Meetup $meetup
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index(Meetup $meetup)
+class TalksController extends Controller
+{
+    public function __invoke()
     {
-        $seo_title = "All talks given at the meetup";
-
         $meetups = Talk::organisedByMeetup();
+        // dd($meetups->first()->get('details'));
 
-        return view('talks', compact('meetups', 'seo_title'));
+        return view('talks', compact('meetups'));
     }
 }

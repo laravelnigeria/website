@@ -16,10 +16,10 @@ class CreateSponsorsTable extends Migration
         Schema::create('sponsors', function (Blueprint $table) {
             $table->string('name');
             $table->string('description', 100)->nullable();
-            $table->string('responsible_for', 50);
+            $table->unsignedSmallInteger('level')->default(1);
+            $table->string('responsible_for', 100)->nullable();
             $table->string('link');
             $table->string('logo');
-            $table->unsignedSmallInteger('level')->default(1);
         });
     }
 

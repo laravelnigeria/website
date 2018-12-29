@@ -16,13 +16,14 @@ class CreateTalksTable extends Migration
         Schema::create('talks', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('topic');
-            $table->text('overview');
             $table->unsignedInteger('meetup_id');
-            $table->string('link_video')->nullable();
-            $table->string('link_slides')->nullable();
+            $table->string('topic');
+            $table->string('overview', 1000);
+            $table->string('video_url')->nullable();
+            $table->string('slides_url')->nullable();
             $table->boolean('accepted')->default(false);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('meetup_id')->references('id')->on('meetups');

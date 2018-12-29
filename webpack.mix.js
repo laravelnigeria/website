@@ -1,14 +1,21 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 
+require('laravel-mix-tailwind');
+require('laravel-mix-purgecss');
+
+/**
+ * Webpack config
+ */
+
 mix.webpackConfig({
     plugins: [
-        new CopyWebpackPlugin([{ from: 'resources/assets/images', to: 'img' }]),
+        new CopyWebpackPlugin([{ from: 'resources/img', to: 'img' }]),
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif)$/i,
-            plugins: [ imageminMozjpeg({ quality: 70 }) ]
+            plugins: [imageminMozjpeg({ quality: 70 })]
         })
     ]
 });
@@ -24,15 +31,14 @@ mix.webpackConfig({
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .options({
-      processCssUrls: false
-   })
-   .browserSync({
-      proxy: 'laravelnigeria.test'
-   });
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css')
+    .tailwind()
+    .options({
+        processCssUrls: false
+    })
+    .purgeCss();
 
-if (mix.config.inProduction) {
-   mix.version();
+if (mix.inProduction()) {
+    mix.version();
 }

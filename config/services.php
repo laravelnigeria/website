@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
@@ -17,12 +16,13 @@ return [
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
+        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
     'ses' => [
         'key' => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
-        'region' => 'us-east-1',
+        'region' => env('SES_REGION', 'us-east-1'),
     ],
 
     'sparkpost' => [
@@ -33,13 +33,26 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+        'webhook' => [
+            'secret' => env('STRIPE_WEBHOOK_SECRET'),
+            'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
+        ],
     ],
 
     'twitter' => [
+        // @see https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html
         'search' => [
-            'q' => env('TWITTER_SEARCH_QUERY'),
-            'count' => env('TWITTER_SEARCH_RESULT_COUNT', 10),
             'result_type' => 'mixed',
+            'q' => env('TWITTER_SEARCH_QUERY'),
+            'lang' => env('TWITTER_SEARCH_LANGUAGE', 'en'),
+            'count' => env('TWITTER_SEARCH_RESULT_COUNT', 10),
+
+            /**
+             * If your search query is too specific, and you get no results, you may need
+             * a fallback query that is less specific.
+             */
+
+            'fallback_query' => env('TWITTER_SEARCH_FALLBACK_QUERY', '#laravel OR @laravelphp -filter:retweets -filter:replies'),
         ],
     ],
 
@@ -49,7 +62,6 @@ return [
     ],
 
     'community_inviter' => [
-        'join_url' => env('COMMUNITY_INVITER_JOIN_URL'),
         'slack_team' => env('COMMUNITY_INVITER_SLACK_TEAM'),
         'slack_team_readable' => env('COMMUNITY_INVITER_SLACK_TEAM_READABLE'),
     ],
@@ -58,4 +70,7 @@ return [
         'id' => env('GOOGLE_TAG_MANAGER_ID'),
     ],
 
+    'tinyletter' => [
+        'username' => env('TINY_LETTER_USERNAME'),
+    ],
 ];

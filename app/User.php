@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password',
     ];
 
     /**
@@ -28,13 +30,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the social links.
+     * Relationship with user profile.
      *
-     * @param  $value
-     * @return mixed|null
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function getSocialLinksAttribute($value)
+    public function profile() : Eloquent\Relations\HasOne
     {
-        return $value ? json_decode($value, true) : null;
+        return $this->hasOne(UserProfile::class);
     }
 }

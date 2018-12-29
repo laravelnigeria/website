@@ -2,39 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\{Sponsor, Twitter};
+use App\Sponsor;
+use Facades\App\Services\Twitter;
+use App\Presenters\TweetPresenter;
 
-class HomeController extends Controller {
-
+class HomeController extends Controller
+{
     /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth')->except('index');
-    }
-
-    /**
-     * Show the applications homepage.
+     * Home...A place where I can go, to take this off my shoulders.
+     * Someone take me home.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __invoke()
     {
-        $seo_title = 'The best Laravel PHP developers in Nigeria';
+        $sponsors = Sponsor::orderedByLevel()->get();
 
-        $sponsors = Sponsor::theLot();
+        $tweets = Twitter::searchWithFallbackQuery()->get('tweets');
 
-        $tweet = Twitter::search()->get('statuses')->random();
+        $tweet = $tweets->isNotEmpty() ? new TweetPresenter($tweets->random()) : false;
 
-        return view('index', compact('sponsors', 'tweet', 'seo_title'));
-    }
-
-    /**
-     * Display the home page.
-     */
-    public function home()
-    {
-        return redirect()->route('index');
+        return view('index', compact('sponsors', 'tweet'));
     }
 }

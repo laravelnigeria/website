@@ -2,39 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMessage;
+use Illuminate\Http\Request;
+use App\Mail\ContactSubmitted;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\ContactRequest as Request;
 
-class ContactController extends Controller {
-
+class ContactController extends Controller
+{
     /**
-     * Handle the submitted contact form queue the email and send the json
-     * encoded response back to the requester.
+     * Submits the message sent via the contact form.
      *
-     * @param  Request $request
-     * @return mixed
+     * @param  \Illuminate\Http\Request $request
+     * @return void
      */
-    public function __invoke(Request $request)
+    public function send(Request $request)
     {
-        $fakeToken = $request->get('__token');
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required|string|between:5,100',
+            'message' => 'required|string|between:100,2000',
+        ]);
 
-        /**
-         * If, and only if, the fake token matches the token set by JavaScript should the email be actually sent.
-         * If it does not match then return a positive response also. Since bots cannot load javascript then
-         * they would not be able to execute the part of the javascript that will replace the token with
-         * the real token. This also means anyone with Javascript disabled cannot contact you.
-         *
-         * Well on your own oo, on your own o, on your own o...
-         */
+        $to = config('contact.to');
 
-        if ($fakeToken AND $fakeToken === "YUesU09isIUiUkCX9288==") {
-            // Queue the email to be sent by a job or whatever later sha...
-            $details = collect($request->only(['name', 'email', 'message']));
+        // TODO: Make this an event instead. This is so we can hook other listeners.
+        Mail::to($to['email'], $to['name'])->send(new ContactSubmitted(
+            collect([
+                'name' => $request->get('name'),
+                'replyTo' => $request->get('email'),
+                'message' => $request->get('message'),
+                'email' => config('contact.from.email'),
+            ])
+        ));
 
-            Mail::to("neo@hng.tech", config('app.name'))->send(new ContactMessage($details));
-        }
-
-        return ['message' => 'Email sent successfully!', 'status' => 'ok'];
+        return response()->json(['success' => true]);
     }
 }

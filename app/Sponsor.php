@@ -2,20 +2,39 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsor extends Model {
+class Sponsor extends Model
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'description',
+        'level',
+        'responsible_for',
+        'logo',
+        'link',
+    ];
 
     /**
-     * {@inheritDoc}
+     * The attributes that should be cast to native types.
+     *
+     * @var array
      */
+    protected $casts = [
+        'level' => 'int',
+    ];
+
+    /**
+    * Indicates if the model should be timestamped.
+    *
+    * @var bool
+    */
     public $timestamps = false;
-
-    /**
-     * {@inheritDoc}
-     */
-    protected $fillable = ['name', 'logo', 'link'];
 
     /**
      * Get all the sponsors.
@@ -23,10 +42,8 @@ class Sponsor extends Model {
      * @param $query
      * @return mixed
      */
-    public function scopeTheLot($query)
+    public function scopeOrderedByLevel($query)
     {
-        return Cache::remember('sponsors', 30, function() use ($query) {
-            return $query->orderBy('level', 'desc')->get();
-        });
+        return $query->orderBy('level', 'desc');
     }
 }
