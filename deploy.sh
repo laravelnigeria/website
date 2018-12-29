@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-git pull origin master
+if [[ -d "./.git" ]]; then
+    git pull origin master
+fi
 
 composer install --no-interaction --no-dev
 

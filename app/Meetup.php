@@ -3,29 +3,35 @@
 namespace App;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent;
-use App\Facades\MeetupApi as Api;
-use Illuminate\Support\Facades\Cache;
+use Facades\App\Services\MeetupDotCom;
+use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\InvalidMeetupEventException;
 
-class Meetup extends Eloquent\Model
+class Meetup extends Model
 {
     /**
-     * @var integer
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    const CACHE_MINUTES = 15;
+    protected $fillable = [
+        'event_id',
+        'link',
+    ];
 
     /**
-     * {@inheritDoc}
+     * The relations to eager load on every query.
+     *
+     * @var array
      */
-    protected $fillable = ['event_id'];
+    protected $with = [
+        'talks',
+    ];
 
     /**
-     * {@inheritDoc}
-     */
-    protected $with = ['talks'];
-
-    /**
-     * {@inheritDoc}
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
      */
     public $timestamps = false;
 
@@ -34,17 +40,9 @@ class Meetup extends Eloquent\Model
      *
      * @return \Illuminate\Support\Collection
      */
-    public function groupDetails()
+    public function groupDetails(): \Illuminate\Support\Collection
     {
-        return Cache::remember('meetup.group', static::CACHE_MINUTES, function () {
-            $group = Api::getGroupDetails();
-
-            $group->put('created_object', Carbon::createFromTimestamp($group->get('created') / 1000)
-                ->timezone($group->get('timezone'))
-            );
-
-            return $group;
-        });
+        return MeetupDotCom::getGroupDetails();
     }
 
     /**
@@ -52,55 +50,64 @@ class Meetup extends Eloquent\Model
      *
      * @return \Illuminate\Support\Collection
      */
-    public function groupDetailsWithNextEvent()
+    public function groupDetailsWithNextEvent(): \Illuminate\Support\Collection
     {
         $group = $this->groupDetails();
 
-        return Cache::remember('meetup.group_with_next_event', static::CACHE_MINUTES, function () use ($group) {
-            if ($group->get('next_event')) {
-                $id = (int) $group->get('next_event')['id'];
+        if ($group->get('next_event')) {
+            $id = (int) $group->get('next_event')['id'];
 
-                $group->put('next_event', $this->getEventDetails($id, ['omit' => 'group']));
-            }
+            $group->put('next_event', $this->getEventDetails($id, ['omit' => 'group']));
+        }
 
-            return $group;
-        });
+        return $group;
     }
 
     /**
      * Get the details of the meetup
      *
-     * @param  int|null $event_id
-     * @param array $options
+     * @param  int|null $id   The events ID
+     * @param array $options  API fetching options
      * @return \Illuminate\Support\Collection
+     * @throws \App\Exceptions\InvalidMeetupEventException
      */
-    public function getEventDetails(int $event_id = null, array $options = [])
+    public function getEventDetails(int $id = null, array $options = []): \Illuminate\Support\Collection
     {
-        $event_id = $event_id ?? $this->event_id;
+        if ($id === null) {
+            throw_unless($this->exists, InvalidMeetupEventException::class, 'Cannot find event.');
 
-        return Cache::remember("meetup.event.{$event_id}", static::CACHE_MINUTES, function () use ($event_id, $options) {
-            $event = Api::getEvent($event_id, $options);
+            $id = (int) $this->event_id;
+        }
 
-            $created_timestamp = $event->get('created') / 1000;
-            $event_timestamp   = $event->get('time') / 1000;
+        $eventModel = $this->loadEventWithTalks($id)->first();
 
-            $events = $this->whereEventId($event_id)->with(['talks' => function ($talks) {
-                            $talks->accepted()->ordered();
-                        }])->first();
+        $event = MeetupDotCom::getEvent($id, $options);
+        $event->put('talks', $eventModel ? $eventModel->talks->toArray() : []);
+        $event->put('starts_at', Carbon::createFromTimestamp($event->get('time') / 1000));
+        $event->put('created_at', Carbon::createFromTimestamp($event->get('created') / 1000));
 
-            $talks = $events ? $events->talks->toArray() : [];
+        if ($event->get('rsvp_limit')) {
+            $seats_left = $event->get('rsvp_limit') - $event->get('yes_rsvp_count');
 
-            $event->put('talks', $talks);
+            $event->put('seats_left', $seats_left);
+        }
 
-            $event->put('time_object', Carbon::createFromTimestamp($event_timestamp));
-            $event->put('created_object', Carbon::createFromTimestamp($created_timestamp));
+        return $event;
+    }
 
-            if ($event->get('rsvp_limit')) {
-                $event->put('seats_left', $event->get('rsvp_limit') - $event->get('yes_rsvp_count'));
-            }
-
-            return $event;
-        });
+    /**
+     * Load event with the talks for that event.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeLoadEventWithTalks($query, int $id): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->with(['talks' => function ($talks) {
+            $talks->with(['user' => function ($user) {
+                $user->with('profile');
+            }])->accepted()->ordered();
+        }])->where('event_id', $id);
     }
 
     /**
@@ -108,7 +115,7 @@ class Meetup extends Eloquent\Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function talks() : Eloquent\Relations\HasMany
+    public function talks(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Talk::class);
     }

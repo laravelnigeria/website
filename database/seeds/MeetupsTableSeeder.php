@@ -11,8 +11,6 @@ class MeetupsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Meetup::class, 2)->create()->each(function ($meetup) {
-            // factory('App\Talk', 2)->create(['meetup_id' => $meetup->id]);
-        });
+        factory(App\Meetup::class, 2)->create();
     }
 }

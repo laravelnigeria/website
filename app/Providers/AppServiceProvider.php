@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Meetup;
 use Illuminate\Support\ServiceProvider;
 use Barryvdh\Debugbar\ServiceProvider as DebugbarServiceProvider;
 
@@ -15,15 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment() == 'local') {
-            $this->app->register(DebugbarServiceProvider::class);
-        }
+        $this->loadDevelopmentServiceProviders();
 
-        if (config('app.force_https')) {
-            $this->app['url']->forceScheme('https');
-        }
-
-        $this->registerGlobalViewVariables();
+        $this->loadPublicConfigItems();
     }
 
     /**
@@ -33,20 +26,33 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
-    protected function registerGlobalViewVariables()
+    /**
+     * Load the service providers that should only be available in development environment.
+     *
+     * @return void
+     */
+    protected function loadDevelopmentServiceProviders()
     {
-        try {
-            $group = (new Meetup)->groupDetailsWithNextEvent();
-
-            $next_event = $group->get('next_event');
-
-            view()->share('meetup__group', $group);
-            view()->share('meetup__next_event', $next_event);
-        } catch (\Exception $e) {
-            // Fails likely because database connection!
+        if (app()->environment('local')) {
+            app()->register(DebugbarServiceProvider::class);
         }
+    }
+
+    /**
+     * Load the configuration items to make available to JavaScript.
+     *
+     * @return void
+     */
+    protected function loadPublicConfigItems()
+    {
+        $appConfigKeys = [
+            'name', 'url', 'twitter', 'welcome_message', 'jumbo_videos', 'cfp_link'
+        ];
+
+        view()->share('lnConfig', json_encode([
+            'app' => array_only(config('app'), $appConfigKeys)
+        ]));
     }
 }

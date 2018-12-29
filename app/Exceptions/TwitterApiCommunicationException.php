@@ -2,4 +2,6 @@
 
 namespace App\Exceptions;
 
-class TwitterApiCommunicationException extends ApiCommunicationException {}
+class TwitterApiCommunicationException extends \Exception
+{
+}

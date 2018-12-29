@@ -1,10 +1,26 @@
-<footer class="main">
-    <div class="container">
-        {{--<ul>
-            <li><a href="#" title="About">About</a></li>
-            <li><a href="#" title="About">Privacy Policy</a></li>
-            <li><a href="#" title="About">Site map</a></li>
-        </ul>--}}
-        <span class="closer">Crafted with &#10084; at <a href="https://creativitykills.co" target="_blank" title="Nigerian web design company">CreativityKills Co.</a> // <a href="https://github.com/laravelnigeria/website" title="Laravel Nigeria Websites Source Code" target="_blank">Source Code</a></span>
+<div class="footer">
+    <div class="container flex flex-col md:flex-row justify-center items-center border-t border-grey-lighter py-8">
+        <div class="mb-2 md:mb-0">
+            <span class="tracking-normal text-sm text-grey-dark">
+                &copy; Laravel Nigeria {{ date('Y') }}. All rights reserved.
+            </span>
+        </div>
+        <div class="md:ml-1">
+            <span class="tracking-normal text-sm text-grey-dark">
+                Designed with <img class="relative heart-pulse" src="{{ asset('/img/heart.svg') }}" /> by
+                <a
+                    target="_blank"
+                    title="CreativityKills"
+                    href="https://creativitykills.co"
+                    class="no-underline text-grey-dark hover:text-primary hover:underline"
+                >CreativityKills</a>.
+                <a
+                    target="_blank"
+                    title="Laravel Nigeria website open source"
+                    href="https://github.com/laravelnigeria/website"
+                    class="no-underline text-grey-dark hover:text-primary hover:underline"
+                >Open Source</a>.
+            </span>
+        </div>
     </div>
-</footer>
+</div>

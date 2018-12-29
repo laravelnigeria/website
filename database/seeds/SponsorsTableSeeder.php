@@ -11,12 +11,24 @@ class SponsorsTableSeeder extends Seeder
      */
     public function run()
     {
+        env('APP_SEED_ACTUAL_SPONSORS', false)
+            ? $this->realSponsors()
+            : factory(App\Sponsor::class, 5)->create();
+    }
+
+    /**
+     * Save real sponsors to the database. Wild!
+     *
+     * @return void
+     */
+    private function realSponsors()
+    {
         DB::table('sponsors')->insert([
             [
                 'name' => 'CreativityKills',
                 'description' => 'Nigerian web development company',
                 'responsible_for' => 'Website',
-                'logo' => 'img/sponsor-ck.png',
+                'logo' => '/img/sponsor-ck.png',
                 'link' => 'https://creativitykills.co',
                 'level' => 5,
             ],
@@ -24,7 +36,7 @@ class SponsorsTableSeeder extends Seeder
                 'name' => 'Pusher',
                 'description' => 'Build scalable realtime infrastructure',
                 'responsible_for' => 'Swag & Video Coverage',
-                'logo' => 'img/sponsor-pusher.png',
+                'logo' => '/img/sponsor-pusher.png',
                 'link' => 'https://pusher.com',
                 'level' => 5,
             ],
@@ -32,7 +44,7 @@ class SponsorsTableSeeder extends Seeder
                 'name' => 'Scotch.io',
                 'description' => 'Web development training',
                 'responsible_for' => 'Financial Aid',
-                'logo' => 'img/sponsor-scotch.png',
+                'logo' => '/img/sponsor-scotch.png',
                 'link' => 'https://scotch.io',
                 'level' => 4,
             ],
@@ -40,7 +52,7 @@ class SponsorsTableSeeder extends Seeder
                 'name' => 'Andela',
                 'description' => null,
                 'responsible_for' => 'Event center',
-                'logo' => 'img/sponsor-andela.png',
+                'logo' => '/img/sponsor-andela.png',
                 'link' => 'https://andela.com',
                 'level' => 3,
             ],
@@ -48,7 +60,7 @@ class SponsorsTableSeeder extends Seeder
                 'name' => 'Nexmo',
                 'description' => 'APIs for SMS, Voice and Phone Verifications',
                 'responsible_for' => 'Domain name',
-                'logo' => 'img/sponsor-nexmo.png',
+                'logo' => '/img/sponsor-nexmo.png',
                 'link' => 'https://nexmo.com',
                 'level' => 2,
             ],
@@ -56,7 +68,7 @@ class SponsorsTableSeeder extends Seeder
                 'name' => 'GigaLayer',
                 'description' => 'Nigerian web hosting company',
                 'responsible_for' => 'Domain name',
-                'logo' => 'img/sponsor-gigalayer.png',
+                'logo' => '/img/sponsor-gigalayer.png',
                 'link' => 'https://gigalayer.com.ng',
                 'level' => 1,
             ]
