@@ -3,7 +3,7 @@ if [[ -d "./.git" ]]; then
     git pull origin master
 fi
 
-composer install --no-interaction --no-dev
+composer install --no-interaction
 
 php artisan optimize
 php artisan migrate --force
