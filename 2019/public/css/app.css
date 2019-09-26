@@ -11533,6 +11533,10 @@ header.jumbo .sponsor-mobile {
   margin-top: 28px;
 }
 
+header.jumbo .sponsor-mobile .gold-sponsor {
+  display: block;
+}
+
 header.jumbo .sponsor-mobile .gold-sponsor img {
   width: 100px;
 }

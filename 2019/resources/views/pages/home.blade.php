@@ -45,9 +45,9 @@
                     <div class="sponsor-mobile">
                         <div class="content">
                             <span>Gold Sponsor:</span>
-                            <div class="gold-sponsor">
+                            <a href="https://corporate.aboutyou.de/en/?utm_source=laravel-nigeria&utm_medium=referral&utm_campaign=tech" target="_blank" rel="noopener noreferrer" class="gold-sponsor">
                                 <img src="{{ asset('img/sponsor.png') }}" alt="">
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div class="content wow fadeInUp" data-wow-delay="0.2s">
                     <span>Gold Sponsor:</span>
                     <div class="gold-sponsor">
-                        <a href="https://aboutyou.de" target="_blank">
+                        <a href="https://corporate.aboutyou.de/en/?utm_source=laravel-nigeria&utm_medium=referral&utm_campaign=tech" target="_blank">
                             <img src="{{ asset('img/sponsor.png') }}" alt="Laravel Nigeria is sponsored by ABOUT YOU GmbH">
                         </a>
                     </div>

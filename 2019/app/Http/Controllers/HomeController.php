@@ -19,7 +19,7 @@ final class HomeController extends Controller
         return [
             [
                 'image' => 'img/sponsor-ay.png',
-                'link' => 'https://aboutyou.de',
+                'link' => 'https://corporate.aboutyou.de/en/?utm_source=laravel-nigeria&utm_medium=referral&utm_campaign=tech',
                 'title' => 'Laravel Nigeria Sponsor - ABOUT YOU GmbH',
             ],
             [
