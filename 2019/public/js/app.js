@@ -38586,8 +38586,8 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "btn btn-lg btn-primary disabled",
-          attrs: { href: "https://www.papercall.io/laravelnigeria" }
+          staticClass: "btn btn-lg btn-primary",
+          attrs: { href: "https://laravelnigeria.typeform.com/to/rosG3K" }
         },
         [_vm._v("Submit Talk")]
       )
