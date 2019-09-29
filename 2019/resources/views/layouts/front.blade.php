@@ -37,5 +37,8 @@
         @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    @if (session()->has('verified'))
+    <script>swal('Verification successful', 'You have successfully confirmed your email address. See you at the conference.', 'success');</script>
+    @endif
 </body>
 </html>
