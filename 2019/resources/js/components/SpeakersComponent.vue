@@ -100,8 +100,8 @@
 
         <div class="text-center mt-5">
           <a
-            class="btn btn-lg btn-primary disabled"
-            href="https://www.papercall.io/laravelnigeria"
+            class="btn btn-lg btn-primary"
+            href="https://laravelnigeria.typeform.com/to/rosG3K"
           >Submit Talk</a>
         </div>
       </div>
