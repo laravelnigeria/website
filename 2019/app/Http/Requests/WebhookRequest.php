@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace App\Http\Requests;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class WebhookRequest extends FormRequest
 {
     public function authorize(): bool
     {
+        Log::info('[Webhook] New request', $this->webhookName());
+        Log::info('[Webhook] Payload', $this->all());
+
         $allowedWebhooks = (array) config('tito.allowed_webhooks');
 
         return in_array($this->webhookName(), $allowedWebhooks);

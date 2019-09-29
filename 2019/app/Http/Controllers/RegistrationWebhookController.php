@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\TicketUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\WebhookRequest;
 use App\Events\TicketRegistrationComplete;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -31,6 +32,8 @@ final class RegistrationWebhookController extends Controller
     {
         $data = $request->validated();
 
+        Log::info('[Webhook] validated request data', $data);
+
         collect($data['tickets'])
             ->unique('email')
             ->mapInto(TicketUser::class)
@@ -41,7 +44,10 @@ final class RegistrationWebhookController extends Controller
             })
             ->each(static function (TicketUser $ticketUser) {
                 if ($ticketUser->save()) {
+                    Log::info('[Webhook] ticket user saved');
                     event(new TicketRegistrationComplete($ticketUser));
+                } else {
+                    Log::info('[Webhook] ticket user was not saved');
                 }
             });
 
