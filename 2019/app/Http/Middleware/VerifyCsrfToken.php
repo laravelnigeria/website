@@ -21,4 +21,13 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     ];
+
+    protected function inExceptArray($request)
+    {
+        // Necessary because we want to read the URL from the configuration file and we cannot do it
+        // in the properties definition.
+        $this->except[] = config('tito.webhook_url');
+
+        return parent::inExceptArray($request);
+    }
 }
