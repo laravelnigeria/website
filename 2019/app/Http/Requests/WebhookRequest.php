@@ -12,7 +12,7 @@ final class WebhookRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        Log::info('[Webhook] New request', $this->webhookName());
+        Log::info('[Webhook] New request', ['webhook_name' => $this->webhookName()]);
         Log::info('[Webhook] Payload', $this->all());
 
         $allowedWebhooks = (array) config('tito.allowed_webhooks');
