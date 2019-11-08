@@ -53,7 +53,7 @@
                   </div>
                   <div class="speaker-info">
                     <span class="name">{{ this.selectedSpeaker.name }}</span>
-                    <span class="description">
+                    <span class="description" v-if="selectedSpeaker.job !== ''">
                       {{ this.selectedSpeaker.job }}
                     </span>
                     <hr style="border-color: rgba(255,255,255,.5)">
@@ -81,7 +81,7 @@
                         data-wow-delay="1s"
                         id="speaker-twitter"
                         v-if="selectedSpeaker.social.twitter"
-                        :href="`https://github.com/${selectedSpeaker.social.twitter}`"
+                        :href="`https://twitter.com/${selectedSpeaker.social.twitter}`"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -98,13 +98,6 @@
           </div>
         </div>
 
-        <div class="text-center mt-5">
-          <a
-            class="btn btn-lg btn-primary"
-            href="https://laravelnigeria.typeform.com/to/rosG3K"
-          >Submit Talk</a>
-          <a class="typeform-share button" href="https://laravelnigeria.typeform.com/to/rosG3K" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#00BABA;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-footer=true data-submit-close-delay="1" target="_blank">Submit Talk </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
-        </div>
       </div>
     </div>
   </section>

@@ -299,8 +299,10 @@ header.jumbo {
     overflow: hidden;
     .speakers-wrap {
         margin: 4rem 0;
+        margin-bottom: 15px;
         @media only screen and (min-width: 768px) {
             margin: 6rem 0;
+            margin-bottom: 15px;
         }
     }
     .title {
