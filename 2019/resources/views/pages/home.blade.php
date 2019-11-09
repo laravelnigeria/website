@@ -175,17 +175,17 @@
 
             <schedule
                 :duration="{start:'10:20am', end:'10:50am'}"
-                :details="{title:'First Talk (TBA)', overview: 'Talk to be announced later'}">
+                :details="{title:'First Talk', overview: 'Failure-As-A-Service: Dealing with failure and tough situations as a Developer | Christian Jombo'}">
             </schedule>
 
             <schedule
                 :duration="{start:'10:55am', end:'11:25am'}"
-                :details="{title:'Second Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :details="{title:'Second Talk', 'overview': 'Building, testing and scaling Laravel APIs effectively | Frantz Kati'}">
             </schedule>
 
             <schedule
                 :duration="{start:'11:30am', end:'12:00am'}"
-                :details="{title:'Third Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :details="{title:'Third Talk', 'overview': 'Getting started with Laravel | Chisom Mbama'}">
             </schedule>
 
             <schedule
@@ -196,12 +196,12 @@
 
             <schedule
                 :duration="{start:'12:50am', end:'01:05pm'}"
-                :details="{title:'Lightning Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :details="{title:'Lightning Talk', 'overview': 'UI Rendering on the Web | Wisdom Ebong'}">
             </schedule>
 
             <schedule
                 :duration="{start:'01:10pm', end:'01:40pm'}"
-                :details="{title:'Fourth Talk (TBA)', overview: 'Talk to be announced later'}">
+                :details="{title:'Fourth Talk', overview: 'TDD: Building Maintainable Apps Through Tests by | Sodeeq Elusoji'}">
             </schedule>
 
             <schedule
@@ -212,7 +212,7 @@
 
             <schedule
                 :duration="{start:'02:15pm', end:'02:45pm'}"
-                :details="{title:'Fifth Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :details="{title:'Fifth Talk', 'overview': 'Asynchronous PHP and why you should care as a PHP Developer | Olatunbosun Egberinde'}">
             </schedule>
 
             <schedule
@@ -222,7 +222,7 @@
 
             <schedule
                 :duration="{start:'03:10am', end:'03:40pm'}"
-                :details="{title:'Sixth Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :details="{title:'Sixth Talk', 'overview': 'SOLID in Laravel: Too Much or Not Enough? | Etinosa Obaseki'}">
             </schedule>
 
             <schedule
@@ -233,7 +233,7 @@
 
             <schedule
                 :duration="{start:'04:00pm', end:'04:20pm'}"
-                :details="{title:'Final Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :details="{title:'Final Talk', 'overview': 'How to Deploy Laravel Applications securely on DigitalOcean | Michael Okoh'}">
             </schedule>
 
             <schedule
