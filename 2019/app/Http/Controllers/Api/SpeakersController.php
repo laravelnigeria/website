@@ -81,7 +81,7 @@ final class SpeakersController extends Controller
                     'twitter' => 'sdktalks',
                     'github' => 'sdkcodes',
                 ],
-                'abstract' => 'For this talk, we want to look at how we can accomplish the various rendering techniques in developing a Laravel PHP application using tools like Vue, React, Inertia, Livewire e.t.c and also discuss their benefits, bottlenecks and tradeoffs, which will help us to decide the best way to architecture our apps.'
+                'abstract' => "Writing Tests is something often considered unnecessary by developers because it's 'hard' and looks like too much work. However, building an app that stands the test of time needs to be properly tested, and more so, writing tests isn't that hard when properly understood. And the good thing is - Laravel makes testing so easy."
             ],
             // [
             //     'id' => 6,
