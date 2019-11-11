@@ -22,7 +22,7 @@
     <meta name="twitter:image" content="{{ asset('/img/android-browser-icon.png') }}">
     <link rel="icon" sizes="192x192" href="{{ asset('/img/android-browser-icon.png') }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1.0">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <script src="//kit.fontawesome.com/01714cccb6.js" async></script>
     <script src="https://js.tito.io/v1"></script>
