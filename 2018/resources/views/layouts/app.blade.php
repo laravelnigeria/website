@@ -62,7 +62,7 @@
     <div id="snackbar"></div>
 
     <script type="text/javascript">window.lnConfig = {!! $lnConfig !!}</script>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}?v=1.0"></script>
     @yield('scripts')
 </body>
 

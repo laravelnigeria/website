@@ -36,7 +36,7 @@
         @include('partials.nav')
         @yield('content')
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}?v=1.0"></script>
     @if (session()->has('verified'))
     <script>swal('Verification successful', 'You have successfully confirmed your email address. See you at the conference.', 'success');</script>
     @endif
