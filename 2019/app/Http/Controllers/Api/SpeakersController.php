@@ -62,7 +62,7 @@ final class SpeakersController extends Controller
                 'name' => 'Michael Okoh',
                 'job' => 'Developer, Hotels.ng',
                 'title' => 'How to Deploy Laravel Applications securely on DigitalOcean',
-                'image' => 'https://res.cloudinary.com/ddbm6rq61/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1573239261/trojan.jpg',
+                'image' => 'https://res.cloudinary.com/ddbm6rq61/image/upload/v1573475473/trojan.jpg',
                 'social' => [
                     'github' => 'ichtrojan',
                     'twitter' => 'ichtrojan',
@@ -71,21 +71,18 @@ final class SpeakersController extends Controller
                         At the end of this talk, attendees will have an idea of how to deploy Laravel applications on a DigitalOcean Ubuntu droplet.
                 '
             ],
-            // [
-            //     'id' => 5,
-            //     'name' => 'To Be Announced',
-            //     'job' => 'To Be Announced',
-            //     'title' => 'To Be Announced',
-            //     'image' => '/img/no-photo.png',
-            //     'social' => [
-            //         'twitter' => 'laravelnigeria',
-            //         'github' => 'laravelnigeria',
-            //     ],
-            //     'abstract' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            //                    Esse explicabo earum quos autem ipsa in! Eaque sunt fuga
-            //                    et ad explicabo nisi officiis. Tempora eveniet blanditiis
-            //                    fugiat a eius enim.'
-            // ],
+            [
+                'id' => 5,
+                'name' => 'Sodeeq Elusoji',
+                'job' => '',
+                'title' => 'TDD: Building Maintainable Apps Through Tests',
+                'image' => 'https://res.cloudinary.com/ddbm6rq61/image/upload/c_fill,e_grayscale,g_face:center,h_673,w_673,x_1247/v1573475508/20190117_211301.jpg',
+                'social' => [
+                    'twitter' => 'sdktalks',
+                    'github' => 'sdkcodes',
+                ],
+                'abstract' => 'For this talk, we want to look at how we can accomplish the various rendering techniques in developing a Laravel PHP application using tools like Vue, React, Inertia, Livewire e.t.c and also discuss their benefits, bottlenecks and tradeoffs, which will help us to decide the best way to architecture our apps.'
+            ],
             // [
             //     'id' => 6,
             //     'name' => 'To Be Announced',

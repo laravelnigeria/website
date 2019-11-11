@@ -151,7 +151,7 @@
         class="btn btn-lg btn-primary"
         href="https://laravelnigeria.typeform.com/to/rosG3K"
       >Submit Talk</a> --}}
-      <a class="typeform-share button" href="https://laravelnigeria.typeform.com/to/rosG3K" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#00BABA;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-footer=true data-submit-close-delay="1" target="_blank">Submit Talk </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+      {{-- <a class="typeform-share button" href="https://laravelnigeria.typeform.com/to/rosG3K" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#00BABA;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-footer=true data-submit-close-delay="1" target="_blank">Submit Talk </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> --}}
     </div>
 
 <section class="schedules">
@@ -175,17 +175,17 @@
 
             <schedule
                 :duration="{start:'10:20am', end:'10:50am'}"
-                :details="{title:'First Talk', overview: 'Failure-As-A-Service: Dealing with failure and tough situations as a Developer | Christian Jombo'}">
+                :details="{title:'Failure-As-A-Service: Dealing with failure and tough situations as a Developer', overview: 'Christian Jombo'}">
             </schedule>
 
             <schedule
                 :duration="{start:'10:55am', end:'11:25am'}"
-                :details="{title:'Second Talk', 'overview': 'Building, testing and scaling Laravel APIs effectively | Frantz Kati'}">
+                :details="{title:'Building, testing and scaling Laravel APIs effectively', 'overview': 'Frantz Kati'}">
             </schedule>
 
             <schedule
                 :duration="{start:'11:30am', end:'12:00am'}"
-                :details="{title:'Third Talk', 'overview': 'Getting started with Laravel | Chisom Mbama'}">
+                :details="{title:'Getting started with Laravel', 'overview': 'Chisom Mbama'}">
             </schedule>
 
             <schedule
@@ -196,12 +196,12 @@
 
             <schedule
                 :duration="{start:'12:50am', end:'01:05pm'}"
-                :details="{title:'Lightning Talk', 'overview': 'UI Rendering on the Web | Wisdom Ebong'}">
+                :details="{title:'UI Rendering on the Web', 'overview': 'Wisdom Ebong'}">
             </schedule>
 
             <schedule
                 :duration="{start:'01:10pm', end:'01:40pm'}"
-                :details="{title:'Fourth Talk', overview: 'TDD: Building Maintainable Apps Through Tests by | Sodeeq Elusoji'}">
+                :details="{title:'TDD: Building Maintainable Apps Through Tests', overview: 'Sodeeq Elusoji'}">
             </schedule>
 
             <schedule
@@ -212,7 +212,7 @@
 
             <schedule
                 :duration="{start:'02:15pm', end:'02:45pm'}"
-                :details="{title:'Fifth Talk', 'overview': 'Asynchronous PHP and why you should care as a PHP Developer | Olatunbosun Egberinde'}">
+                :details="{title:'Asynchronous PHP and why you should care as a PHP Developer', 'overview': 'Olatunbosun Egberinde'}">
             </schedule>
 
             <schedule
@@ -222,7 +222,7 @@
 
             <schedule
                 :duration="{start:'03:10am', end:'03:40pm'}"
-                :details="{title:'Sixth Talk', 'overview': 'SOLID in Laravel: Too Much or Not Enough? | Etinosa Obaseki'}">
+                :details="{title:'SOLID in Laravel: Too Much or Not Enough?', 'overview': 'Etinosa Obaseki'}">
             </schedule>
 
             <schedule
@@ -233,7 +233,7 @@
 
             <schedule
                 :duration="{start:'04:00pm', end:'04:20pm'}"
-                :details="{title:'Final Talk', 'overview': 'How to Deploy Laravel Applications securely on DigitalOcean | Michael Okoh'}">
+                :details="{title:'How to Deploy Laravel Applications securely on DigitalOcean', 'overview': 'Michael Okoh'}">
             </schedule>
 
             <schedule
