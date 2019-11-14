@@ -190,38 +190,38 @@
 
             <schedule
                 grey="true"
-                :duration="{start:'12:05pm', end:'12:45pm'}"
+                :duration="{start:'12:05pm', end:'12:35pm'}"
                 :details="{title:'Lunch & Networking', overview: 'Grab some lunch and mingle with the towns people'}">
             </schedule>
 
             <schedule
-                :duration="{start:'12:50am', end:'01:05pm'}"
+                :duration="{start:'12:40am', end:'12:55pm'}"
                 :details="{title:'UI Rendering on the Web', 'overview': 'Wisdom Ebong'}">
             </schedule>
 
             <schedule
-                :duration="{start:'01:10pm', end:'01:40pm'}"
+                :duration="{start:'01:00pm', end:'01:30pm'}"
                 :details="{title:'TDD: Building Maintainable Apps Through Tests', overview: 'Sodeeq Elusoji'}">
             </schedule>
 
             <schedule
                 grey="true"
-                :duration="{start:'01:50pm', end:'02:10pm'}"
+                :duration="{start:'01:35pm', end:'01:50pm'}"
                 :details="{title:'Games and Giveaways', overview: 'Kahoots, prizes, and some fun'}">
             </schedule>
 
             <schedule
-                :duration="{start:'02:15pm', end:'02:45pm'}"
+                :duration="{start:'01:55pm', end:'02:25pm'}"
                 :details="{title:'Asynchronous PHP and why you should care as a PHP Developer', 'overview': 'Olatunbosun Egberinde'}">
             </schedule>
 
             <schedule
-                :duration="{start:'02:50pm', end:'03:05pm'}"
-                :details="{title:'Lightning Talk (TBA)', 'overview': 'Talk to be announced later'}">
+                :duration="{start:'02:30pm', end:'03:00pm'}"
+                :details="{title:'Web Accessibility: Building With Inclusion.', 'overview': 'Omoike Sarah'}">
             </schedule>
 
             <schedule
-                :duration="{start:'03:10am', end:'03:40pm'}"
+                :duration="{start:'03:10pm', end:'03:40pm'}"
                 :details="{title:'SOLID in Laravel: Too Much or Not Enough?', 'overview': 'Etinosa Obaseki'}">
             </schedule>
 
@@ -238,7 +238,11 @@
 
             <schedule
                 grey="true"
-                :duration="{start:'04:30pm', end:'05:00pm'}"
+                :duration="{start:'04:25pm', end:'04:40pm'}"
+                :details="{title:'Last Words', 'overview': 'Neo Ighodaro'}">
+            </schedule>
+            <schedule
+                :duration="{start:'04:45pm', end:'05:00pm'}"
                 :details="{title:'Photos / Interview', 'overview': 'For speakers and some random attendees'}">
             </schedule>
         </div>

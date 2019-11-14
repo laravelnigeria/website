@@ -83,21 +83,46 @@ final class SpeakersController extends Controller
                 ],
                 'abstract' => "Writing Tests is something often considered unnecessary by developers because it's 'hard' and looks like too much work. However, building an app that stands the test of time needs to be properly tested, and more so, writing tests isn't that hard when properly understood. And the good thing is - Laravel makes testing so easy."
             ],
-            // [
-            //     'id' => 6,
-            //     'name' => 'To Be Announced',
-            //     'job' => 'To Be Announced',
-            //     'title' => 'To Be Announced',
-            //     'image' => '/img/no-photo.png',
-            //     'social' => [
-            //         'twitter' => 'laravelnigeria',
-            //         'github' => 'laravelnigeria',
-            //     ],
-            //     'abstract' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            //                    Esse explicabo earum quos autem ipsa in! Eaque sunt fuga
-            //                    et ad explicabo nisi officiis. Tempora eveniet blanditiis
-            //                    fugiat a eius enim.'
-            // ],
+            [
+                'id' => 6,
+                'name' => 'Olatunbosun Egberinde',
+                'job' => '',
+                'title' => 'Asynchronous PHP and why you should care as a PHP Developer',
+                'image' => 'https://res.cloudinary.com/ddbm6rq61/image/upload/v1573681834/bosun.jpg',
+                'social' => [
+                    'twitter' => 'bosunski',
+                    'github' => 'bosunski',
+                ],
+                'abstract' => 'In this talk, we will examine how traditional PHP Applications works and their limitations. We\'ll look into how Asynchronous PHP proffer solutions to some of these problems, then we\'ll have some benchmarks as proof of concepts for the things discussed.'
+            ],
+            [
+                'id' => 7,
+                'name' => 'Obaseki Etinosa',
+                'job' => '',
+                'title' => 'SOLID in Laravel: Too Much or Not Enough?',
+                'image' => 'https://res.cloudinary.com/ddbm6rq61/image/upload/v1573681646/IMG-20180517.jpg',
+                'social' => [
+                    'twitter' => '',
+                    'github' => '',
+                ],
+                'abstract' => 'The SOLID principles generally espouse the practice of loose coupling when building software projects. 
+                Your application should outlive any components or parts it\'s built from. 
+                With frameworks, it can be difficult to adhere to these best practices especially with Laravel which offers so many helpful... well, helpers.
+                This talk explores how the SOLID principles can be used even while enjoying the benefits that Laravel provides.'
+            ],
+            [
+                'id' => 8,
+                'name' => 'Omoike Sarah',
+                'job' => '',
+                'title' => 'Web Accessibility: Building With Inclusion.',
+                'image' => 'https://res.cloudinary.com/ddbm6rq61/image/upload/v1573738846/sarah.jpg',
+                'social' => [
+                    "twitter" => "awesome_Sayrah"
+                ],
+                'abstract' => 'Improving your product’s accessibility can enhance the usability for all users, including those with low vision, blindness, hearing impairments, cognitive impairments, motor impairments or situational disabilities (such as a broken arm). When sites are correctly designed and developed, generally all users have equal access to information and functionality. Accessibility is often forgotten by developers, even in 2019; as a result, people with disabilities get left behind. Fortunately, some techniques can help kick start the process. In this talk, you’ll learn hands-on skills for developing inclusively and how developers can hard-code accessibility into their workflow.
+                    How do we build accessible web applications?
+                    The answer is to ensure that people with disabilities can enjoy the full use of our web applications; they can access content, navigate our web applications successfully, engage with different elements, etc.'
+            ],
         ];
     }
 }
