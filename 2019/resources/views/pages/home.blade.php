@@ -54,7 +54,7 @@
                 <div class="col-lg-5 col-md-5">
                     <div class="right-wrap">
                         <div class="video-play wow fadeIn" data-wow-delay="0.2s">
-                            <a class="icon wow tada" data-wow-delay="1.5s" title="Watch Laravel Nigeria Video"></a>
+                            <a target="_blank" href="https://www.youtube.com/watch?v=nU5NRGHqLjk&list=PLta2QF7VSkMBCC6EEr--iP6-Km-AvsvZG&index=4" class="icon wow tada" data-wow-delay="1.5s" title="Watch Laravel Nigeria Video"></a>
                             <span>Watch some of the<br/>memories</span>
                         </div>
                     </div>
