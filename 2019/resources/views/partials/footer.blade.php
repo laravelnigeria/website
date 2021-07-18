@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <a class="video-play-wrap" href="#" title="Laravel Nigeria conference recap">
+                <a class="video-play-wrap" title="Laravel Nigeria conference recap" href="https://www.youtube.com/watch?v=nU5NRGHqLjk&list=PLta2QF7VSkMBCC6EEr--iP6-Km-AvsvZG" target="_blank">
                     <div class="play-wrap">
                         <div class="play-btn">
                             <svg fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="65px" heoght="65px">
@@ -110,9 +110,9 @@
                         <div class="col">
                             <div class="container footer-list">
                                 <ul>
-                                    <li class="wow fadeInUp"><a href="https://www.youtube.com/channel/UC_cOgecDfhakxSJN9Cwhz3w" title="Previous talks from past conferences">Previous Talks</a></li>
+                                    <li class="wow fadeInUp"><a href="https://www.youtube.com/channel/UCN7VfsUuL5LoZjlLc1tMw7w" title="Previous talks from past conferences">Previous Talks</a></li>
                                     <li class="wow fadeInUp" data-wow-delay="0.1s"><a href="{{ route('code-of-conduct') }}" title="Code of Conduct">Code of Conduct</a></li>
-                                    <li class="wow fadeInUp" data-wow-delay="0.2s"><a target="_blank" rel="noopener noreferrer" href="https://laracast.com" title="Learn more">Learn</a></li>
+                                    <li class="wow fadeInUp" data-wow-delay="0.2s"><a target="_blank" rel="noopener noreferrer" href="https://laracast.com" title="Learn Laravel">Learn</a></li>
                                     <li class="wow fadeInUp" data-wow-delay="0.3s"><a href="https://medium.com/laravelnigeria" title="Link title">Blog</a></li>
                                 </ul>
                             </div>
