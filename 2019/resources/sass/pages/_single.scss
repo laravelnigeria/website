@@ -1,0 +1,45 @@
+.single-jumbo-wrapper {
+    padding: 180px 0 180px;
+    background-color: $deepGreen;
+    h2 {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        width: 85%;
+        margin: 0 auto;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 1.5;
+        @media only screen and (min-width: 768px) {
+            font-size: 40px;
+        }
+    }
+    .faqs-green-div {
+        width: 35px;
+        height: 5px;
+        background-color: #01baba;
+        border-radius: 100px;
+        display: block;
+        margin: 15px auto 0;
+    }
+}
+.single-page-text {
+    .white-wrap {
+        font-size: 15px;
+        line-height: 1.7rem;
+        background-color: #f5f5f5;
+        margin: -80px auto 0;
+        justify-content: center;
+        border-radius: 10px 10px 0 0;
+        padding: 16px;
+        @media only screen and (min-width: 768px) {
+            background: white;
+            font-size: 17px;
+            line-height: 2.2rem;
+            padding: 50px;
+            margin-bottom: 80px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+    }
+}
